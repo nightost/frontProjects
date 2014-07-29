@@ -37,11 +37,11 @@ module.exports=function(grunt){
 		},
 		watch:{
 		    css:{
-		        files: ["blowBalloon/static/events/css/*.scss"],
-		        tasks: ['scss:balloonCssBuild']
+		        files: ["blowBalloon/static/events/sass/*.scss"],
+		        tasks: ['sass:balloonCssBuild']
 		    },
 		    js:{
-		    	files: ["blowBalloon/static/events/js/*.js","!zepto.min.js"],
+		    	files: ["blowBalloon/static/events/js/source/*.js","!zepto.min.js"],
 		        tasks: ['concat:balloonJsBuild']
 		    }
 		}
