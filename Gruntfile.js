@@ -14,14 +14,18 @@ module.exports=function(grunt){
 		},
 		uglify:{
 			options:{
-				banner:'/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',				
+				banner:'/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',	
+				beautify: {
+                //中文ascii化，非常有用！防止中文乱码的神配置
+                ascii_only: true
+            }			
 			},
-			balloonCssBuild:{
+			/*balloonCssBuild:{
 				src:"blowBalloon/static/events/css/blowBalloon.css",
 				dest:"blowBalloon/static/events/css/blowBalloon-min.css"
-				},
+				},*/
 			balloonJsBuild:{
-				src:"blowBalloon/static/events/js/source/blowBalloon.js",
+				src:"blowBalloon/static/events/js/blowBalloon.js",
 				dest:"blowBalloon/static/events/js/blowBalloon-min.js"
 			}
 		},
@@ -53,9 +57,10 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-sass');
 
     //默认的Grunt任务
-    grunt.registerTask('default',['sass'],function(){
+    grunt.registerTask('build','concat and uglify',['concat','uglify'],function(){
     	grunt.log.write('grunt default...').ok();
     });
+
     //log text color
     // grunt.log('test color'.green);
 }
