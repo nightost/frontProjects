@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta content="telephone=no" name="format-detection"/>
+<title>吃牛肉</title>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/eatBeef.js"></script>
+<script type="text/javascript" src="js/fx.js"></script>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/eat-beef.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="topbar">
+			<img class="pro-icon" src="images/eating/c14.png" />
+			<span class="pro-num">x 0</span>
+			<div class="progress-bar"><img class="progress" src="images/eating/c17.png" alt="" /></div>
+		</div>
+		
+		<div class="bottom">
+			<div class="player">
+				<div class="normal-part">
+					<img src="images/eating/c25.png" class="head" alt="" />
+					<img src="images/eating/c21.png" class="body" alt="" />
+					<img src="images/finished/c22.png" class="state-1" style="display:none" alt="" />
+					<img src="images/finished/c23.png" class="state-2" style="display:none" alt="" />
+					<img src="images/finished/c24.png" class="state-3" style="display:none" alt="" />
+					<img src="images/finished/c10.png" class="time-up" style="display:none" alt="" />
+				</div>
+				<div class="hands">
+					<div id="step-1" class="step" style="display:none">
+						<img src="images/eating/c31.png"  class="left-hands" alt="" />
+						<img src="images/eating/c35.png"  class="right-hands" alt="" />
+					</div>
+					<div id="step-2" class="step" style="display:none">
+						<img src="images/eating/c31.png"  class="left-hands left-hands-2" alt="" />
+						<img src="images/eating/c31.png"  class="right-hands" alt="" />
+					</div>
+					<div id="step-3" class="step" style="display:none">
+						<img src="images/eating/c33.png"  class="left-hands left-hands-2" alt="" />
+						<img src="images/eating/c31.png"  class="right-hands" alt="" />
+					</div>
+					<div id="step-4" class="step" style="display:none">
+						<img src="images/eating/c32.png"  class="left-hands left-hands-1" alt="" />
+						<img src="images/eating/c33.png"  class="right-hands right-hands-1" alt="" />
+					</div>
+					<div id="step-5" class="step" style="display:none">
+						<img src="images/eating/c35.png"  class="left-hands" alt="" />
+						<img src="images/eating/c33.png"  class="right-hands" alt="" />
+					</div>
+				</div>
+			</div>
+			<div class="desk-box">
+				<img src="images/bottom-bg.png" alt="" class="desk"/>
+				<img src="images/eating/c6.png" data-src1="images/eating/c7.png" data-src2="images/finished/c8.png" class="steamer" alt="" />
+				<img src="images/eating/c29.png" alt="" class="start-eat"/>
+			</div>
+		</div>
+		<div class="result-box" style="display:none">
+			<div class="bg"></div>
+			<div class="share"><a href=""><img src="images/finished/c36.png" alt=""/></a></div>
+			<div class="point-hand"><img src="images/finished/c11.png" alt=""></div>
+			<div class="result-info">0个粽子不过瘾，亚信人必须得牛逼！！</div>
+			<div class="again"><a href=""><img src="images/finished/c19.png" alt=""/></a></div>
+		</div>
+	</div>
+</body>
+</html>

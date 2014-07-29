@@ -1,0 +1,215 @@
+html, body {
+  background: #000;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  position: relative; }
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  height: 100%;
+  position: relative; }
+  .wrapper .topbar {
+    text-align: right;
+    padding-top: 4%;
+    height: 5%; }
+    .wrapper .topbar span {
+      vertical-align: middle; }
+    .wrapper .topbar .pro-icon {
+      width: 11.86441%;
+      display: inline-block; }
+    .wrapper .topbar .pro-num {
+      color: #f00;
+      text-shadow: 0 0 6px #fff;
+      font-size: 1.25em; }
+    .wrapper .topbar .progress-bar {
+      width: 33.61582%;
+      display: inline-block;
+      background: url(../images/eating/c16.png) no-repeat;
+      background-size: 100% 100%;
+      background-position: top left;
+      text-align: left;
+      font-size: 0px;
+      margin-left: 20px;
+      margin-right: 20px;
+      height: 35%; }
+      .wrapper .topbar .progress-bar .progress {
+        width: 100%;
+        margin: 0px;
+        height: 100%; }
+        .wrapper .topbar .progress-bar .progress img {
+          height: 100%; }
+  .wrapper .bottom {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%; }
+    .wrapper .bottom .desk, .wrapper .bottom .normal-part img {
+      width: 100%; }
+    .wrapper .bottom .player {
+      position: relative;
+      bottom: -3em; }
+      .wrapper .bottom .player .head {
+        position: absolute;
+        width: 74.57627%;
+        left: 50%;
+        margin-left: -37%;
+        top: -48%; }
+      .wrapper .bottom .player .state-1 {
+        position: absolute;
+        top: -44%; }
+      .wrapper .bottom .player .state-2 {
+        position: absolute;
+        top: -44%; }
+      .wrapper .bottom .player .state-3 {
+        position: absolute;
+        top: -44%; }
+      .wrapper .bottom .player .time-up {
+        position: absolute;
+        top: 48%;
+        z-index: 800; }
+      .wrapper .bottom .player .hands {
+        z-index: 400; }
+        .wrapper .bottom .player .hands .left-hands {
+          position: absolute;
+          left: 0;
+          width: 51.69492%;
+          top: 36%; }
+        .wrapper .bottom .player .hands .left-hands-1 {
+          top: 33%; }
+        .wrapper .bottom .player .hands .left-hands-2 {
+          top: 25%; }
+        .wrapper .bottom .player .hands .right-hands {
+          top: 34%;
+          position: absolute;
+          right: 0;
+          width: 51.69492%;
+          -webkit-transform: rotateY(180deg);
+          -moz-transform: rotateY(180deg);
+          transform: rotateY(180deg); }
+        .wrapper .bottom .player .hands .right-hands-1 {
+          top: 25%; }
+    .wrapper .bottom .desk-box {
+      position: relative; }
+      .wrapper .bottom .desk-box .steamer {
+        position: absolute;
+        left: 50%;
+        margin-left: -25%;
+        top: -180%;
+        width: 55.36723%;
+        z-index: 500; }
+      .wrapper .bottom .desk-box .start-eat {
+        position: absolute;
+        left: 50%;
+        margin-left: -25%;
+        top: -29%;
+        width: 53.67232%;
+        z-index: 600;
+        opacity: .7;
+        filter: alpha(opacity=70); }
+      .wrapper .bottom .desk-box .start-eat-hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        transform: scale(1.2); }
+
+.result-box {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  z-index: 1000; }
+  .result-box .bg {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background: #000;
+    opacity: .5;
+    filter: alpha(opacity=50); }
+  .result-box .share {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    width: 40%; }
+  .result-box .result-info {
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    margin-left: -25%;
+    padding: 10% 5%;
+    top: 50%;
+    margin-left: -44%;
+    height: 13%;
+    background: url(../images/finished/c20.png) no-repeat;
+    background-size: 100% 100%;
+    font-size: 1.5em; }
+  .result-box .again {
+    width: 42%;
+    position: absolute;
+    left: 50%;
+    margin-left: -25%;
+    top: 80%; }
+  .result-box .point-hand {
+    position: absolute;
+    width: 7%;
+    left: 91%;
+    top: 12%;
+    animation: handshake .8s ease-out infinite;
+    -moz-animation: handshake .8s ease-out infinite;
+    -webkit-animation: handshake .8s ease-out infinite; }
+
+@media screen and (min-device-width: 320px) {
+  body .wrapper {
+    width: 320px;
+    margin: 0 auto; } }
+@media screen and (device-width: 320px) {
+  body .wrapper {
+    width: 240px;
+    margin: 0 auto; } }
+@keyframes handshake {
+  0% {
+    top: 12%; }
+
+  25% {
+    top: 11%; }
+
+  50% {
+    top: 10%; }
+
+  75% {
+    top: 11%; }
+
+  100% {
+    top: 12%; } }
+@-webkit-keyframes handshake {
+  0% {
+    top: 12%; }
+
+  25% {
+    top: 11%; }
+
+  50% {
+    top: 10%; }
+
+  75% {
+    top: 11%; }
+
+  100% {
+    top: 12%; } }
+@-moz-keyframes handshake {
+  0% {
+    top: 12%; }
+
+  25% {
+    top: 11%; }
+
+  50% {
+    top: 10%; }
+
+  75% {
+    top: 11%; }
+
+  100% {
+    top: 12%; } }

@@ -1,0 +1,228 @@
+$base:12;
+html,body{
+	background: #000;
+	height: 100%;
+	margin: 0;
+	width: 100%;
+	position: relative;
+}
+.wrapper{
+	width: 100%;
+	margin: 0 auto;
+	background: #fff;
+	height: 100%;
+	position: relative;
+	.topbar{
+		text-align: right;
+		padding-top: 4%;
+		height: 5%;
+		span{
+			vertical-align: middle;
+		}
+		.pro-icon{
+			width: (42/354)*100%;
+			display: inline-block;
+		}
+		.pro-num{
+			color: #f00;
+			text-shadow: 0 0 6px #fff;
+			font-size: (15/$base)+em;
+		}
+		.progress-bar{
+			width: (119/354)*100%;
+			display: inline-block;
+			background: url(../images/eating/c16.png) no-repeat;
+			background-size: 100% 100%;
+			background-position: top left;
+			text-align: left;
+			font-size: 0px;
+			margin-left: 20px;
+			margin-right: 20px;
+			height: 35%;
+			.progress{
+				width: 100%;
+				margin: 0px;
+				height: 100%;
+				img{
+					height: 100%;
+				}
+			}
+		}
+	}
+	.bottom{
+		position: absolute;
+		bottom: 0px;
+		left:0px;
+		width: 100%;
+		.desk,.normal-part img{
+			width: 100%;
+		}
+		.player{
+			position: relative;
+			bottom: -3em;
+			.head{
+				position: absolute;
+				width: (264/354)*100%;
+				left:50%;
+				margin-left: -37%;
+				top: -48%;
+			}
+			.state-1{
+				position: absolute;
+				top: -44%;
+			}
+			.state-2{
+				position: absolute;
+				top: -44%;
+			}
+			.state-3{
+				position: absolute;
+				top: -44%;
+			}
+			.time-up{
+				position: absolute;
+				top: 48%;
+				z-index: 800;
+			}
+			.hands{
+				z-index: 400;
+				.left-hands{
+					position: absolute;
+					left:0;
+					width: (183/354)*100%;
+					top:36%;
+				}
+				.left-hands-1{
+					top:33%;
+				}
+				.left-hands-2{
+					top:25%;
+				}
+				.right-hands{
+					top:34%;
+					position: absolute;
+					right: 0;
+					width: (183/354)*100%;
+					-webkit-transform: rotateY(180deg);
+					-moz-transform: rotateY(180deg);
+					transform: rotateY(180deg);
+				}
+				.right-hands-1{
+					top:25%;
+				}
+			}
+		}
+		.desk-box{
+			position: relative;
+			.steamer{
+				position: absolute;
+				left: 50%;
+				margin-left: -25%;
+				top: -180%;
+				width: (196/354)*100%;
+				z-index:500;
+			}
+			.start-eat{
+				position: absolute;
+				left: 50%;
+				margin-left: -25%;
+				top: -29%;
+				width: (190/354)*100%;
+				z-index:600;
+				opacity: .7;
+				filter:alpha(opacity=70); 
+			}
+			.start-eat-hover{
+				-webkit-transform: scale(1.2);
+				-moz-transform: scale(1.2);
+				transform:  scale(1.2);
+			}
+		}
+	}
+}
+.result-box{
+	position: absolute;
+	top:0px;
+	bottom:0px;
+	width: 100%;
+	z-index: 1000;
+	.bg{
+		position: absolute;
+		top:0px;
+		bottom: 0px;
+		width: 100%;
+		background: #000;
+		opacity: .5;
+		filter:alpha(opacity=50);
+
+	}
+	.share{
+		position: absolute;
+		right: 10%;
+		top:10%;
+		width: 40%;
+	}
+	.result-info{
+		width: 80%;
+		position: absolute;
+		left: 50%;
+		margin-left: -25%;
+		padding: 10% 5%;
+		top:50%;
+		margin-left: -44%;
+		height: 13%;
+		background: url(../images/finished/c20.png) no-repeat;
+		background-size: 100% 100%;
+		font-size: 1.5em;
+	}
+	.again{
+		width: 42%;
+		position: absolute;
+		left: 50%;
+		margin-left: -25%;
+		top:80%;
+
+	}
+	.point-hand{
+		position: absolute;
+		width: 7%;
+		left: 91%;
+		top: 12%;
+		animation:handshake .8s ease-out infinite;
+		-moz-animation:handshake .8s ease-out infinite;
+		-webkit-animation:handshake .8s ease-out infinite;
+	}
+}
+@media screen and(min-device-width: 320px){
+	body .wrapper{
+		width: 320px;
+		margin: 0 auto;
+	}
+}
+@media screen and(device-width: 320px){
+	body .wrapper{
+		width: 240px;
+		margin: 0 auto;
+	}
+}
+@keyframes handshake{
+	0%   {top:12%;}
+	25%  {top:11%;}
+	50%  {top:10%;}
+	75%  {top:11%;}
+	100% {top:12%;}
+}
+@-webkit-keyframes handshake{
+	0%   {top:12%;}
+	25%  {top:11%;}
+	50%  {top:10%;}
+	75%  {top:11%;}
+	100% {top:12%;}
+}
+@-moz-keyframes handshake{
+	0%   {top:12%;}
+	25%  {top:11%;}
+	50%  {top:10%;}
+	75%  {top:11%;}
+	100% {top:12%;}
+}
