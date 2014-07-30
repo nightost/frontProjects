@@ -8,9 +8,12 @@ module.exports=function(grunt){
 				style: 'compressed'				
 			},
 			balloonCssBuild:{
-				src:"blowBalloon/static/events/sass/blowBalloon.scss",
-				dest:"blowBalloon/static/events/css/source/blowBalloonPart.css"
+				src:"blowBalloon/src/static/events/sass/blowBalloon.scss",
+				dest:"blowBalloon/src/static/events/css/blowBalloonPart.css"
 			}
+		},
+		cssmin:{
+			"blowBalloon/dist/static/events/css/blowBalloo-min.css":"blowBalloon/src/static/events/css/*.css"
 		},
 		uglify:{
 			options:{
@@ -25,28 +28,34 @@ module.exports=function(grunt){
 				dest:"blowBalloon/static/events/css/blowBalloon-min.css"
 				},*/
 			balloonJsBuild:{
-				src:"blowBalloon/static/events/js/blowBalloon.js",
-				dest:"blowBalloon/static/events/js/blowBalloon-min.js"
+				src:"blowBalloon/src/static/events/js/blowBalloon.js",
+				dest:"blowBalloon/dist/static/events/js/blowBalloon-min.js"
 			}
 		},
 		concat:{
-			balloonCssBuild:{
-				src:"blowBalloon/static/events/css/source/*.css",
-				dest:"blowBalloon/static/events/css/blowBalloon.css"
-			},
+			/*balloonCssBuild:{
+				src:"blowBalloon/src/static/events/css/source/*.css",
+				dest:"blowBalloon/dist/static/events/css/blowBalloon.css"
+			},*/
 			balloonJsBuild:{
-				src:["blowBalloon/static/events/js/source/*.js","!zepto.min.js"],
-				dest:"blowBalloon/static/events/js/blowBalloon.js"
+				src:["blowBalloon/src/static/events/js/source/*.js","!zepto.min.js"],
+				dest:"blowBalloon/dist/static/events/js/blowBalloon.js"
 			}
 		},
 		watch:{
 		    css:{
-		        files: ["blowBalloon/static/events/sass/*.scss"],
+		        files: ["blowBalloon/src/static/events/sass/*.scss"],
 		        tasks: ['sass:balloonCssBuild']
 		    },
 		    js:{
-		    	files: ["blowBalloon/static/events/js/source/*.js","!zepto.min.js"],
+		    	files: ["blowBalloon/src/static/events/js/source/*.js","!zepto.min.js"],
 		        tasks: ['concat:balloonJsBuild']
+		    },
+		    html:{
+		    	files:["blowBalloon/dist/html/*.html"],
+		    	options:{
+		    		liveload:true;
+		    	}
 		    }
 		}
 	});
@@ -55,9 +64,10 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     //默认的Grunt任务
-    grunt.registerTask('build','concat and uglify',['concat','uglify'],function(){
+    grunt.registerTask('build','concat and uglify',['sass','cssmin','concat','uglify'],function(){
     	grunt.log.write('grunt default...').ok();
     });
 
