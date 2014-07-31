@@ -52,11 +52,23 @@ module.exports=function(grunt){
 		        tasks: ['concat:balloonJsBuild']
 		    },
 		    html:{
-		    	files:["blowBalloon/dist/html/*.html"],
+		    	files:["blowBalloon/dist/html/index.html"],
 		    	options:{
-		    		liveload:true;
+		    		livereload:'<%=connect.options.livereload%>'
 		    	}
 		    }
+		},
+		connect:{
+			options:{
+				hostname:"localhost",
+				port:9001,
+				livereload:35731
+			},
+			livereload:{
+				options:{
+					open:"http://<%=connect.options.hostname%>:<%=connect.options.port%>/blowBalloon/dist/html/index.html"
+				}
+			}
 		}
 	});
 	//加载Grunt插件
@@ -65,10 +77,14 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     //默认的Grunt任务
     grunt.registerTask('build','concat and uglify',['sass','cssmin','concat','uglify'],function(){
-    	grunt.log.write('grunt default...').ok();
+    	grunt.log.write('build blowBalloon...').ok();
+    });
+    grunt.registerTask('autoreload','connect',['connect','watch'],function(){
+    	grunt.log.write('autoreload.....').ok();
     });
 
     //log text color
