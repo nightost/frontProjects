@@ -1,2 +1,2 @@
-/*! frontProjects 2014-07-30 */
-$(function(){});
+/*! frontProjects 2014-07-31 */
+function imagesLoadedHandle(){$(".pump-up").css({top:.35*$(".pump-up").height()+"%"}),console.log("all images loaded~")}function checkMobile(a){var b=/^1[3|4|5|8][0-9]\d{8}$/;return b.test($.trim($(a).val()))?!0:!1}function checkNum(a){var b=/\d*/;return b.test(a)?!0:!1}function is_weixin(){var a=navigator.userAgent.toLowerCase();return"micromessenger"==a.match(/MicroMessenger/i)?!0:!1}$(function(){}),$(function(){!function(){var a=$("img").length,b=0;0>a||$("img").load(function(){b--||imagesLoadedHandle()})}()});

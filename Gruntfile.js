@@ -2,19 +2,19 @@ module.exports=function(grunt){
 	grunt.initConfig({
 		//read package.json
 		pkg:grunt.file.readJSON('package.json'),
+		balloonTasks:grunt.file.readJSON("blowBalloon/tasks.json"),
 		sass:{
 			options:{
 				banner:'/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
 				style: 'compressed'				
 			},
-			balloonCssBuild:{
-				src:"blowBalloon/src/static/events/sass/blowBalloon.scss",
-				dest:"blowBalloon/src/static/events/css/blowBalloonPart.css"
-			}
+			balloonCssBuild:'<%=balloonTasks.sass%>'
 		},
 		cssmin:{
-			"blowBalloon/dist/static/events/css/blowBalloo-min.css":"blowBalloon/src/static/events/css/*.css"
+			balloonCssMin:'<%=balloonTasks.cssmin%>'
+			
 		},
+		imagemin:'<%=balloonTasks.imagemin%>',
 		uglify:{
 			options:{
 				banner:'/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',	
@@ -23,41 +23,12 @@ module.exports=function(grunt){
                 ascii_only: true
             }			
 			},
-			/*balloonCssBuild:{
-				src:"blowBalloon/static/events/css/blowBalloon.css",
-				dest:"blowBalloon/static/events/css/blowBalloon-min.css"
-				},*/
-			balloonJsBuild:{
-				src:"blowBalloon/src/static/events/js/blowBalloon.js",
-				dest:"blowBalloon/dist/static/events/js/blowBalloon-min.js"
-			}
+			balloonJsBuild:'<%=balloonTasks.uglify%>'
 		},
 		concat:{
-			/*balloonCssBuild:{
-				src:"blowBalloon/src/static/events/css/source/*.css",
-				dest:"blowBalloon/dist/static/events/css/blowBalloon.css"
-			},*/
-			balloonJsBuild:{
-				src:["blowBalloon/src/static/events/js/source/*.js","!zepto.min.js"],
-				dest:"blowBalloon/dist/static/events/js/blowBalloon.js"
-			}
+			balloonJsBuild:'<%=balloonTasks.jsconcat%>'
 		},
-		watch:{
-		    css:{
-		        files: ["blowBalloon/src/static/events/sass/*.scss"],
-		        tasks: ['sass:balloonCssBuild']
-		    },
-		    js:{
-		    	files: ["blowBalloon/src/static/events/js/source/*.js","!zepto.min.js"],
-		        tasks: ['concat:balloonJsBuild']
-		    },
-		    html:{
-		    	files:["blowBalloon/dist/html/index.html"],
-		    	options:{
-		    		livereload:'<%=connect.options.livereload%>'
-		    	}
-		    }
-		},
+		watch:'<%=balloonTasks.watch%>',
 		connect:{
 			options:{
 				hostname:"localhost",
@@ -65,9 +36,7 @@ module.exports=function(grunt){
 				livereload:35731
 			},
 			livereload:{
-				options:{
-					open:"http://<%=connect.options.hostname%>:<%=connect.options.port%>/blowBalloon/dist/html/index.html"
-				}
+				options:'<%=balloonTasks.watch%>'
 			}
 		}
 	});
@@ -76,15 +45,17 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-connect');
 
     //默认的Grunt任务
-    grunt.registerTask('build','concat and uglify',['sass','cssmin','concat','uglify'],function(){
-    	grunt.log.write('build blowBalloon...').ok();
+    grunt.registerTask('build','concat and uglify',['sass','cssmin','concat','uglify'],function(str){
+    	var _test=str;
+    	grunt.log.write(_test).ok();
     });
-    grunt.registerTask('autoreload','connect',['connect','watch'],function(){
-    	grunt.log.write('autoreload.....').ok();
+    grunt.registerTask('autoreload','connect',['connect','watch'],function(str){
+    	grunt.log.write('autoreload.....'+str).ok();
     });
 
     //log text color
