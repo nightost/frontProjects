@@ -50,7 +50,7 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-connect');
 
     //默认的Grunt任务
-    grunt.registerTask('build','concat and uglify',['sass','cssmin','concat','uglify'],function(str){
+    grunt.registerTask('build',['cssmin','concat','uglify'],function(str){
     	var _test=str;
     	grunt.log.write(_test).ok();
     });
@@ -60,4 +60,4 @@ module.exports=function(grunt){
 
     //log text color
     // grunt.log('test color'.green);
-}
+};

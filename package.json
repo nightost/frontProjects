@@ -8,14 +8,14 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "grunt": "^0.4.5",
-    "grunt-contrib-connect": "*",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-imagemin": "*",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-nodeunit": "*",
     "grunt-contrib-sass": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-contrib-cssmin": "*",
-    "grunt-contrib-imagemin": "*"
+    "grunt-contrib-watch": "*"
   }
 }
