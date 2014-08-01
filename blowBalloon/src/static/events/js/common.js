@@ -11,3 +11,7 @@ function checkNum(str){
 	var _reg=/\d*/;
 	return _reg.test(str)?true:false;
 }
+ var randomN=Math.random()*10000;
+        var blowJsUrl="../static/events/js/blowBalloon.js?r="+randomN;
+        var url="<script type='text/javascript' src='" +blowJsUrl;
+        document.write(url);

@@ -17,14 +17,16 @@
                 "dest":"blowBalloon/src/static/events/css/blowBalloonPart.css"
             },
     "cssmin":{
-        "filse":[{"blowBalloon/dist/static/events/css/blowBalloon-min.css":"blowBalloon/src/static/events/css/*.css"}]
+        "files":[{"blowBalloon/dist/static/events/css/blowBalloon-min.css":"blowBalloon/src/static/events/css/*.css"}]
     },
     "uglify":{
-                "src":"blowBalloon/dist/static/events/js/blowBalloon.js",
-                "dest":"blowBalloon/dist/static/events/js/blowBalloon-min.js"
+        "files":[{
+            "blowBalloon/dist/static/events/js/blowBalloon-min.js":"blowBalloon/dist/static/events/js/blowBalloon.js",
+            "blowBalloon/dist/static/events/js/loadImgLoaded.js":"blowBalloon/src/static/events/js/loadImgLoaded.js"
+                 }]
             },
     "jsconcat":{
-                "src":["blowBalloon/src/static/events/js/*.js","!blowBalloon/src/static/events/js/zepto.min.js"],
+                "src":["blowBalloon/src/static/events/js/*.js","!blowBalloon/src/static/events/js/zepto.min.js","!blowBalloon/src/static/events/js/loadImgLoaded.js"],
                 "dest":"blowBalloon/dist/static/events/js/blowBalloon.js"
             },
     "watch":{

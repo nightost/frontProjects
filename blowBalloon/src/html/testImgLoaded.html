@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../static/events/js/zepto.min.js"></script>
+
+    <script>
+        $(function(){
+            var _imageArray=document.images;
+            var _imageLen=_imageArray.length;
+            for(var i=0;i<_imageLen;i++){
+                _imageArray[i].addEventListener("load",function(){
+                    console.log("This image loaded");
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <img src="../static/events/images/bg.png" alt=""/>
+    <img src="../static/events/images/bg.png" alt=""/>
+    <img src="../static/events/images/bg.png" alt=""/>
+</body>
+</html>

@@ -3,7 +3,31 @@ body{
 	font-size:$baseSize+px;
 	background: url(../images/bg.png); 
 	background-position: center center;
-} 
+}
+.game-wait{
+  background: rgba(0,0,0,.8);
+  position: fixed;
+  top:0;
+  left:0;
+  text-align:center;
+  width:100%;
+  height:100%;
+  z-index: 9999;
+  -webkit-transition:transform 1s ease-in-out;
+  -moz-transition:transform 1s ease-in-out;
+  -o-transition:transform 1s ease-in-out;
+  -webkit-transform-origin:bottom center;
+  -moz-transform-origin:bottom center;
+  -o-transform-origin:bottom center;
+  .info{
+    display: inline-block;
+    position: absolute;
+    top:40%;
+    color:#fff;
+    left: 36%;
+    text-shadow:0px 0px #ccc;
+  }
+}
 .wrapper{
 	.game-box{
 		padding-top: 2em;
