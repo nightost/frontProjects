@@ -14,7 +14,7 @@ console.log("Server started at 8082");
  */
 function requestListener(request,response){
     var _pathname=_url.parse(request.url).pathname;
-    var _realPath="."+_pathname;
+    var _realPath=".."+_pathname;
     console.log("request is commming~ "+_pathname);
     console.log("真实路径："+_realPath);
     _fs.exists(_realPath, function(isExited){

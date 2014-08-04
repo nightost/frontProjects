@@ -60,16 +60,25 @@ body {
     width: 17.96875%;
     position: absolute;
     bottom: 0;
-    right: 6.48148%;
-    height: 39.60396%; }
+    right: 6.48148%; }
     .wrapper .game-box .pump .pump-up {
-      position: absolute;
-      top: 0;
-      left: 0;
-      -webkit-transition: all .5s ease-in-out;
-      -moz-transition: all .5s ease-in-out;
-      -o-transition: all .5s ease-in-out; }
+      display: block;
+      position: relative;
+      z-index: 100;
+      transition: all 0.2s; }
     .wrapper .game-box .pump .pump-bottom {
-      position: absolute;
-      bottom: 0;
-      left: 0; }
+      display: block;
+      position: relative;
+      z-index: 200; }
+  .wrapper .game-box .shivering {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("../images/shivering_heart.png");
+    top: 0;
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center; }
+    .wrapper .game-box .shivering span {
+      display: block;
+      position: absolute; }

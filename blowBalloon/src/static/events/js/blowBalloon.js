@@ -4,9 +4,18 @@ $(function(){
     $(document).bind("touchmove",function(e){
         e.preventDefault();
     });
+});
+window.onload=function(){
+    imagesLoadedHandle();
     var _blowBalloon=new blowBalloon();
     _blowBalloon.addPumpEvents();
-});
+}
+
+var reqAnimationFrame = (function () {
+    return window[Hammer.prefixed(window, 'requestAnimationFrame')] || function (callback) {
+        window.setTimeout(callback, 1000 / 60);
+    };
+})();
 /**
  *
  */
@@ -16,48 +25,103 @@ var blowBalloon=function(){
      */
     this.addPumpEvents=function(){
         var _pumpup=$(".pump-up");
+        var _balloon=$(".tile-ballow");
+        var _flatBalloon=$(".flatBalloon");
+        var _gasPort=$(".gas-port");
         var _totallTimes=10;
         var _state=true;
-        _pumpup.bind("swipeUp",function(){
-            if(!_state&&_totallTimes){
-                pumpUpHandle();
-            }
-            _state=true;
-        });
-        _pumpup.bind("swipeDown",function(){
-            if(_state&&_totallTimes){
-                _totallTimes--;
-                pumpDownHandle();
-            }
-            _state=false;
-        });
-        function pumpDownHandle(){
-            console.log("swipeDown");
-//            alert("swipeDown");
-            _pumpup.css({
-                "top":0
-            });
+        var _pumpUpObj;
+        var _ticking=false;
+        var _times=10;
+        var _scale=0.1;
+        var _lastDirection="";
+        var args={
+          currentX:0,
+          currentY:0,
+          lastDeltaY:0
+        };
 
-        };
-        function pumpUpHandle(){
-            console.log("swipeUp");
-//            alert("swipeUp");
-            _pumpup.css({
-                "top":_pumpup.height()*(-0.8)+"%"
-            });
-        };
+        var mc = new Hammer.Manager(_pumpup[0]);
+
+        mc.add(new Hammer.Pan({ threshold: 1, pointers: 0 }));
+
+        mc.on("panstart panmove", onPan);
+        mc.on("hammer.input", function(ev) {
+            if(ev.isFinal) {
+                resetElement();
+                if(_lastDirection=="down"){
+                    setBalloon();
+                }
+            }
+        });
+
+        function setBalloon(){
+            _times--;
+            if(_times==9){
+                setVisibility(_flatBalloon,false);
+                setVisibility(_balloon,true);
+                setVisibility(_gasPort,true);
+            }
+            else if(_times<9&&_times>0){
+                scaleBalloon();
+            }
+            else if(_times==0){
+                setVisibility(_balloon,false);
+            }
+        }
+
+        function resetElement(){
+            args.lastDeltaY=0;
+        }
+
+        function onPan(ev){
+            if(_times<=0){return;}
+            var _targetY=args.currentY+ev.deltaY-args.lastDeltaY;
+            var _direction=ev.deltaY-args.lastDeltaY;
+            if(_targetY<0||_targetY>(_pumpup.height()*0.8))return;
+            args.lastDeltaY=ev.deltaY;
+            //下压
+            if(_direction<0){
+                if(_lastDirection=="down"){
+                    setBalloon();
+                }
+                _lastDirection="up";
+            }
+            else{
+                _lastDirection="down";
+            }
+            args.currentY=_targetY;
+            if(!_ticking){
+                reqAnimationFrame(setPosition);
+                _ticking=true;
+            }
+        }
+        function setVisibility(zObj,flag){
+            if(flag){
+                zObj.css({
+                    visibility:"visible"
+                });
+            }
+            else{
+                zObj.css({
+                    visibility:"hidden"
+                });
+            }
+        }
+        function scaleBalloon(){
+            _scale=_scale+.1;
+            _balloon[0].style.Transform="scale("+_scale+")";
+            _balloon[0].style.webkitTransform="scale("+_scale+")";
+            _balloon[0].style.mozTransform="scale("+_scale+")";
+        }
+
+        function setPosition(y){
+               var _translate="translate3d(0,"+args.currentY+"px,0)";
+               _pumpup[0].style.webkitTransform=_translate;
+               _pumpup[0].style.mozTransform=_translate;
+               _pumpup[0].style.Transform=_translate;
+               _ticking=false;
+        }
     };
 
 }
-/**
- * do when images loaded
- */
-function imagesLoadedHandle(){
-    $(".game-wait").css({
-        "-webkit-transform":"scale(0)"
-    });
-    $(".pump-up").css({
-        "top":$(".pump-up").height()*(-0.8)+"%"
-    });
-    console.log("all images loaded~");
-};

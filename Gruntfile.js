@@ -35,20 +35,20 @@ module.exports=function(grunt){
 			},
 			balloonJsBuild:{
                 "files":[{
-                    "blowBalloon/dist/static/events/js/blowBalloon-min.js":"blowBalloon/dist/static/events/js/blowBalloon.js",
+                    "blowBalloon/dist/static/events/js/blowBalloon-min.js":"blowBalloon/src/static/events/js/blowBalloon.js",
                     "blowBalloon/dist/static/events/js/loadImgLoaded.js":"blowBalloon/src/static/events/js/loadImgLoaded.js"
                 }]
             }
 		},
 		concat:{
-			balloonJsBuild:{
+                balloonJsBuild:{
                 "files":[{
-                    "src":["blowBalloon/src/static/events/js/*.js","!blowBalloon/src/static/events/js/zepto.min.js","!blowBalloon/src/static/events/js/loadImgLoaded.js"],
+                    "src":["blowBalloon/src/static/events/js/*.js","!blowBalloon/src/static/events/js/zepto.min.js","!blowBalloon/src/static/events/js/loadImgLoaded.js","!blowBalloon/src/static/events/js/hammer.js"],
                      "dest":"blowBalloon/dist/static/events/js/blowBalloon.js"
                 },{
-                    "src":["blowBalloon/src/static/events/js/zepto.min.js","blowBalloon/src/static/events/js/touch.js"],
+                    "src":["blowBalloon/src/static/events/js/zepto.min.js","blowBalloon/src/static/events/js/hammer.js"],
                     "dest":"blowBalloon/dist/static/events/js/zepto.min.js"
-                 }]
+                }]
             }
 		},
 		watch:{
