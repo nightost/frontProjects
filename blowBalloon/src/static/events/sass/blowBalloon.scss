@@ -91,21 +91,23 @@ body{
         background-size: 80% auto;
         background-repeat: no-repeat;
         background-position: center;
+        -webkit-transition:all 1s ease-in-out;
+        -moz-transition:all 1s ease-in-out;
+        transition:all 1s ease-in-out;
         span{
           display: block;
           position: absolute;
-          -webkit-transition:all 1s ease-in-out;
-          -moz-transition:all 1s ease-in-out;
-          transition:all 1s ease-in-out;
+          -webkit-transition:all 2s ease-in-out;
+          -moz-transition:all 2s ease-in-out;
+          transition:all 2s ease-in-out;
         }
         .shi1{
           width: 10px;
           height: 6px;
-          left: 48%;
-          bottom: 10%;
+          left: 37%;
+          top: 17%;
           background: url("../images/shiverings.png") no-repeat;
           background-position: 0 0;
-
         }
         .shi1T{
           top: 37%;
@@ -115,8 +117,8 @@ body{
           transform: rotatez(45deg);
         }
         .shi2{
-          left: 48%;
-          bottom: 10%;
+          left: 18%;
+          bottom: 46%;
           width: 22px;
           height: 26px;
           background: url("../images/shiverings.png") no-repeat;
@@ -124,40 +126,47 @@ body{
           background-size: 100%;
         }
         .shi2T{
-          left: 25%;
-          bottom: 33%;
+          animation:shi2Move 2s ease-in-out forwards;
+          -webkit-animation:shi2Move 2s ease-in-out forwards;
+          -moz-animation:shi2Move 2s ease-in-out forwards;
         }
         .shi3{
-          left: 48%;
-          bottom: 10%;
+          left: 40%;
+          bottom: 46%;
           width: 16px;
           height: 40px;
-          background: url(../images/shiverings.png) 0 -30px/100% no-repeat;
+          background: url(../images/shiverings.png)  no-repeat;
+          background-size: 120%;
+          background-position: 0 -37px;
         }
         .shi3T{
-          left: 40%;
-          bottom: 12%;
           -webkit-transform:rotatez(90deg);
           -moz-transform: rotatez(90deg);
           transform: rotatez(90deg);
+          animation:shi3Move 2s ease-in-out forwards;
+          -webkit-animation:shi3Move 2s ease-in-out forwards;
+          -moz-animation:shi3Move 2s ease-in-out forwards;
         }
         .shi4{
-          left: 48%;
-          bottom: 10%;
-          width: 15px;
-          height: 30px;
-          background: url(../images/shiverings.png) 0 -54px/100% no-repeat;
-        }
-        .shi4T{
           left: 58%;
           bottom: 34%;
+          width: 16px;
+          height: 30px;
+          background: url(../images/shiverings.png)  no-repeat;
+          background-size: 120%;
+          background-position:  0 -77px;
+      }
+        .shi4T{
+          animation:shi4Move 2s ease-in-out forwards;
+          -webkit-animation:shi4Move 2s ease-in-out forwards;
+          -moz-animation:shi4Move 2s ease-in-out forwards;
           -webkit-transform: rotatez(-75deg);
           -moz-transform: rotatez(-75deg);
           transform: rotatez(-75deg);
         }
         .shi5{
-          left: 48%;
-          bottom: 10%;
+          left: 47%;
+          bottom: 26%;
           width: 18px;
           height: 28px;
           background: url("../images/shiverings.png") no-repeat;
@@ -174,8 +183,8 @@ body{
         .shi6{
           width: 10px;
           height: 6px;
-          left: 48%;
-          bottom: 10%;
+          top: 43%;
+          left: 68%;
           background: url("../images/shiverings.png") no-repeat;
           background-position: 0 0;
         }
@@ -188,4 +197,181 @@ body{
         }
       }
 	}
+}
+/*shi2*/
+/*left: 18%;
+ bottom: 46%;
+ left: 25%;
+ bottom: 33%;
+ */
+@keyframes shi2Move{
+  0%{
+    left: 18%;
+    bottom: 46%;
+  }
+  25%{
+    left: 32%;
+    bottom: 42%;
+  }
+  50%{
+    left: 18%;
+    bottom: 38%;
+  }
+  100%{
+    left: 25%;
+    bottom: 33%;
+  }
+}
+@-webkit-keyframes shi2Move{
+          0%{
+            left: 18%;
+            bottom: 46%;
+          }
+          25%{
+            left: 32%;
+            bottom: 42%;
+          }
+          50%{
+            left: 18%;
+            bottom: 38%;
+          }
+          100%{
+            left: 25%;
+            bottom: 33%;
+          }
+        }
+@-moz-keyframes shi2Move{
+  0%{
+    left: 25%;
+    bottom: 46%;
+  }
+  25%{
+    left: 20%;
+    bottom: 42%;
+  }
+  50%{
+    left: 30%;
+    bottom: 38%;
+  }
+  100%{
+    left: 25%;
+    bottom: 33%;
+  }
+}
+/*shi3*/
+/*left: 40%;
+ bottom: 25%;
+ left: 40%;
+ bottom: 12%;
+ */
+@keyframes shi3Move{
+  0%{
+    left: 40%;
+    bottom: 25%;
+  }
+  25%{
+    left: 44%;
+    bottom: 22%;
+  }
+  50%{
+    left: 36%;
+    bottom: 18%;
+  }
+  100%{
+    left: 25%;
+    bottom: 12%;
+  }
+}
+@-webkit-keyframes shi3Move{
+  0%{
+    left: 40%;
+    bottom: 25%;
+  }
+  25%{
+    left: 44%;
+    bottom: 22%;
+  }
+  50%{
+    left: 36%;
+    bottom: 18%;
+  }
+  100%{
+    left: 25%;
+    bottom: 12%;
+  }
+}
+@-moz-keyframes shi3Move{
+  0%{
+    left: 40%;
+    bottom: 25%;
+  }
+  25%{
+    left: 44%;
+    bottom: 22%;
+  }
+  50%{
+    left: 36%;
+    bottom: 18%;
+  }
+  100%{
+    left: 25%;
+    bottom: 12%;
+  }
+}
+/*
+left: 58%;
+        bottom: 46%;*/
+@keyframes shi4Move{
+  0%{
+    left: 58%;
+    bottom: 46%;
+  }
+  25%{
+    left: 53%;
+    bottom: 43%;
+  }
+  50%{
+    left: 63%;
+    bottom: 40%;
+  }
+  100%{
+    left: 58%;
+    bottom: 34%;
+  }
+}
+@-webkit-keyframes shi4Move{
+  0%{
+    left: 58%;
+    bottom: 46%;
+  }
+  25%{
+    left: 53%;
+    bottom: 43%;
+  }
+  50%{
+    left: 63%;
+    bottom: 40%;
+  }
+  100%{
+    left: 58%;
+    bottom: 34%;
+  }
+}
+@-moz-keyframes shi4Move{
+  0%{
+    left: 58%;
+    bottom: 46%;
+  }
+  25%{
+    left: 53%;
+    bottom: 43%;
+  }
+  50%{
+    left: 63%;
+    bottom: 40%;
+  }
+  100%{
+    left: 58%;
+    bottom: 34%;
+  }
 }
