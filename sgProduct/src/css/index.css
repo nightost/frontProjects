@@ -1,0 +1,35 @@
+.cover {
+  background: #f6f1de url("../images/sgCoverBg.png") repeat-y;
+  background-position: top right;
+  background-size: 69.21875% auto; }
+  .cover .title {
+    text-align: center;
+    padding-top: 0.75em; }
+    .cover .title img {
+      width: 85.9375%; }
+  .cover .content {
+    margin-top: 0.66667em;
+    text-align: left; }
+    .cover .content img {
+      width: 95.15625%; }
+  @media screen and (min-device-width: 321px) {
+    .cover .content img {
+      width: 87.34375%; } }
+  .cover .bottom {
+    position: absolute;
+    bottom: 0.75em;
+    width: 100%; }
+    .cover .bottom .logo {
+      width: 30.46875%;
+      bottom: 0.3em;
+      position: absolute;
+      margin-left: 0.5em; }
+    .cover .bottom .text {
+      float: right;
+      vertical-align: bottom;
+      text-align: right;
+      margin-right: 0.79167em; }
+      .cover .bottom .text p {
+        font-size: .7em;
+        line-height: 2em;
+        color: #000000; }

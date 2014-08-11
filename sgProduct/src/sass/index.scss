@@ -1,0 +1,47 @@
+$baseSize:12;
+.cover{
+  background: #f6f1de url("../images/sgCoverBg.png") repeat-y;
+  background-position: top right;
+  background-size: (443/640)*100% auto;
+  .title{
+    text-align: center;
+    padding-top: (18/24)+em;
+    img{
+      width: (550/640)*100%;
+    }
+  }
+  .content{
+    margin-top:(16/24)+em;
+    text-align: left;
+    img{
+      width: (609/640)*100%;
+    }
+  }
+  @media screen and (min-device-width:321px){
+    .content img{
+        width: (559/640)*100%;
+       }
+  }
+  .bottom{
+    position:absolute;
+    bottom:(18/24)+em;
+    width: 100%;
+    .logo{
+      width: (195/640)*100%;
+      bottom:0.3em;
+      position: absolute;
+      margin-left: (12/24)+em;
+    }
+    .text{
+      float: right;
+      vertical-align: bottom;
+      text-align: right;
+      margin-right: (19/24)+em;
+      p{
+        font-size: .7em;
+        line-height: 2em;
+        color: #000000;
+      }
+    }
+  }
+}

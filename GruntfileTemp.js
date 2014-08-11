@@ -102,7 +102,56 @@ module.exports=function(grunt){
     grunt.registerTask('autoreload','connect',['connect','watch'],function(str){
     	grunt.log.write('autoreload.....'+str).ok();
     });
+    grunt.registerTask("default",["uglify"],function(){
+//            console.log.debug("很安静");
+        grunt.log.writeln("hello");
+    });
 
     //log text color
     // grunt.log('test color'.green);
+
+
+
+    module.exports=function(grunt){
+        //加载Grunt插件
+        grunt.initConfig({
+            "uglify":{
+                "files":[{
+                    "expand": true,
+                    "cwd": "sgProduct/src/js/",
+                    "src": ["**/*.js"],
+                    "dest": "sgProduct/dist/js/"
+                }]
+            }
+        });
+        grunt.loadNpmTasks('grunt-contrib-uglify');
+        grunt.loadNpmTasks('grunt-contrib-watch');
+        grunt.loadNpmTasks('grunt-contrib-concat');
+        grunt.loadNpmTasks('grunt-contrib-sass');
+        grunt.loadNpmTasks('grunt-contrib-imagemin');
+        grunt.loadNpmTasks('grunt-contrib-cssmin');
+        grunt.loadNpmTasks('grunt-contrib-connect');
+        /*    grunt.registerTask("build","build project",function(project){
+         var path="../"+project;
+         console.log.debug(path);
+         //set src dest
+         grunt.config.set("config",{
+         srcDir:path+"/src",
+         distDir:path+"/dist"
+         });
+         var projectConfig=grunt.file.readJSON(path+"/gruntCfg.json");
+         grunt.config.set("sass",projectConfig.sass);
+         grunt.config.set("imagemin",projectConfig.imagemin);
+         grunt.config.set("uglify",projectConfig.uglify);
+         grunt.config.set("watch",projectConfig.watch);
+         grunt.task.run("watch");
+         });
+         grunt.registerTask("default","default task",["sass","imagemin","uglify"],function(){
+         console.log.debug("hello");
+         });*/
+        grunt.registerTask("default",["uglify"],function(){
+//            console.log.debug("很安静");
+            grunt.log.writeln("hello");
+        });
+    }
 };
