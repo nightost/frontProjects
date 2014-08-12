@@ -1,35 +1,207 @@
-.cover {
-  background: #f6f1de url("../images/sgCoverBg.png") repeat-y;
-  background-position: top right;
-  background-size: 69.21875% auto; }
-  .cover .title {
-    text-align: center;
-    padding-top: 0.75em; }
-    .cover .title img {
-      width: 85.9375%; }
-  .cover .content {
-    margin-top: 0.66667em;
-    text-align: left; }
-    .cover .content img {
-      width: 95.15625%; }
-  @media screen and (min-device-width: 321px) {
-    .cover .content img {
-      width: 87.34375%; } }
-  .cover .bottom {
+.wapper {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  overflow: hidden; }
+  .wapper .page {
     position: absolute;
-    bottom: 0.75em;
+    top: 0;
+    bottom: 0;
     width: 100%; }
-    .cover .bottom .logo {
-      width: 30.46875%;
-      bottom: 0.3em;
+  .wapper .cover {
+    z-index: 1000;
+    background: #f6f1de url("../images/sgCoverBg.png") repeat-y;
+    background-position: top right;
+    background-size: 69.21875% auto;
+    -moz-transform-origin: bottom center;
+    -webkit-transform-origin: bottom center;
+    -o-transform-origin: bottom center;
+    transform-origin: bottom center;
+    transition: transform .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out; }
+    .wapper .cover .title {
+      text-align: center;
+      padding-top: 0.75em; }
+      .wapper .cover .title img {
+        width: 85.9375%; }
+    .wapper .cover .content {
+      margin-top: 0.66667em;
+      text-align: left; }
+      .wapper .cover .content img {
+        width: 95.15625%; }
+    .wapper .cover .bottom {
       position: absolute;
-      margin-left: 0.5em; }
-    .cover .bottom .text {
-      float: right;
-      vertical-align: bottom;
-      text-align: right;
-      margin-right: 0.79167em; }
-      .cover .bottom .text p {
-        font-size: .7em;
-        line-height: 2em;
-        color: #000000; }
+      bottom: 0.75em;
+      width: 100%; }
+      .wapper .cover .bottom .logo {
+        width: 30.46875%;
+        bottom: 0.3em;
+        position: absolute;
+        margin-left: 0.5em; }
+      .wapper .cover .bottom .text {
+        float: right;
+        vertical-align: bottom;
+        text-align: right;
+        margin-right: 0.79167em; }
+        .wapper .cover .bottom .text p {
+          font-size: .7em;
+          line-height: 2em;
+          color: #000000; }
+  .wapper .scaleHidden {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0); }
+  .wapper .catelog {
+    z-index: 900;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    overflow-y: auto; }
+    .wapper .catelog .title {
+      text-align: center;
+      padding-top: 1.75em; }
+      .wapper .catelog .title img.title-logo {
+        width: 78.125%; }
+      .wapper .catelog .title .title-content {
+        vertical-align: top;
+        transform-origin: top left;
+        width: 2.34375%;
+        -webkit-transform: rotateZ(-90deg);
+        -moz-transform: rotateZ(-90deg);
+        -o-transform: rotateZ(-90deg);
+        transform: rotateZ(-90deg);
+        -webkit-transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+        margin-left: 5px; }
+      .wapper .catelog .title .c-rotate {
+        -webkit-transform: rotateZ(0deg);
+        -moz-transform: rotateZ(0deg);
+        -o-transform: rotateZ(0deg);
+        transform: rotateZ(0deg); }
+    .wapper .catelog .list {
+      margin-top: 1.33333em;
+      font-size: 12px;
+      text-align: center;
+      position: relative; }
+      .wapper .catelog .list ul li {
+        margin-top: 5%;
+        position: relative; }
+        .wapper .catelog .list ul li .detail {
+          font-size: 1em;
+          padding: 0.58333em 0;
+          border: 1px solid #a09f9f;
+          position: absolute;
+          line-height: 1.33333em;
+          background: #fff;
+          color: #5e5e5e; }
+        .wapper .catelog .list ul li .detail1 {
+          position: absolute;
+          left: 53.59375%;
+          width: 25%;
+          z-index: 50;
+          top: -0.79167em;
+          text-align: left; }
+          .wapper .catelog .list ul li .detail1 p {
+            margin-left: 1.25em; }
+        .wapper .catelog .list ul li .detail2 {
+          position: absolute;
+          right: 60.15625%;
+          width: 33.90625%;
+          z-index: 50;
+          top: 3%;
+          text-align: right; }
+          .wapper .catelog .list ul li .detail2 p {
+            margin-right: 0.75em; }
+        .wapper .catelog .list ul li .detail3 {
+          position: absolute;
+          right: 60.15625%;
+          width: 36.09375%;
+          z-index: 50;
+          top: 17%;
+          text-align: right; }
+          .wapper .catelog .list ul li .detail3 p {
+            margin-right: 0.75em; }
+        .wapper .catelog .list ul li .detail4 {
+          position: absolute;
+          left: 53.59375%;
+          width: 37.34375%;
+          z-index: 50;
+          top: -0.79167em;
+          text-align: left; }
+          .wapper .catelog .list ul li .detail4 p {
+            margin-left: 1.25em; }
+        .wapper .catelog .list ul li .detail5 {
+          position: absolute;
+          left: 53.59375%;
+          width: 24.6875%;
+          z-index: 50;
+          top: 16%;
+          text-align: left; }
+          .wapper .catelog .list ul li .detail5 p {
+            margin-left: 1.25em; }
+        .wapper .catelog .list ul li .item-img {
+          position: absolute; }
+        .wapper .catelog .list ul li .item-img1 {
+          top: 0.66667em;
+          right: 4.53125%;
+          width: 41.5625%;
+          z-index: 40;
+          max-width: 180px; }
+        .wapper .catelog .list ul li .item-img2 {
+          top: 0.66667em;
+          left: 12.65625%;
+          width: 32.5%;
+          z-index: 70;
+          top: -56%;
+          max-width: 140px; }
+        .wapper .catelog .list ul li .sn {
+          z-index: 60;
+          width: 4em;
+          height: 4em;
+          display: inline-block;
+          text-align: center;
+          font-size: 12px;
+          position: relative; }
+          .wapper .catelog .list ul li .sn span {
+            display: inline-block;
+            height: 2em;
+            width: 2em;
+            background: #fff;
+            font-size: 1em;
+            color: #797070;
+            border: 1px solid #797070;
+            border-radius: 2em;
+            -webkit-border-radius: 2em;
+            -moz-border-radius: 2em;
+            -o-border-radius: 2em;
+            margin-top: 25%;
+            line-height: 2em; }
+          .wapper .catelog .list ul li .sn .special {
+            margin-top: 0%;
+            height: 1.6em;
+            width: 1.6em;
+            line-height: 1.6em;
+            background: #000;
+            font-size: 2.5em;
+            color: #fff;
+            border: 0 none;
+            border-radius: 1.6em;
+            -webkit-border-radius: 1.6em;
+            -moz-border-radius: 1.6em;
+            -o-border-radius: 1.6em; }
+      .wapper .catelog .list ul li.spTop12 {
+        margin-top: 3.75%; }
+      .wapper .catelog .list ul li.spTop21 {
+        margin-top: 6.5625%; }
+
+@media screen and (min-device-width: 321px) {
+  .content img {
+    width: 87.34375%; } }

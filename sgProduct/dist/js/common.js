@@ -1,1 +1,2 @@
-/*! 2014-08-11 Nightost*/
+/* Copyright (c) 2014*/ 
+/*Nightost; Licensed MIT */

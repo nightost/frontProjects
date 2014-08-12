@@ -1,6 +1,6 @@
 $baseSize:12;
 body{
-  font-size:$baseSize;
+  font-size:$baseSize+px;
   font-family: "simhei";
 }
 ol{
@@ -24,7 +24,7 @@ img{max-width:100%;height:auto;border:0;}
 input,img{vertical-align:middle}
 :focus{outline:none;}
 /*Base*/
-html,body{color:#333;font-family:"microsoft yahei";}
+
 a{color:#333;text-decoration:none;}
 .cl{clear:both;display:block;height:0; line-height:0;overflow:hidden;font-size:0;}
 .hide{display:none;}
