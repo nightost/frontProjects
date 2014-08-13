@@ -91,116 +91,118 @@
       font-size: 12px;
       text-align: center;
       position: relative; }
-      .wapper .catelog .list ul li {
-        margin-top: 5%;
-        position: relative; }
-        .wapper .catelog .list ul li .detail {
-          font-size: 1em;
-          padding: 0.58333em 0;
-          border: 1px solid #a09f9f;
-          position: absolute;
-          line-height: 1.33333em;
-          background: #fff;
-          color: #5e5e5e; }
-        .wapper .catelog .list ul li .detail1 {
-          position: absolute;
-          left: 53.59375%;
-          width: 25%;
-          z-index: 50;
-          top: -0.79167em;
-          text-align: left; }
-          .wapper .catelog .list ul li .detail1 p {
-            margin-left: 1.25em; }
-        .wapper .catelog .list ul li .detail2 {
-          position: absolute;
-          right: 60.15625%;
-          width: 33.90625%;
-          z-index: 50;
-          top: 3%;
-          text-align: right; }
-          .wapper .catelog .list ul li .detail2 p {
-            margin-right: 0.75em; }
-        .wapper .catelog .list ul li .detail3 {
-          position: absolute;
-          right: 60.15625%;
-          width: 36.09375%;
-          z-index: 50;
-          top: 17%;
-          text-align: right; }
-          .wapper .catelog .list ul li .detail3 p {
-            margin-right: 0.75em; }
-        .wapper .catelog .list ul li .detail4 {
-          position: absolute;
-          left: 53.59375%;
-          width: 37.34375%;
-          z-index: 50;
-          top: -0.79167em;
-          text-align: left; }
-          .wapper .catelog .list ul li .detail4 p {
-            margin-left: 1.25em; }
-        .wapper .catelog .list ul li .detail5 {
-          position: absolute;
-          left: 53.59375%;
-          width: 24.6875%;
-          z-index: 50;
-          top: 16%;
-          text-align: left; }
-          .wapper .catelog .list ul li .detail5 p {
-            margin-left: 1.25em; }
-        .wapper .catelog .list ul li .item-img {
-          position: absolute; }
-        .wapper .catelog .list ul li .item-img1 {
-          top: 0.66667em;
-          right: 4.53125%;
-          width: 41.5625%;
-          z-index: 40;
-          max-width: 180px; }
-        .wapper .catelog .list ul li .item-img2 {
-          top: 0.66667em;
-          left: 12.65625%;
-          width: 32.5%;
-          z-index: 70;
-          top: -56%;
-          max-width: 140px; }
-        .wapper .catelog .list ul li .sn {
-          z-index: 60;
-          width: 4em;
-          height: 4em;
-          display: inline-block;
-          text-align: center;
-          font-size: 12px;
+      .wapper .catelog .list ul {
+        margin: auto; }
+        .wapper .catelog .list ul li {
+          margin-top: 5%;
           position: relative; }
-          .wapper .catelog .list ul li .sn span {
-            display: inline-block;
-            height: 2em;
-            width: 2em;
-            background: #fff;
+          .wapper .catelog .list ul li .detail {
             font-size: 1em;
-            color: #797070;
-            border: 1px solid #797070;
-            border-radius: 2em;
-            -webkit-border-radius: 2em;
-            -moz-border-radius: 2em;
-            -o-border-radius: 2em;
-            margin-top: 25%;
-            line-height: 2em; }
-          .wapper .catelog .list ul li .sn .special {
-            margin-top: 0%;
-            height: 1.6em;
-            width: 1.6em;
-            line-height: 1.6em;
-            background: #000;
-            font-size: 2.5em;
-            color: #fff;
-            border: 0 none;
-            border-radius: 1.6em;
-            -webkit-border-radius: 1.6em;
-            -moz-border-radius: 1.6em;
-            -o-border-radius: 1.6em; }
-      .wapper .catelog .list ul li.spTop12 {
-        margin-top: 3.75%; }
-      .wapper .catelog .list ul li.spTop21 {
-        margin-top: 6.5625%; }
+            padding: 0.58333em 0;
+            border: 1px solid #a09f9f;
+            position: absolute;
+            line-height: 1.33333em;
+            background: #fff;
+            color: #5e5e5e; }
+          .wapper .catelog .list ul li .detail1 {
+            position: absolute;
+            left: 53.59375%;
+            width: 6.66667em;
+            z-index: 50;
+            top: -0.79167em;
+            text-align: left; }
+            .wapper .catelog .list ul li .detail1 p {
+              margin-left: 1.25em; }
+          .wapper .catelog .list ul li .detail2 {
+            position: absolute;
+            right: 60.15625%;
+            width: 9.04167em;
+            z-index: 50;
+            top: 3%;
+            text-align: right; }
+            .wapper .catelog .list ul li .detail2 p {
+              margin-right: 0.75em; }
+          .wapper .catelog .list ul li .detail3 {
+            position: absolute;
+            right: 60.15625%;
+            width: 9.625em;
+            z-index: 50;
+            top: 17%;
+            text-align: right; }
+            .wapper .catelog .list ul li .detail3 p {
+              margin-right: 0.75em; }
+          .wapper .catelog .list ul li .detail4 {
+            position: absolute;
+            left: 53.59375%;
+            width: 9.95833em;
+            z-index: 50;
+            top: -0.79167em;
+            text-align: left; }
+            .wapper .catelog .list ul li .detail4 p {
+              margin-left: 1.25em; }
+          .wapper .catelog .list ul li .detail5 {
+            position: absolute;
+            left: 53.59375%;
+            width: 6.58333em;
+            z-index: 50;
+            top: 16%;
+            text-align: left; }
+            .wapper .catelog .list ul li .detail5 p {
+              margin-left: 1.25em; }
+          .wapper .catelog .list ul li .item-img {
+            position: absolute; }
+          .wapper .catelog .list ul li .item-img1 {
+            top: 0.66667em;
+            right: 4.53125%;
+            width: 41.5625%;
+            z-index: 40;
+            max-width: 180px; }
+          .wapper .catelog .list ul li .item-img2 {
+            top: 0.66667em;
+            left: 12.65625%;
+            width: 32.5%;
+            z-index: 70;
+            top: -56%;
+            max-width: 140px; }
+          .wapper .catelog .list ul li .sn {
+            z-index: 60;
+            width: 4em;
+            height: 4em;
+            display: inline-block;
+            text-align: center;
+            font-size: 12px;
+            position: relative; }
+            .wapper .catelog .list ul li .sn span {
+              display: inline-block;
+              height: 2em;
+              width: 2em;
+              background: #fff;
+              font-size: 1em;
+              color: #797070;
+              border: 1px solid #797070;
+              border-radius: 2em;
+              -webkit-border-radius: 2em;
+              -moz-border-radius: 2em;
+              -o-border-radius: 2em;
+              margin-top: 25%;
+              line-height: 2em; }
+            .wapper .catelog .list ul li .sn .special {
+              margin-top: 0%;
+              height: 1.6em;
+              width: 1.6em;
+              line-height: 1.6em;
+              background: #000;
+              font-size: 2.5em;
+              color: #fff;
+              border: 0 none;
+              border-radius: 1.6em;
+              -webkit-border-radius: 1.6em;
+              -moz-border-radius: 1.6em;
+              -o-border-radius: 1.6em; }
+        .wapper .catelog .list ul li.spTop12 {
+          margin-top: 3.75%; }
+        .wapper .catelog .list ul li.spTop21 {
+          margin-top: 6.5625%; }
 
 @media screen and (min-device-width: 321px) {
   .content img {

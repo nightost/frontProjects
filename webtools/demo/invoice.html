@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	    
+	    <script type="text/javascript">
+    		function printThis(result) {
+    			window.returnValue = result;
+    			window.close();
+    		}
+    	</script>
+	
+	</head>
+    <style type="text/css">
+    <!--
+        .paper {
+            background-color:#66ccff;
+            position:absolute;
+            left:0mm;
+            top:0mm;
+            height:105mm;
+            width:210mm;
+            overflow:hidden;
+            word-wrap:break-word;
+            word-break:break-all;
+        }     
+
+        div {
+            position:absolute;
+        }
+    -->
+    </style>
+    
+    <body>
+        <div id="paper" class="paper" name="发票">
+            <div id="div1" style="left:350;top:40px;display:none">发票</div>
+            <div id="div2" style="left:10;top:60px;font-weight:bold;previewOnly:yes">服务号码：</div>
+            <div id="div3" style="left:110;top:60px;">13396383811</div>
+            <div id="div4" style="left:10;top:100px;font-style:italic;text-decoration:line-through underline;">备注：</div>
+            <div id="div5" style="left:100;top:120px;overflow:hidden;">111111111111111111111111222222222222222222222333333333333333333333344444444444444444555555555555555555555555566666666666666666666666677777777777777777777777777777777777</div>
+            <div id="div6" style="left:130;top:90px;">13396383811</div>
+        </div>
+        
+        <div id="divButton" style="left:50px;top:450px;display:none;">
+        <input type="button" id="printContent" value="打印" onclick="printThis('1')"/>
+        <input type="button" id="cancel" value="退出" onclick="printThis('0')"/>
+        <div>
+        
+        <script>
+        	try {
+        		var preview = dialogArguments;
+        	}
+        	catch(e) {
+        		preview = '0';
+        	}
+        	
+        	if(preview == '1') {
+        		document.getElementById('divButton').style.display = 'block';
+        	}
+        </script>        
+    </body>
+</html>

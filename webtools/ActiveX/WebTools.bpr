@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="WebTools.ocx"/>
+    <OBJFILES value="temp\WebTools.obj temp\WebTools_ATL.obj temp\WebTools_TLB.obj 
+      temp\DirectPrinterImpl.obj temp\PrinterMgr.obj"/>
+    <RESFILES value="WebTools.res WebTools.tlb"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="vclnp50.lib VCLX50.lib VCLBDE50.lib VCLDB50.lib Vcl50.lib"/>
+    <SPARELIBS value="Vcl50.lib VCLDB50.lib VCLBDE50.lib VCLX50.lib"/>
+    <PACKAGES value="Vcl50.bpi Vclx50.bpi bcbsmp50.bpi Vcldb50.bpi vclado50.bpi ibsmp50.bpi 
+      VCLBDE50.bpi vcldbx50.bpi Qrpt50.bpi TeeUI50.bpi TeeDB50.bpi Tee50.bpi 
+      Dss50.bpi TeeQR50.bpi VCLIB50.bpi Vclmid50.bpi vclie50.bpi Inetdb50.bpi 
+      Inet50.bpi NMFast50.bpi webmid50.bpi bcbie50.bpi dclocx50.bpi 
+      bcb2kaxserver50.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="tlink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT;_ATL_APARTMENT_THREADED;USING_ATLVCL;_ATL_NO_SECURITY;INC_ATL_HEADERS"/>
+    <MAINSOURCE value="WebTools.cpp"/>
+    <INCLUDEPATH value="&quot;d:\Program Files\Borland\CBuilder5\Projects\&quot;;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\include\atl"/>
+    <LIBPATH value="&quot;d:\Program Files\Borland\CBuilder5\Projects\&quot;;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I&quot;d:\Program Files\Borland\CBuilder5\Projects\.&quot; -I$(BCB)\include 
+      -I$(BCB)\include\vcl -I$(BCB)\include\atl -src_suffix cpp -D_DEBUG -boa"/>
+    <CFLAG1 value="-WD -Od -H=$(BCB)\lib\vcl50.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- 
+      -c -tWM"/>
+    <PFLAGS value="-N2temp -N0temp -$YD -$W -$O- -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-l&quot;D:\Work\bss_dev\crm\j2ee\BSSWEB\common\webtools\ActiveX\temp\&quot; -Itemp 
+      -D&quot;&quot; -aa -Tpd -x -Gn -Gi -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0d32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=1
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=2052
+CodePage=936
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Deployment]
+DeployDir=&quot;D:\Work\WebTools\&quot;
+DeployURL=D:/Work/WebTools/deploy/
+HTMLDir=&quot;D:\Work\WebTools\deploy\&quot;
+CABCompress=1
+CodeSign=0
+IncludeVerInfo=1
+AutoIncRelease=0
+DeployPackages=0
+DeployFiles=0
+CompanyURL=
+Description=
+CredFile=
+PrivKey=
+CryptoType=0
+Timestamping=0
+TimestampServer=
+
+[Excluded Packages]
+D:\Work\1.5\CB加速\IDECompilerSpeedFix50.bpl=IDE Compiler Speed Improvement
+D:\Work\1.5\控件及工具\CB联创控件\bin\dxPSdxDBGrLnkc5.bpl=ExpressPrinting System ReportLink for ExpressQuantumGrid by Developer Express Inc.
+D:\Work\1.5\控件及工具\CB联创控件\bin\DXCOMNC5.BPL=ExpressCommonLibrary by Developer Express Inc.
+D:\Work\1.5\控件及工具\CB联创控件\bin\DXDBEDC5.BPL=Express data-aware inplace editors
+D:\Work\1.5\控件及工具\CB联创控件\bin\DXEDTRC5.BPL=Express inplace editors
+D:\Work\1.5\控件及工具\CB联创控件\bin\EQTLC5.BPL=ExpressQuantumTreeList by Developer Express Inc.
+D:\Work\1.5\控件及工具\CB联创控件\bin\EQGRIDC5.BPL=ExpressQuantumGrid by Developer Express Inc.
+D:\Work\1.5\控件及工具\CB联创控件\bin\ECQDBCC5.BPL=ExpressCustomQuantumDBControl by Developer Express Inc.
+D:\Work\1.5\控件及工具\CB联创控件\bin\DXPSTLLNKC5.BPL=ExpressPrinting System ReportLink for ExpressQuantumTreeList by Developer Express Inc.
+D:\My Projects\C++Builder\FlashingLabel\MyPackage.bpl=D:\My Projects\C++Builder\FlashingLabel\MyPackage
+D:\Work\Check Out Files\eboss\crm\gui\syscomp\bin\AdvDbCtrls.bpl=Sorted ListView &amp; DB ListView.
+D:\Work\Check Out Files\eboss\crm\gui\syscomp\bin\AdvancedControls.bpl=c:\program files\borland\cbuilder5\Projects\Bpl\AdvancedControls
+
+[HistoryLists\hlIncludePath]
+Count=1
+Item0=d:\Program Files\Borland\CBuilder5\Projects\;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\include\atl
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=d:\Program Files\Borland\CBuilder5\Projects\;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[HistoryLists\hlIntOutputDir]
+Count=2
+Item0=temp
+Item1=D:\Work\WebPrinter\temp
+
+[HistoryLists\hlFinalOutputDir]
+Count=1
+Item0=D:\Work\WebPrinter
+
+[HistoryLists\hIBPIOutputDir]
+Count=6
+Item0=D:\Work\bss_dev\crm\j2ee\BSSWEB\common\webtools\ActiveX\temp\
+Item1=D:\Work\bss_dev\crm\j2ee\BSSWEB\common\webtools\ActiveX\temp
+Item2=D:\Work\bss_dev\crm\j2ee\BSSWEB\common\webtools\temp\
+Item3=D:\Work\WebTools\temp\
+Item4=D:\Work\WebPrinter\temp\
+Item5=D:\Work\WebPrinter\temp
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

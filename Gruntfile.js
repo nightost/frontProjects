@@ -6,7 +6,7 @@ module.exports=function(grunt){
         },
         projects:{
             blowBalloon:"blowBalloon",
-            sgProduct:"sgProduct"
+            sgProduct:"sgProduct_1"
         },
         curProject:'<%=projects.sgProduct%>',
         path:{
