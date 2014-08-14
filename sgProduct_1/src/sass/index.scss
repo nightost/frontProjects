@@ -7,12 +7,11 @@ $baseSize:12;
   overflow: hidden;
   .page{
     position: absolute;
-    top:0;
-    bottom: 0;
     width: 100%;
+    padding-bottom: 39px;
   }
   .cover{
-    z-index:1000;
+    z-index:1200;
     background: #f6f1de url("../images/sgCoverBg.png") repeat-y;
     background-position: top right;
     background-size: (443/640)*100% auto;
@@ -20,7 +19,7 @@ $baseSize:12;
     -webkit-transform-origin:bottom center;
     -o-transform-origin:bottom center;
     transform-origin:bottom center;
-    transition:transform .5s ease-in-out;
+    transition:all .5s ease-in-out;
     -webkit-transition:all .5s ease-in-out;
     -moz-transition:all .5s ease-in-out;
     -o-transition:all .5s ease-in-out;
@@ -70,9 +69,90 @@ $baseSize:12;
   .pages{
     z-index: 800;
     position: absolute;
-    overflow: hidden;
     top:0;
     bottom: 0;
+    width: 100%;
+    .pageBox{
+      position: absolute;
+      top:0;
+      bottom: 0;
+      width: 100%;
+      overflow-y: auto;
+    }
+    .rightSlider{
+      position: fixed;
+      z-index:1100;
+      width: 100%;
+      top:0;
+      bottom:0;
+      .alphaBg{
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.4);
+      }
+      .detailConent{
+        position: absolute;
+        width: (402/640)*100%;
+        height: 100%;
+        overflow-y:auto;
+        background: #fff;
+        top:0;
+        right:-(402/640)*100%;
+        -moz-transform-origin:center right;
+        -webkit-transform-origin:center right;
+        -o-transform-origin:center right;
+        transform-origin:center right;
+        transition:all .5s ease-in-out;
+        -webkit-transition:all .5s ease-in-out;
+        -moz-transition:all .5s ease-in-out;
+        -o-transition:all .5s ease-in-out;
+        .closeBtn{
+          width:(41/2)+px;
+          height:(41/2)+px;
+          top:9px;
+          left:8px;
+          position: absolute;
+        }
+        .addFav{
+          width: 44px;
+          height: 44px;
+          position: absolute;
+          right: 5px;
+          bottom:0px;
+        }
+        .prod{
+          width:(250/402)*100%;
+          margin:2.5em auto 0;
+          line-height: 1.5em;
+          font-size:1em;
+          .pimg{
+            img{
+              width: 100%;
+            }
+          }
+          .ptitle{
+             font-size:1em;
+          }
+          .pprice{
+            strong{
+              color:#f29c07;
+              font-size:1.5em;
+            }
+          }
+        }
+        .ptext{
+          margin: (15/24)+em 8px 0px;
+          border-top:1px solid #ece9e9;
+          padding-top: (10/24)+em;
+          line-height: 1.5em;
+          color:#8e8e8e;
+          font-size: (22/24)+em;
+          .dis{
+            margin-top: (20/24)+em;
+          }
+        }
+      }
+    }
   }
   .catelog{
     position: absolute;
@@ -128,7 +208,7 @@ $baseSize:12;
       }
     }
     .list{
-      margin-top: (32/24)+em;
+      margin-top: 2.5em;
       font-size:$baseSize+px;
       text-align: center;
       position: relative;
@@ -301,6 +381,9 @@ $baseSize:12;
   .showpretty{
     z-index:700;
     opcity:0;
+    display: none;
+    width: 100%;
+    padding-bottom: 15px;
     .title{
       background: url("../images/showPrettyTop.png") no-repeat;
       background-size: 100% auto;
@@ -375,12 +458,29 @@ $baseSize:12;
       }
     }
   }
+  .shampoo{
+    opacity: 0;
+    display: none;
+    .r-pink{
+      width: (102/640)*100%;
+      padding-bottom: (102/640)*100%;
+      top:19px;
+      right:(57/640)*100%;
+      background:#ffb3fb;
+      opacity:0.3;
+      border-radius: (51/640)*100%;
+      -webkit-border-radius: (51/640)*100%;
+      -moz-border-radius: (51/640)*100%;
+      -o-border-radius: (51/640)*100%;
+    }
+  }
   .bottomBar{
     position: fixed;
     bottom: 0;
     height: 39px;
     width: 100%;
-    background-color: rgba(0,0,0,.6);
+    background-color: #fff;
+    z-index: 1000;
     .homeBtn{
       width: 39px;
       height: 39px;
@@ -394,7 +494,33 @@ $baseSize:12;
       border-right:1px solid #fff;
       margin-left: 39px;
       margin-right: 39px;
-      height: 39px;
+      height: 38px;
+      padding-top: 1px;
+      .progress{
+        margin: 19px auto 0px;
+        width: 89%;
+        height: 1px;
+        background: #8e8c8c;
+        position: relative;
+        .btn{
+          height: 18px;
+          width: 18px;
+          position: absolute;
+          top:-8px;
+          left:-9px;
+          border-radius: 9px;
+          -webkit-border-radius: 9px;
+          -moz-border-radius: 9px;
+          -o-border-radius: 9px;
+          border-radius: 9px;
+          background: #eae9e9;
+          box-shadow: rgba(4,0,0,.75) 0 0 5px 0;
+          -webkit-box-shadow: rgba(4,0,0,.75) 0 0 5px 0;
+          -moz-box-shadow: rgba(4,0,0,.75) 0 0 5px 0;
+          -o-box-shadow: rgba(4,0,0,.75) 0 0 5px 0;
+          box-shadow: rgba(4,0,0,.75) 0 0 5px 0;
+        }
+      }
     }
     .fav{
       width: 39px;

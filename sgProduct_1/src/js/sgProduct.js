@@ -2,8 +2,15 @@
  * Created by Nightost on 2014/8/12.
  */
 $(function(){
-    var SgProduct=new sgProduct();
+    var _sgProduct=new sgProduct();
+    var _bottomBar=new bottomBar(_sgProduct);
+    _sgProduct.bottomBar=_bottomBar;
+    var _siderBar=new setSiderBar();
 });
+/**
+ *
+ * @param settings
+ */
 function sgProduct(settings){
     var _settings=settings||{};
     //首页3s后缩小
@@ -21,6 +28,9 @@ function sgProduct(settings){
     //
     var _curentPage=0;
     var _sns;
+
+    //this
+    var _this=this;
     /**
      * 页面初始化
      */
@@ -34,7 +44,7 @@ function sgProduct(settings){
     function getObj(){
         _indexPage=$(".cover");
         _catelog=$(".catelog");
-        _pagesBox=$(".pages");
+        _pagesBox=$(".pageBox");
         _pages=$(".pages .page");
         _sns=$(".catelog .list li .sn");
     }
@@ -48,34 +58,52 @@ function sgProduct(settings){
             cateInit();
         },_indexTime);
         //pages box swipe _pages
-        _pagesSwipe = new Hammer.Manager(_pagesBox[0]);
+       /* _pagesSwipe = new Hammer.Manager(_pagesBox[0]);
 
         _pagesSwipe.add(new Hammer.Swipe({ threshold: 1, pointers: 0 }));
 
         _pagesSwipe.on("swipeleft", onSwipeLeft);
-        _pagesSwipe.on("swiperight", onSwipeRight);
-
+        _pagesSwipe.on("swiperight", onSwipeRight);*/
+        _pagesBox.on("swipeLeft", onSwipeLeft);
+        _pagesBox.on("swipeRight", onSwipeRight);
         _sns.each(function(){
+            var _this=$(this);
             $(this).bind("click",function(){
-                var _index=$(this).index();
+                var _index=_this.index($(".catelog .list li .sn"));
                 showPage(_index);
                 toggleCateLog(false);
             });
+        });
+
+        _pagesBox.bind("touchstart",function(e){
+            if(e.target.className!="go-detail"){
+                if(_this.bottomBar){
+                    _this.bottomBar.setProgress(true);
+                }
+            }
+        });
+        _pagesBox.bind("touchend",function(e){
+            if(_this.bottomBar){
+                _this.bottomBar.setTime();
+            }
         });
     }
 
     function onSwipeLeft(){
         switch(_curentPage){
-            case 1:
-                console.log("The ");
+            case 0:
+                showPage(1);
                 break;
         }
     }
 
     function onSwipeRight(){
         switch(_curentPage){
-            case 1:
+            case 0:
                 setScale(_catelog,4,1);
+                break;
+            case 1:
+                showPage(0);
                 break;
         }
     }
@@ -136,7 +164,12 @@ function sgProduct(settings){
      * show by opacity
      */
     function showPage(index){
-        $(_pages.get(index)).css("opacity",1);
+        $(_pages.get(_curentPage)).css("display","block");
+        setTimout(function(){
+            $(_pages.get(_curentPage)).css("opeacity",0);
+            _curentPage=index;
+            $(_pages.get(index)).css("opacity",1);
+        },0);
     }
 
     /**
@@ -145,5 +178,161 @@ function sgProduct(settings){
     function toggleCateLog(flag){
         var _rate=flag?1:0;
         setScale(_catelog,4,_rate);
+    }
+    this.showCatelog=function(){
+       setScale(_catelog,4,1);
+       hideCurrentPage();
+    }
+    function hideCurrentPage(){
+        $(_pages.get(_curentPage)).css("opacity",0);
+    }
+
+}
+/**
+ * bottomBar
+ */
+function bottomBar(sgObj){
+    var _sgProduct=sgObj;
+    var _homeBtn;
+    var _favBtn;
+    var _progressBtn;
+    var _panBtnObj;
+    var _progressLine;
+    var _maxLeft;
+    var _minLeft;
+    var _progressW;
+    var _lastX=0;
+    var _progress;
+    var _bottomBar;
+    var _currentState=false;
+    var _timeOut;
+    var _this=this;
+    (function init(){
+        getObj();
+        setEvents();
+    })();
+    function getObj(){
+        _homeBtn=$(".bottomBar .homeBtn");
+        _favBtn=$(".bottomBar .fav");
+        _progressBtn=$(".bottomBar .progress .btn");
+        _progressLine=$(".bottomBar .progress");
+
+        _progress=$(".bottomBar .middle");
+        _bottomBar=$(".bottomBar");
+    }
+    function setArgs(){
+        _progressW=_progressLine.offset().width;
+        var _progressBtnW=_progressBtn.offset().width;
+        var _halfBtnW=Math.floor((_progressBtnW)/2);
+        _maxLeft=_progressW-_halfBtnW;
+        _minLeft=-_halfBtnW;
+    }
+    function setEvents(){
+        //pages box swipe _pages
+        _panBtnObj = new Hammer.Manager(_progressBtn[0]);
+
+        _panBtnObj.add(new Hammer.Pan({ threshold: 2, pointers: 0 }));
+
+        _panBtnObj.on("pan", onPan);
+
+        _panBtnObj.on("hammer.input", function(ev) {
+            if(ev.isFinal) {
+                _lastX=0;
+                _this.setTime();
+            }
+        });
+
+        _homeBtn.bind("click",function(){
+            _sgProduct.showCatelog();
+        });
+
+        _bottomBar.on("touchstart",function(){
+            if(_timeOut!=null){
+                clearTimeout(_timeOut);
+            }
+        });
+        _bottomBar.on("touchend",function(){
+            _this.setTime();
+        });
+    }
+    function onPan(obj){
+        if(_timeOut!=null){
+            clearTimeout(_timeOut);
+        }
+        var _currentX=parseInt(_progressBtn.css("left"));
+        console.log(_currentX);
+        var _deltaX=obj.deltaX-_lastX;
+        var _targetX=_currentX+_deltaX;
+        if(_targetX<_minLeft||_targetX>_maxLeft){
+            return;
+        }
+        _progressBtn.css("left",_currentX+_deltaX);
+        _lastX=obj.deltaX;
+    }
+    this.setProgress=function(flag){
+        if(flag)clearTimeout(_timeOut);
+        if(flag&&!_currentState){
+            _progress.show();
+            _bottomBar.css("background","rgba(0,0,0,.6)");
+            _currentState=true;
+            setArgs();
+        }
+        else if(!flag&&_currentState){
+            _progress.hide();
+            _bottomBar.css("background","#none");
+            _currentState=false;
+        }
+    }
+    this.setTime=function(){
+        if(!_currentState)return;
+        _timeOut=setTimeout(function(){
+            _progress.hide();
+            _bottomBar.css("background","#fff");
+            _currentState=false;
+        },4000);
+    }
+}
+function setSiderBar(){
+    //slider bar
+    var _sliderBar;
+    //silider bar content
+    var _sliderBarContent;
+    //
+    var _goDetail;
+    var _closeBtn;
+
+    (function init(){
+        getObj();
+        setEvents();
+    })();
+
+    function getObj(){
+        _sliderBar=$(".rightSlider");
+        _sliderBarContent=$(".rightSlider .detailConent");
+        _goDetail=$(".go-detail");
+        _closeBtn=$(".rightSlider .closeBtn");
+    }
+    function setEvents(){
+        _goDetail.bind("click",function(){
+            setSlideBar(true);
+        });
+        _closeBtn.bind("click",function(){
+            setSlideBar(false);
+        });
+    }
+    function setSlideBar(flag){
+        if(flag){
+            _sliderBar.css("display","block");
+            setTimeout(function(){
+                _sliderBarContent.css("right",0);
+            },0);
+        }
+        else{
+            var _right=_sliderBarContent.offset().width*(-1);
+            setTimeout(function(){
+                _sliderBarContent.css("right",_right);
+            },0);
+            _sliderBar.css("display","none");
+        }
     }
 }
