@@ -8,7 +8,23 @@ $baseSize:12;
   .page{
     position: absolute;
     width: 100%;
-    padding-bottom: 39px;
+//    padding-bottom: 39px;
+    -webkit-transition:all .5s ease-in;
+    -moz-transition:all .5s ease-in;
+    -o-transition:all .5s ease-in;
+    transition:all .5s ease-in;
+    .go-detail{
+      width: 28px;
+      height: 28px;
+      text-indent: -200px;
+      background-image: url("../images/detailBtn.png");
+      background-position:  center center;
+      background-size: 50% 50%;
+      background-repeat: no-repeat;
+      position: absolute;
+      overflow: hidden;
+      cursor: pointer;
+    }
   }
   .cover{
     z-index:1200;
@@ -151,6 +167,55 @@ $baseSize:12;
             margin-top: (20/24)+em;
           }
         }
+      }
+    }
+  }
+  .favPage{
+    position: absolute;
+    z-index: 900;
+    top:0;
+    left:0;
+    bottom: 0;
+    overflow-y: hidden;
+    width: 100%;
+    -moz-transform-origin:center right;
+    -webkit-transform-origin:center right;
+    -o-transform-origin:center right;
+    transform-origin:center right;
+    transition:all .5s ease-in-out;
+    -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    -o-transition:all .5s ease-in-out;
+    -webkit-transform:scale(0);
+    -moz-transform:scale(0);
+    -o-transform:scale(0);
+    transform:scale(0);
+    background: url("../images/fav-bg.png") repeat;
+    .listbox{
+      background: url("../images/fav-bg.png") repeat;
+      overflow-y: auto;
+      .list{
+        li{
+          width: 50%;
+          float: left;
+          font-size: 1em;
+          height: (294/24)+em;
+          position: relative;
+          .info{
+            color: #000;
+            text-align: right;
+            position: absolute;
+            top:(32/24)+em;
+            right:(32/24)+em;
+            .tr{
+              font-size: (36/24)+em;
+              color: #f9930e;
+              i{
+                font-family: "Georgia";
+              }
+            }
+          }
+      }
       }
     }
   }
@@ -416,18 +481,6 @@ $baseSize:12;
       }
       .item{
         position: absolute;
-        .go-detail{
-          width: 28px;
-          height: 28px;
-          text-indent: -200px;
-          background-image: url("../images/detailBtn.png");
-          background-position:  center center;
-          background-size: 50% 50%;
-          background-repeat: no-repeat;
-          position: absolute;
-          overflow: hidden;
-          cursor: pointer;
-        }
       }
       .item1{
         top:0;
@@ -461,17 +514,234 @@ $baseSize:12;
   .shampoo{
     opacity: 0;
     display: none;
-    .r-pink{
-      width: (102/640)*100%;
-      padding-bottom: (102/640)*100%;
-      top:19px;
-      right:(57/640)*100%;
-      background:#ffb3fb;
-      opacity:0.3;
-      border-radius: (51/640)*100%;
-      -webkit-border-radius: (51/640)*100%;
-      -moz-border-radius: (51/640)*100%;
-      -o-border-radius: (51/640)*100%;
+    z-index: 700;
+    width: 100%;
+    top:0;
+    bottom: 0;
+    .item1{
+      padding-top:(22/24)+em;
+      position: relative;
+      .go-detail{
+        left: (455/640)*100%;
+        bottom: -13px;
+      }
+      .r-pink{
+        width: (102/640)*100%;
+        padding-bottom: (102/640)*100%;
+        top:(17/24)+em;
+        right:28px;
+        position: absolute;
+        background:#ffb3fb;
+        opacity:0.3;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+      .item-detail{
+        width:(556/640)*100%;
+        margin-left:(20/650)*100%;
+      }
+      .text1{
+        width:(442/640)*100%;
+        left:0;
+        position:absolute;
+        bottom:-(274/480)*100%;
+      }
+    }
+    .item2{
+      margin-top:(180/640)*100%;
+      position: relative;
+      .go-detail{
+        left: (212/640)*100%;
+        top:(72/332)*100%;
+      }
+      .item-detail{
+        width:(485/640)*100%;
+        float: right;
+      }
+      .r-green{
+        width:(119/640)*100%;
+        padding-bottom:(119/640)*100%;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -o-border-radius: 50%;
+        top:(60/332)*100%;
+        left:(32/24)+em;
+        background:#daffa4;
+        opacity:0.6;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+  }
+  .tonic{
+    opacity: 0;
+    display: none;
+    z-index: 700;
+    width: 100%;
+    top:0;
+    bottom: 0;
+    background: #eff1dc;
+    overflow-y: auto;
+    .contentbg{
+      background: #eff1dc;
+      .title{
+        position: relative;
+        width: 100%;
+        .tonaic-g1{
+          left:(474/640)*100%;
+          top:(261/640)*100%;
+        }
+        .tonaic-g2{
+          left:(28/640)*100%;
+          top:(459/640)*100%;
+        }
+        .tonaic-g3{
+          left:(288/640)*100%;
+          top:(525/640)*100%;
+        }
+        .tonaic-g4{
+          left:(498/640)*100%;
+          top:(574/640)*100%;
+        }
+      }
+      .intro{
+        text-align:center;
+        h1{
+          color: #5e3a3a;
+          font-size: (36/24)+em;
+          font-family:"Microsoft Yahei";
+          margin-bottom: (9/24)+em;
+        }
+        p{
+          font-size: 1em;
+          line-height: 1.5em;
+        }
+    }
+    }
+  }
+  .cup{
+    opacity: 0;
+    display: none;
+    z-index: 700;
+    width: 100%;
+    top:0;
+    bottom: 0;
+    background: url("../images/cup-bg.png") no-repeat;
+    background-size:100% 100%;
+    .text{
+      position:absolute;
+      left:(343/640)*100%;
+      top:(293/992)*100%;
+      text-align: right;
+      width:(142/640)*100%;
+      p{
+        margin-bottom: (7/24)+em;
+        opacity: 0;
+      }
+      .t1{
+        -webkit-transition:all .5s ease-in-out;
+        -moz-transition:all .5s ease-in-out;
+        -o-transition:all .5s ease-in-out;
+        transition:all .5s ease-in-out;
+      }
+      .t2{
+        -webkit-transition:all 1s ease-in-out;
+        -moz-transition:all 1s ease-in-out;
+        -o-transition:all 1s ease-in-out;
+        transition:all 1s ease-in-out;
+      }
+      .t3{
+        -webkit-transition:all 1.5s ease-in-out;
+        -moz-transition:all 1.5s ease-in-out;
+        -o-transition:all 1.5s ease-in-out;
+        transition:all 1.5s ease-in-out;
+      }
+    }
+    .cup-go1{
+      left:(226/640)*100%;
+      top:(330/992)*100%;
+      position: absolute;
+    }
+    .cup-go2{
+      left:(388/640)*100%;
+      top:(552/992)*100%;
+      position: absolute;
+    }
+  }
+  .snacks{
+    opacity: 0;
+    display: none;
+    z-index: 700;
+    width: 100%;
+    top:0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f3d0e4), to(#fce8f4));
+    background: -moz-gradient(linear, left top, left bottom, from(#f3d0e4), to(#fce8f4));
+    background: -o-gradient(linear, left top, left bottom, from(#f3d0e4), to(#fce8f4));
+    .title{
+      img{
+        width: 100%;
+      }
+    }
+    .snack-content{
+      padding-top:(48/24)+em;
+      .item1{
+        position: relative;
+        .ins-text{
+          width: (305/640)*100%;
+          padding-left:(14/640)*100%;
+          .ins-title{
+            width: (201/305)*100%;
+          }
+          pre{
+            font-size: 1em;
+            color: #792c4e;
+            line-height: 1.6em;
+            padding: .3em 0 0 .2em;
+          }
+        }
+        .snacks-item-1{
+          width: (332/640)*100%;
+          position: absolute;
+          right: 0;
+          top:(10/24)+em;
+          span{
+            position: absolute;
+          }
+          .snack-item1-g1{
+            top: 57%;
+            left: 4%;;
+          }
+          .snack-item1-g2{
+            top: 6%;
+            left: 75%;
+          }
+        }
+      }
+      .item2{
+        padding-top: (10/24)+em;
+        .item2-1{
+          width: (313/640)*100%;
+          float:left;
+          position: relative;
+          .snack-item2-g1{
+            top: 75%;
+            left: 48%;
+          }
+        }
+        .item2-2{
+          position: relative;
+          width: (310/640)*100%;
+          float:right;
+          padding-top: (81/310)*100%;
+          .snack-item2-g2{
+            top: 75%;
+            left: 1%;
+          }
+        }
+      }
     }
   }
   .bottomBar{
@@ -479,7 +749,6 @@ $baseSize:12;
     bottom: 0;
     height: 39px;
     width: 100%;
-    background-color: #fff;
     z-index: 1000;
     .homeBtn{
       width: 39px;

@@ -7,7 +7,21 @@
   .wapper .page {
     position: absolute;
     width: 100%;
-    padding-bottom: 39px; }
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+    transition: all .5s ease-in; }
+    .wapper .page .go-detail {
+      width: 28px;
+      height: 28px;
+      text-indent: -200px;
+      background-image: url("../images/detailBtn.png");
+      background-position: center center;
+      background-size: 50% 50%;
+      background-repeat: no-repeat;
+      position: absolute;
+      overflow: hidden;
+      cursor: pointer; }
   .wapper .cover {
     z-index: 1200;
     background: #f6f1de url("../images/sgCoverBg.png") repeat-y;
@@ -125,6 +139,47 @@
           font-size: 0.91667em; }
           .wapper .pages .rightSlider .detailConent .ptext .dis {
             margin-top: 0.83333em; }
+  .wapper .favPage {
+    position: absolute;
+    z-index: 900;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: hidden;
+    width: 100%;
+    -moz-transform-origin: center right;
+    -webkit-transform-origin: center right;
+    -o-transform-origin: center right;
+    transform-origin: center right;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    background: url("../images/fav-bg.png") repeat; }
+    .wapper .favPage .listbox {
+      background: url("../images/fav-bg.png") repeat;
+      overflow-y: auto; }
+      .wapper .favPage .listbox .list li {
+        width: 50%;
+        float: left;
+        font-size: 1em;
+        height: 12.25em;
+        position: relative; }
+        .wapper .favPage .listbox .list li .info {
+          color: #000;
+          text-align: right;
+          position: absolute;
+          top: 1.33333em;
+          right: 1.33333em; }
+          .wapper .favPage .listbox .list li .info .tr {
+            font-size: 1.5em;
+            color: #f9930e; }
+            .wapper .favPage .listbox .list li .info .tr i {
+              font-family: "Georgia"; }
   .wapper .catelog {
     position: absolute;
     top: 0;
@@ -346,17 +401,6 @@
         width: 53.49265%; }
       .wapper .showpretty .items .item {
         position: absolute; }
-        .wapper .showpretty .items .item .go-detail {
-          width: 28px;
-          height: 28px;
-          text-indent: -200px;
-          background-image: url("../images/detailBtn.png");
-          background-position: center center;
-          background-size: 50% 50%;
-          background-repeat: no-repeat;
-          position: absolute;
-          overflow: hidden;
-          cursor: pointer; }
       .wapper .showpretty .items .item1 {
         top: 0;
         left: -3.125%;
@@ -380,24 +424,196 @@
           left: -7.98479%; }
   .wapper .shampoo {
     opacity: 0;
-    display: none; }
-    .wapper .shampoo .r-pink {
-      width: 15.9375%;
-      padding-bottom: 15.9375%;
-      top: 19px;
-      right: 8.90625%;
-      background: #ffb3fb;
-      opacity: 0.3;
-      border-radius: 7.96875%;
-      -webkit-border-radius: 7.96875%;
-      -moz-border-radius: 7.96875%;
-      -o-border-radius: 7.96875%; }
+    display: none;
+    z-index: 700;
+    width: 100%;
+    top: 0;
+    bottom: 0; }
+    .wapper .shampoo .item1 {
+      padding-top: 0.91667em;
+      position: relative; }
+      .wapper .shampoo .item1 .go-detail {
+        left: 71.09375%;
+        bottom: -13px; }
+      .wapper .shampoo .item1 .r-pink {
+        width: 15.9375%;
+        padding-bottom: 15.9375%;
+        top: 0.70833em;
+        right: 28px;
+        position: absolute;
+        background: #ffb3fb;
+        opacity: 0.3;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -o-border-radius: 50%; }
+      .wapper .shampoo .item1 .item-detail {
+        width: 86.875%;
+        margin-left: 3.07692%; }
+      .wapper .shampoo .item1 .text1 {
+        width: 69.0625%;
+        left: 0;
+        position: absolute;
+        bottom: -57.08333%; }
+    .wapper .shampoo .item2 {
+      margin-top: 28.125%;
+      position: relative; }
+      .wapper .shampoo .item2 .go-detail {
+        left: 33.125%;
+        top: 21.68675%; }
+      .wapper .shampoo .item2 .item-detail {
+        width: 75.78125%;
+        float: right; }
+      .wapper .shampoo .item2 .r-green {
+        width: 18.59375%;
+        padding-bottom: 18.59375%;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -o-border-radius: 50%;
+        top: 18.07229%;
+        left: 1.33333em;
+        background: #daffa4;
+        opacity: 0.6;
+        position: absolute;
+        z-index: -1; }
+  .wapper .tonic {
+    opacity: 0;
+    display: none;
+    z-index: 700;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background: #eff1dc;
+    overflow-y: auto; }
+    .wapper .tonic .contentbg {
+      background: #eff1dc; }
+      .wapper .tonic .contentbg .title {
+        position: relative;
+        width: 100%; }
+        .wapper .tonic .contentbg .title .tonaic-g1 {
+          left: 74.0625%;
+          top: 40.78125%; }
+        .wapper .tonic .contentbg .title .tonaic-g2 {
+          left: 4.375%;
+          top: 71.71875%; }
+        .wapper .tonic .contentbg .title .tonaic-g3 {
+          left: 45%;
+          top: 82.03125%; }
+        .wapper .tonic .contentbg .title .tonaic-g4 {
+          left: 77.8125%;
+          top: 89.6875%; }
+      .wapper .tonic .contentbg .intro {
+        text-align: center; }
+        .wapper .tonic .contentbg .intro h1 {
+          color: #5e3a3a;
+          font-size: 1.5em;
+          font-family: "Microsoft Yahei";
+          margin-bottom: 0.375em; }
+        .wapper .tonic .contentbg .intro p {
+          font-size: 1em;
+          line-height: 1.5em; }
+  .wapper .cup {
+    opacity: 0;
+    display: none;
+    z-index: 700;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    background: url("../images/cup-bg.png") no-repeat;
+    background-size: 100% 100%; }
+    .wapper .cup .text {
+      position: absolute;
+      left: 53.59375%;
+      top: 29.53629%;
+      text-align: right;
+      width: 22.1875%; }
+      .wapper .cup .text p {
+        margin-bottom: 0.29167em;
+        opacity: 0; }
+      .wapper .cup .text .t1 {
+        -webkit-transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out; }
+      .wapper .cup .text .t2 {
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out; }
+      .wapper .cup .text .t3 {
+        -webkit-transition: all 1.5s ease-in-out;
+        -moz-transition: all 1.5s ease-in-out;
+        -o-transition: all 1.5s ease-in-out;
+        transition: all 1.5s ease-in-out; }
+    .wapper .cup .cup-go1 {
+      left: 35.3125%;
+      top: 33.26613%;
+      position: absolute; }
+    .wapper .cup .cup-go2 {
+      left: 60.625%;
+      top: 55.64516%;
+      position: absolute; }
+  .wapper .snacks {
+    opacity: 0;
+    display: none;
+    z-index: 700;
+    width: 100%;
+    top: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f3d0e4), to(#fce8f4));
+    background: -moz-gradient(linear, left top, left bottom, from(#f3d0e4), to(#fce8f4));
+    background: -o-gradient(linear, left top, left bottom, from(#f3d0e4), to(#fce8f4)); }
+    .wapper .snacks .title img {
+      width: 100%; }
+    .wapper .snacks .snack-content {
+      padding-top: 2em; }
+      .wapper .snacks .snack-content .item1 {
+        position: relative; }
+        .wapper .snacks .snack-content .item1 .ins-text {
+          width: 47.65625%;
+          padding-left: 2.1875%; }
+          .wapper .snacks .snack-content .item1 .ins-text .ins-title {
+            width: 65.90164%; }
+          .wapper .snacks .snack-content .item1 .ins-text pre {
+            font-size: 1em;
+            color: #792c4e;
+            line-height: 1.6em;
+            padding: .3em 0 0 .2em; }
+        .wapper .snacks .snack-content .item1 .snacks-item-1 {
+          width: 51.875%;
+          position: absolute;
+          right: 0;
+          top: 0.41667em; }
+          .wapper .snacks .snack-content .item1 .snacks-item-1 span {
+            position: absolute; }
+          .wapper .snacks .snack-content .item1 .snacks-item-1 .snack-item1-g1 {
+            top: 57%;
+            left: 4%; }
+          .wapper .snacks .snack-content .item1 .snacks-item-1 .snack-item1-g2 {
+            top: 6%;
+            left: 75%; }
+      .wapper .snacks .snack-content .item2 {
+        padding-top: 0.41667em; }
+        .wapper .snacks .snack-content .item2 .item2-1 {
+          width: 48.90625%;
+          float: left;
+          position: relative; }
+          .wapper .snacks .snack-content .item2 .item2-1 .snack-item2-g1 {
+            top: 75%;
+            left: 48%; }
+        .wapper .snacks .snack-content .item2 .item2-2 {
+          position: relative;
+          width: 48.4375%;
+          float: right;
+          padding-top: 26.12903%; }
+          .wapper .snacks .snack-content .item2 .item2-2 .snack-item2-g2 {
+            top: 75%;
+            left: 1%; }
   .wapper .bottomBar {
     position: fixed;
     bottom: 0;
     height: 39px;
     width: 100%;
-    background-color: #fff;
     z-index: 1000; }
     .wapper .bottomBar .homeBtn {
       width: 39px;

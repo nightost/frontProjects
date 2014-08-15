@@ -31,6 +31,11 @@ function sgProduct(settings){
 
     //this
     var _this=this;
+    //cup
+    var _cup;
+
+    var _favPage;
+
     /**
      * 页面初始化
      */
@@ -47,6 +52,8 @@ function sgProduct(settings){
         _pagesBox=$(".pageBox");
         _pages=$(".pages .page");
         _sns=$(".catelog .list li .sn");
+        _cup=$(".cup");
+        _favPage=$(".favPage");
     }
     /**
      * 设置初始时间
@@ -66,12 +73,14 @@ function sgProduct(settings){
         _pagesSwipe.on("swiperight", onSwipeRight);*/
         _pagesBox.on("swipeLeft", onSwipeLeft);
         _pagesBox.on("swipeRight", onSwipeRight);
-        _sns.each(function(){
-            var _this=$(this);
+        _sns.each(function(item,index,array){
+            var _index=item;
+            console.group();
+            console.log("sn index"+_index);
+            console.groupEnd();
             $(this).bind("click",function(){
-                var _index=_this.index($(".catelog .list li .sn"));
-                showPage(_index);
-                toggleCateLog(false);
+                var _isGo=showPage(_index);
+                if(_isGo) toggleCateLog(false);
             });
         });
 
@@ -90,21 +99,26 @@ function sgProduct(settings){
     }
 
     function onSwipeLeft(){
-        switch(_curentPage){
-            case 0:
-                showPage(1);
-                break;
+        if(_curentPage==3){
+            setCupText(false);
         }
+        var _nextPage=_curentPage+1;
+        showPage(_nextPage);
     }
 
     function onSwipeRight(){
         switch(_curentPage){
             case 0:
                 setScale(_catelog,4,1);
+                return;
+            case 3:
+                setCupText(false);
+                var _pre=_curentPage-1;
+                showPage(_pre);
                 break;
-            case 1:
-                showPage(0);
-                break;
+            default:
+                var _pre=_curentPage-1;
+                showPage(_pre);
         }
     }
 
@@ -164,11 +178,31 @@ function sgProduct(settings){
      * show by opacity
      */
     function showPage(index){
-        $(_pages.get(_curentPage)).css("display","block");
-        setTimout(function(){
-            $(_pages.get(_curentPage)).css("opeacity",0);
+        var _targetPage=$(_pages.get(index));
+        if(_targetPage.length==0)return false;
+        $(_pages.get(_curentPage)).css("display","none");
+        //cup页特效
+        if(index==3){
+            setCupText(true);
+        }
+        _targetPage.css("display","block");
+        setTimeout(function(){
+            $(_pages.get(_curentPage)).css("opacity",0);
+            _targetPage.css("opacity",1);
             _curentPage=index;
-            $(_pages.get(index)).css("opacity",1);
+        },0);
+        return true;
+    }
+    /**
+     * show by opacity
+     */
+    function hidePage(index){
+        var _targetPage=$(_pages.get(index));
+        if(_targetPage.length==0)return false;
+        _targetPage.css("display","none");
+        setTimeout(function(){
+            _targetPage.css("opacity",0);
+            _curentPage=0;
         },0);
     }
 
@@ -185,6 +219,35 @@ function sgProduct(settings){
     }
     function hideCurrentPage(){
         $(_pages.get(_curentPage)).css("opacity",0);
+    }
+
+    function setCupText(flag){
+        setTimeout(function(){
+            if(flag){
+                _cup.find(".text p").each(function(){
+                    $(this).css("opacity",1);
+                });
+            }
+            else{
+                _cup.find(".text p").each(function(){
+                    $(this).css("opacity",0);
+                });
+            }
+        },600);
+    }
+    this.setFavBox=function(flag){
+        if(flag){
+            setScale(_favPage,2,1);
+            if(_this.bottomBar){
+                _this.bottomBar.setFavBtn(false);
+            }
+        }
+        else{
+            setScale(_favPage,2,0);
+            if(_this.bottomBar){
+                _this.bottomBar.setFavBtn(true);
+            }
+        }
     }
 
 }
@@ -207,6 +270,7 @@ function bottomBar(sgObj){
     var _currentState=false;
     var _timeOut;
     var _this=this;
+    var _favBoolean=false;
     (function init(){
         getObj();
         setEvents();
@@ -243,6 +307,11 @@ function bottomBar(sgObj){
         });
 
         _homeBtn.bind("click",function(){
+            if(_favBoolean){
+                _sgProduct.setFavBox(false);
+                _favBoolean=false;
+                return;
+            }
             _sgProduct.showCatelog();
         });
 
@@ -254,7 +323,23 @@ function bottomBar(sgObj){
         _bottomBar.on("touchend",function(){
             _this.setTime();
         });
+        _favBtn.on("click",function(){
+            _sgProduct.setFavBox(true);
+            _this.setFavBtn(false);
+            _favBoolean=true;
+            this.setProgress(false);
+        });
     }
+
+    this.setFavBtn=function(flag){
+        if(flag){
+            _favBtn.show();
+        }
+        else{
+            _favBtn.hide();
+        }
+    }
+
     function onPan(obj){
         if(_timeOut!=null){
             clearTimeout(_timeOut);
@@ -279,7 +364,7 @@ function bottomBar(sgObj){
         }
         else if(!flag&&_currentState){
             _progress.hide();
-            _bottomBar.css("background","#none");
+            _bottomBar.css("background","none");
             _currentState=false;
         }
     }
@@ -287,7 +372,7 @@ function bottomBar(sgObj){
         if(!_currentState)return;
         _timeOut=setTimeout(function(){
             _progress.hide();
-            _bottomBar.css("background","#fff");
+            _bottomBar.css("background","none");
             _currentState=false;
         },4000);
     }
