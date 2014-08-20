@@ -1,4 +1,11 @@
+body, html {
+  width: 100%; }
+
 .wapper {
+  -webkit-perspective: 2000;
+  -moz-perspective: 2000;
+  -o-perspective: 2000;
+  perspective: 2000;
   position: absolute;
   width: 100%;
   top: 0;
@@ -7,10 +14,15 @@
   .wapper .page {
     position: absolute;
     width: 100%;
-    -webkit-transition: all .5s ease-in;
-    -moz-transition: all .5s ease-in;
-    -o-transition: all .5s ease-in;
-    transition: all .5s ease-in; }
+    background: #fff;
+    /*     -webkit-transition:all .5s ease-in;
+    -moz-transition:all .5s ease-in;
+    -o-transition:all .5s ease-in;
+    transition:all .5s ease-in; */
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center; }
     .wapper .page .go-detail {
       width: 28px;
       height: 28px;
@@ -21,18 +33,27 @@
       background-repeat: no-repeat;
       position: absolute;
       overflow: hidden;
-      cursor: pointer; }
+      cursor: pointer;
+      -webkit-transition: all 1.5s ease-in-out;
+      -moz-transition: all 1.5s ease-in-out;
+      -o-transition: all 1.5s ease-in-out;
+      transition: all 1.5s ease-in-out; }
+    .wapper .page .go-detail-hover {
+      -webkit-transform: rotateZ(360deg);
+      -moz-transform: rotateZ(360deg);
+      -o-transform: rotateZ(360deg);
+      transform: rotateZ(360deg); }
   .wapper .cover {
     z-index: 1200;
     background-color: #f6f1de;
-    background-image: url("../images/sgCoverBg.png");
+    background-image: url("../images/sgCoverBg.jpg");
     background-repeat: repeat-y;
     background-position: top right;
     background-size: 69.21875% auto;
-    -moz-transform-origin: bottom center;
-    -webkit-transform-origin: bottom center;
-    -o-transform-origin: bottom center;
-    transform-origin: bottom center;
+    -moz-transform-origin: left center;
+    -webkit-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
     transition: all .5s ease-in-out;
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
@@ -164,10 +185,10 @@
     -webkit-transition: all .5s ease-in-out;
     -moz-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -o-transform: scale(0);
-    transform: scale(0);
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
     background-image: url("../images/fav-bg.png");
     background-repeat: repeat; }
     .wapper .favPage .listbox {
@@ -235,7 +256,7 @@
     bottom: 0;
     overflow-y: auto;
     width: 100%; }
-  .wapper .showpretty, .wapper .catelog {
+  .wapper .catelog {
     position: absolute;
     -moz-transform-origin: center left;
     -webkit-transform-origin: center left;
@@ -284,7 +305,12 @@
         width: 4em; }
         .wapper .catelog .list ul li {
           margin-top: 1.41667em;
-          position: relative; }
+          position: relative;
+          /*           .nr .spanHover{
+              background-color: #fff;
+              color: #797070; 
+              border:1px solid #797070;
+          } */ }
           .wapper .catelog .list ul li .detail {
             font-size: 1em;
             padding: 0.58333em 0;
@@ -393,20 +419,25 @@
               -moz-border-radius: 2em;
               -o-border-radius: 2em;
               margin-top: 25%;
-              line-height: 2em; }
+              line-height: 2em;
+              -webkit-transition: all .5s ease-in-out;
+              -moz-transition: all .5s ease-in-out;
+              -o-transition: all .5s ease-in-out;
+              transition: all .5s ease-in-out; }
             .wapper .catelog .list ul li .sn .special {
               margin-top: 0%;
-              height: 1.6em;
-              width: 1.6em;
-              line-height: 1.6em;
-              background-color: #000;
+              height: 1.53333em;
+              width: 1.53333em;
+              line-height: 1.53333em;
               font-size: 2.5em;
-              color: #fff;
-              border: 0 none;
               border-radius: 1.6em;
               -webkit-border-radius: 1.6em;
               -moz-border-radius: 1.6em;
               -o-border-radius: 1.6em; }
+            .wapper .catelog .list ul li .sn .spanHover {
+              background-color: #000;
+              color: #fff;
+              border: 1px solid #000; }
         .wapper .catelog .list ul li.spTop12 {
           margin-top: 1em; }
         .wapper .catelog .list ul li.spTop21 {
@@ -420,12 +451,10 @@
         text-align: center; }
   .wapper .showpretty {
     z-index: 700;
-    opcity: 0;
-    display: none;
     width: 100%;
     padding-bottom: 15px; }
     .wapper .showpretty .title {
-      background-image: url("../images/showPrettyTop.png");
+      background-image: url("../images/showPrettyTop.jpg");
       background-repeat: no-repeat;
       background-size: 100% auto;
       padding-top: 35%; }
@@ -473,9 +502,7 @@
           top: 34.86239%;
           left: -7.98479%; }
   .wapper .shampoo {
-    opacity: 0;
-    display: none;
-    z-index: 700;
+    z-index: 690;
     width: 100%;
     top: 0;
     bottom: 0; }
@@ -528,9 +555,7 @@
         position: absolute;
         z-index: -1; }
   .wapper .tonic {
-    opacity: 0;
-    display: none;
-    z-index: 700;
+    z-index: 680;
     width: 100%;
     top: 0;
     bottom: 0;
@@ -564,9 +589,8 @@
           font-size: 1em;
           line-height: 1.5em; }
   .wapper .cup {
-    opacity: 0;
-    display: none;
-    z-index: 700;
+    position: absolute;
+    z-index: 670;
     width: 100%;
     top: 0;
     bottom: 0;
@@ -606,9 +630,7 @@
       top: 55.64516%;
       position: absolute; }
   .wapper .snacks {
-    opacity: 0;
-    display: none;
-    z-index: 700;
+    z-index: 660;
     width: 100%;
     top: 0;
     background: -webkit-gradient(linear, left top, left bottom, from(#f3d0e4), to(#fce8f4));
@@ -723,3 +745,10 @@
 @media screen and (min-device-width: 321px) {
   .content img {
     width: 87.34375%; } }
+/* @media screen and (min-device-width:640px){
+  .wapper{
+    width: 640px;
+    left:50%;
+    margin-left: -320px;
+  }
+} */

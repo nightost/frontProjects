@@ -16,6 +16,8 @@ function sgProduct(settings){
     var _settings=settings||{};
     //首页3s后缩小
     var _indexTime=_settings.indexTime||3000;
+    //catelog 跑马灯时间
+    var _catelogTime=_settings.catelogTime||2000;
     //cover page
     var _indexPage;
     //catelog page
@@ -24,10 +26,11 @@ function sgProduct(settings){
     var _pagesBox;
     //swipe pages obj
     var _pagesSwipe;
+    var _cateLogSwipe;
     //pages
     var _pages;
     //
-    var _curentPage=0;
+    var _curentPage=-1;
     var _sns;
 
     //this
@@ -38,6 +41,14 @@ function sgProduct(settings){
     var _favPage;
 
     var _totalPagesNum;
+    
+    var _cateLogTimer;
+    //
+    var _rollIndex=0;
+    
+	var _snlength;
+	
+	var transitionEnd;
 
     /**
      * 页面初始化
@@ -55,9 +66,11 @@ function sgProduct(settings){
         _pagesBox=$(".pageBox");
         _pages=$(".pages .page");
         _sns=$(".catelog .list li .sn");
+    	_snlength=_sns.length;
         _cup=$(".cup");
         _favPage=$(".favPage");
         _totalPagesNum=_pages.length;
+       
     }
     /**
      * 设置初始时间
@@ -67,27 +80,32 @@ function sgProduct(settings){
 //            _indexPage.addClass("scaleHidden");
             var _left=_indexPage.width()*(-1);
             _indexPage.css({
-                "-webkit-transform":"translateX("+_left+"px)",
-                "-moz-transform":"translateX("+_left+"px)",
-                "-o-transform":"translateX("+_left+"px)",
-                "transform":"translateX("+_left+"px)"
+                "-webkit-transform":"rotateY(-90deg)",
+                "-moz-transform":"rotateY(-90deg)",
+                "-o-transform":"rotateY(-90deg)",
+                "transform":"rotateY(-90deg)"
             });
             //初始化catelog
             cateInit();
         },_indexTime);
         //pages box swipe _pages
-       /* _pagesSwipe = new Hammer.Manager(_pagesBox[0]);
+        _pagesSwipe = new Hammer.Manager(_pagesBox[0],{
+        	domEvents: true,
+        	touchAction:"pan-y"
+        });
 
-        _pagesSwipe.add(new Hammer.Swipe({ threshold: 1, pointers: 0 }));
+        _pagesSwipe.add(new Hammer.Swipe({pointers: 1,distance:3,velocity:0.1}));
 
         _pagesSwipe.on("swipeleft", onSwipeLeft);
-        _pagesSwipe.on("swiperight", onSwipeRight);*/
-        _pagesBox.on("swipeLeft", onSwipeLeft);
-        _pagesBox.on("swipeRight", onSwipeRight);
+        _pagesSwipe.on("swiperight", onSwipeRight);
+
+/*        _pagesBox.on("swipeLeft", onSwipeLeft);
+        _pagesBox.on("swipeRight", onSwipeRight);*/
         _sns.each(function(item,index,array){
             var _index=item;
             $(this).bind("click",function(){
                 var _isGo=showPage(_index,true);
+                setPrevsScale(_index);
                 if(_isGo) toggleCateLog(false);
             });
         });
@@ -104,12 +122,29 @@ function sgProduct(settings){
                 _this.bottomBar.setTime();
             }
         });
-        _catelog.on("swipeLeft", onCatelogSwipeLeft);
+        _cateLogSwipe = new Hammer.Manager(_catelog[0],{
+        	domEvents: true,
+        	touchAction:"pan-y"
+        });
+
+        _cateLogSwipe.add(new Hammer.Swipe({pointers: 1,distance:3,velocity:0.1}));
+
+        _cateLogSwipe.on("swipeleft", onCatelogSwipeLeft);
+        //失效~
+        /*_pages.each(function(){
+        	$(this).on("transitionEnd",function(){
+        		alert("1");
+            	_pages.eq(_toHidden).css("display","block");
+            });
+        });  */   
     }
 
     function onCatelogSwipeLeft(){
         var _isGo=showPage(0,true);
-        if(_isGo) toggleCateLog(false);
+        if(_isGo) {
+        	toggleCateLog(false);   	
+            stopcatelogRoll();           
+        }
     }
 
     function onSwipeLeft(){
@@ -117,23 +152,26 @@ function sgProduct(settings){
             setCupText(false);
         }
         var _nextPage=_curentPage+1;
-        showPage(_nextPage,true);
+        showPage(_nextPage,true,"left");
     }
 
     function onSwipeRight(){
         switch(_curentPage){
             case 0:
-                setScale(_catelog,4,1);
+//                setScale(_catelog,0,1);
+                var _pre=_curentPage-1;
+                showPage(_pre,true,"right");
+                catelogRoll();
                 showcateLogEffect();
                 return;
             case 3:
                 setCupText(false);
                 var _pre=_curentPage-1;
-                showPage(_pre,true);
+                showPage(_pre,true,"right");
                 break;
             default:
                 var _pre=_curentPage-1;
-                showPage(_pre,true);
+                showPage(_pre,true,"right");
         }
     }
 
@@ -144,16 +182,44 @@ function sgProduct(settings){
         var _titleCotent=_catelog.find(".title-content");
         _titleCotent.addClass("c-rotate");
         showcateLogEffect();
+        catelogRoll();
+        //跑马灯
+        
     }
+    
+    function catelogRoll(){
+    	if(!_cateLogTimer){
+			_cateLogTimer=setInterval(function(){
+    				_sns.eq(_rollIndex).find("span").removeClass("spanHover");
+    				var _nextIndex=_rollIndex+1;
+    				_nextIndex=_nextIndex>(_snlength-1)?0:_nextIndex;
+    				_rollIndex=_nextIndex;
+    				_sns.eq(_rollIndex).find("span").addClass("spanHover");
+    		},_catelogTime);
+    	}
+    }
+    
+    this.startcateLogRoll=function(){
+    	catelogRoll();
+    }
+    
+    function stopcatelogRoll(){
+    	if(_cateLogTimer){
+    		_cateLogTimer=clearInterval(_cateLogTimer);
+    	}
+    }
+    
     function showcateLogEffect(){
         var _img1=$(".item-img1");//Active
         var _img2=$(".item-img2");
         _img1.addClass("item-img1Active");
         _img2.addClass("item-img2Active");
     }
+    
     this.showcEffect=function(){
         showcateLogEffect();
     }
+    
     function hideCateLogEffect(){
         var _img1=$(".item-img1");//Active
         var _img2=$(".item-img2");
@@ -163,7 +229,46 @@ function sgProduct(settings){
     /**
      * set scale
      */
-    function setScale(obj,flag,rate){
+    function setScale(obj,flag,rate,behidden){
+    	var _deg=rate==1?0:-90;
+        if(flag!=0){
+        	setOrigen(obj,flag);
+        }
+        var _rotateY=_deg+"deg";
+        obj.animate({
+        	  rotateY: _rotateY
+        	  }, 500, 'ease-in',function(){
+        		  if(behidden!=-1){
+        			  _pages.eq(behidden).css("display","none");
+        		  } 
+        		  else if(behidden==-1){
+        			  _catelog.css("display","none");
+        		  }
+        	  });
+    } 
+    
+   
+    
+    function simScale(obj,flag,deg){
+    	var _deg=deg;
+        if(flag!=0){
+        	setOrigen(obj,flag);
+        }
+        obj.css({
+            "-webkit-transform":"rotateY("+_deg+"deg)",
+            "-moz-transform":"rotateY("+_deg+"deg)",
+            "-o-transform":"rotateY("+_deg+"deg)",
+            "transform":"rotateY("+_deg+"deg)"
+        });
+    }
+       /* obj.css({
+            "-webkit-transform":"rotateY("+_deg+"deg)",
+            "-moz-transform":"rotateY("+_deg+"deg)",
+            "-o-transform":"rotateY("+_deg+"deg)",
+            "transform":"rotateY("+_deg+"deg)"
+        });*/
+    
+/*    function setScale(obj,flag,rate){
         setOrigen(obj,flag);
         obj.css({
             "-webkit-transform":"scale("+rate+")",
@@ -171,7 +276,7 @@ function sgProduct(settings){
             "-o-transform":"scale("+rate+")",
             "transform":"scale("+rate+")"
         });
-    }
+    }*/
     /**
      * set scale
      */
@@ -203,23 +308,70 @@ function sgProduct(settings){
     /**
      * show by opacity
      */
-    function showPage(index,isP){
-        var issetP=isP;
+    function showPage(index,isP,direction){
+    	//是否设置进度条
+    	var issetP=isP;
+    	var _progressIndex=index==-1?0:index;
+        var _currentPageObj=_pages.eq(_curentPage);
         var _targetPage=$(_pages.get(index));
-        if(_targetPage.length==0)return false;
-        $(_pages.get(_curentPage)).css("display","none");
-       if(issetP)setBottomProgress(index);
+    	//catelog
+    	
+    	if(_curentPage==-1){
+//    		_currentPageObj.css("display","none");
+    		_targetPage.css("display","block");
+        	setScale(_catelog,0,0,_curentPage);
+        	if(issetP){setBottomProgress(index);}
+        	rotateGoDetail(_targetPage);
+        	_curentPage=index;
+        	return true;
+    	}
+    	if(index==-1){
+    		_catelog.css("display","block");
+        	setScale(_catelog,0,1,_curentPage);
+        	_curentPage=index;
+        	return true;
+    	}
+    	if(_targetPage.length==0){
+    		return false;
+    	}
+    	if(issetP){setBottomProgress(index);}
+    	//是否设置进度条
+//        _currentPageObj.css("display","none");
+        //方向，如果catelog 划入 不设置第一页
+//        if(direction){
+//        	setScale(_currentPageObj,0,0);
+//        }
+        //小按钮
+//        rotateGoDetail(_currentPageObj);
+        //进度条
+        
         //cup页特效
         if(index==3){
             setCupText(true);
         }
         _targetPage.css("display","block");
         setTimeout(function(){
-            $(_pages.get(_curentPage)).css("opacity",0);
-            _targetPage.css("opacity",1);
+//            $(_pages.get(_curentPage)).css("opacity",0);
+//            _targetPage.css("opacity",1);
+//        	setScale(_targetPage,4,0);
+        	if(direction=="left"){
+            	setScale(_currentPageObj,0,0,_curentPage);
+            }
+            else if(direction=="right"){
+            	setScale(_targetPage,0,1,_curentPage);
+            }
+            else{
+            	setScale(_catelog,0,0,_curentPage);
+            }
             _curentPage=index;
+            rotateGoDetail(_targetPage);
+            
         },0);
         return true;
+    }
+    function rotateGoDetail(obj){
+//    	go-detail-hover
+    	obj.find(".go-detail").toggleClass("go-detail-hover");
     }
     /**
      * show by opacity
@@ -239,16 +391,16 @@ function sgProduct(settings){
      */
     function toggleCateLog(flag){
         var _rate=flag?1:0;
-        setScale(_catelog,4,_rate);
         if(!flag){hideCateLogEffect();}
         else{showcateLogEffect();}
     }
     this.showCatelog=function(){
-       setScale(_catelog,4,1);
+       setScale(_catelog,0,1);
        hideCurrentPage();
+       this.recoveryAll();
     }
     function hideCurrentPage(){
-        $(_pages.get(_curentPage)).css("opacity",0);
+        $(_pages.get(_curentPage)).css("display","none");
     }
 
     function setCupText(flag){
@@ -267,13 +419,13 @@ function sgProduct(settings){
     }
     this.setFavBox=function(flag){
         if(flag){
-            setScale(_favPage,2,1);
+        	simScale(_favPage,2,0);
             if(_this.bottomBar){
                 _this.bottomBar.setFavBtn(false);
             }
         }
         else{
-            setScale(_favPage,2,0);
+        	simScale(_favPage,2,90);
             if(_this.bottomBar){
                 _this.bottomBar.setFavBtn(true);
             }
@@ -281,15 +433,41 @@ function sgProduct(settings){
     }
     this.slidePage=function(per){
         var _targetPage=Math.ceil(per*(_totalPagesNum-1));
-        if(_targetPage!=_curentPage){
-            showPage(_targetPage,false);
+        var _flag;
+        if(_targetPage<_curentPage){
+        	_flag="right";
         }
+        else if(_targetPage>_curentPage){
+        	_flag="left";
+        }
+        else{
+        	return;
+        }
+        showPage(_targetPage,false,_flag);
     }
     function setBottomProgress(index){
         var per=index/(_totalPagesNum-1);
         if(_this.bottomBar){
             _this.bottomBar.setProgressBtn(per);
         }
+    }
+    this.recoveryAll=function(){
+    	_pages.each(function(index){
+    		setScale($(this),0,1,index);
+    	});
+    	_catelog.css("display","block");
+    	setScale(_catelog,0,1);
+    	_curentPage=-1;
+    }
+    
+	function setPrevsScale(ind){
+		setScale(_catelog,0,0,-1);
+		_pages.each(function(index){
+			if(index<ind){
+				setScale($(this),0,0,index);
+			}	
+    	});
+    	_catelog.css("display","block");
     }
 
 }
@@ -363,6 +541,7 @@ function bottomBar(sgObj){
             }
             _sgProduct.showCatelog();
             _sgProduct.showcEffect();
+            _sgProduct.startcateLogRoll();
         });
 
         _bottomBar.on("touchstart",function(){
@@ -397,14 +576,11 @@ function bottomBar(sgObj){
         var _currentX=parseInt(_progressBtn.css("left"));
 //
         var _deltaX=obj.deltaX-_lastX;
-        console.log("当前deltax="+obj.deltaX+"~~~~上次detalX="+_lastX+"~~~~~~移动量="+_deltaX);
-        console.log(_currentX);
         var _targetX=_currentX+_deltaX;
         if(_targetX<_minLeft||_targetX>_maxLeft){
             return;
         }
         var _targetLeft=_currentX+_deltaX;
-        console.log("上次"+_currentX+"~~~去_targetLeft");
         _progressBtn.css("left",_targetX);
         _lastX=obj.deltaX;
         //判断是否翻页
@@ -477,8 +653,8 @@ function setSiderBar(){
             setSlideBar(false);
             _state=false;
         });
-        _sliderBar.bind("click",function(){
-            if(_state){
+        _sliderBar.bind("click",function(e){
+            if(_state&&(e.target.className!="addFav")){
                 setSlideBar(false);
                 _state=false;
             }

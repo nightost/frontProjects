@@ -1,5 +1,12 @@
 $baseSize:12;
+body,html{
+  width: 100%;
+}
 .wapper{
+  -webkit-perspective: 2000;
+  -moz-perspective: 2000;
+  -o-perspective: 2000;
+  perspective: 2000;
   position: absolute;
   width: 100%;
   top: 0;
@@ -8,11 +15,16 @@ $baseSize:12;
   .page{
     position: absolute;
     width: 100%;
+    background: #fff;
 //    padding-bottom: 39px;
-    -webkit-transition:all .5s ease-in;
-    -moz-transition:all .5s ease-in;
-    -o-transition:all .5s ease-in;
-    transition:all .5s ease-in;
+/*     -webkit-transition:all .5s ease-in;
+-moz-transition:all .5s ease-in;
+-o-transition:all .5s ease-in;
+transition:all .5s ease-in; */
+    -webkit-transform-origin:left center;
+    -moz-transform-origin:left center;
+    -o-transform-origin:left center;
+    transform-origin:left center;
     .go-detail{
       width: 28px;
       height: 28px;
@@ -24,19 +36,29 @@ $baseSize:12;
       position: absolute;
       overflow: hidden;
       cursor: pointer;
+      -webkit-transition:all 1.5s ease-in-out;
+      -moz-transition:all 1.5s ease-in-out;
+      -o-transition:all 1.5s ease-in-out;
+      transition:all 1.5s ease-in-out;
+    }
+    .go-detail-hover{
+      -webkit-transform:rotateZ(360deg);
+      -moz-transform:rotateZ(360deg);
+      -o-transform:rotateZ(360deg);
+      transform:rotateZ(360deg);
     }
   }
   .cover{
     z-index:1200;
     background-color: #f6f1de;
-    background-image:url("../images/sgCoverBg.png");
+    background-image:url("../images/sgCoverBg.jpg");
     background-repeat:  repeat-y;
     background-position: top right;
     background-size: (443/640)*100% auto;
-    -moz-transform-origin:bottom center;
-    -webkit-transform-origin:bottom center;
-    -o-transform-origin:bottom center;
-    transform-origin:bottom center;
+    -moz-transform-origin:left center;
+    -webkit-transform-origin:left center;
+    -o-transform-origin:left center;
+    transform-origin:left center;
     transition:all .5s ease-in-out;
     -webkit-transition:all .5s ease-in-out;
     -moz-transition:all .5s ease-in-out;
@@ -198,10 +220,10 @@ $baseSize:12;
     -webkit-transition:all .5s ease-in-out;
     -moz-transition:all .5s ease-in-out;
     -o-transition:all .5s ease-in-out;
-    -webkit-transform:scale(0);
-    -moz-transform:scale(0);
-    -o-transform:scale(0);
-    transform:scale(0);
+    -webkit-transform:rotateY(90deg);
+    -moz-transform:rotateY(90deg);
+    -o-transform:rotateY(90deg);
+    transform:rotateY(90deg);
     background-image: url("../images/fav-bg.png");
     background-repeat: repeat;
     .listbox{
@@ -300,7 +322,7 @@ $baseSize:12;
     overflow-y: auto;
     width: 100%;
   }
-  .showpretty,.catelog{
+  .catelog{
     position: absolute;
     -moz-transform-origin:center left;
     -webkit-transform-origin:center left;
@@ -482,22 +504,33 @@ $baseSize:12;
               -o-border-radius: 2em;
               margin-top: 25%;
               line-height: 2em;
+              -webkit-transition:all .5s ease-in-out;
+              -moz-transition:all .5s ease-in-out;
+              -o-transition:all .5s ease-in-out;
+              transition:all .5s ease-in-out;
             }
             .special{
               margin-top: 0%;
-              height: (48/30)+em;
-              width: (48/30)+em;
-              line-height: (48/30)+em;
-              background-color: #000;
+              height: (46/30)+em;
+              width: (46/30)+em;
+              line-height: (46/30)+em;
               font-size:(60/24)+em;
-              color: #fff;
-              border:0 none;
               border-radius:1.6em;
               -webkit-border-radius:1.6em;
               -moz-border-radius:1.6em;
               -o-border-radius:1.6em;
             }
+            .spanHover{
+              background-color: #000;
+              color: #fff;
+              border:1px solid #000;
+            }
           }
+/*           .nr .spanHover{
+    background-color: #fff;
+    color: #797070; 
+    border:1px solid #797070;
+} */
         }
         li.spTop12{
           margin-top: (24/24)+em;
@@ -519,12 +552,11 @@ $baseSize:12;
   }
   .showpretty{
     z-index:700;
-    opcity:0;
-    display: none;
+    // opcity:0;
     width: 100%;
     padding-bottom: 15px;
     .title{
-      background-image: url("../images/showPrettyTop.png");
+      background-image: url("../images/showPrettyTop.jpg");
       background-repeat: no-repeat;
       background-size: 100% auto;
       padding-top:(224/640)*100%;
@@ -564,6 +596,7 @@ $baseSize:12;
         .go-detail{
           top:(40/215)*100%;
           left:(180/235)*100%;
+
         }
       }
       .item2{
@@ -587,9 +620,8 @@ $baseSize:12;
     }
   }
   .shampoo{
-    opacity: 0;
-    display: none;
-    z-index: 700;
+    // opacity: 0;
+    z-index: 690;
     width: 100%;
     top:0;
     bottom: 0;
@@ -630,6 +662,7 @@ $baseSize:12;
       .go-detail{
         left: (212/640)*100%;
         top:(72/332)*100%;
+
       }
       .item-detail{
         width:(485/640)*100%;
@@ -652,9 +685,8 @@ $baseSize:12;
     }
   }
   .tonic{
-    opacity: 0;
-    display: none;
-    z-index: 700;
+    // opacity: 0;
+    z-index: 680;
     width: 100%;
     top:0;
     bottom: 0;
@@ -698,9 +730,9 @@ $baseSize:12;
     }
   }
   .cup{
-    opacity: 0;
-    display: none;
-    z-index: 700;
+    // opacity: 0;
+    position: absolute;
+    z-index: 670;
     width: 100%;
     top:0;
     bottom: 0;
@@ -748,9 +780,8 @@ $baseSize:12;
     }
   }
   .snacks{
-    opacity: 0;
-    display: none;
-    z-index: 700;
+    // opacity: 0;
+    z-index: 660;
     width: 100%;
     top:0;
     background: -webkit-gradient(linear, left top, left bottom, from(#f3d0e4), to(#fce8f4));
@@ -893,3 +924,10 @@ $baseSize:12;
     width: (559/640)*100%;
   }
 }
+/* @media screen and (min-device-width:640px){
+  .wapper{
+    width: 640px;
+    left:50%;
+    margin-left: -320px;
+  }
+} */
