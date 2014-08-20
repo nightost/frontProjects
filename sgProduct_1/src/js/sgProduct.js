@@ -6,6 +6,7 @@ $(function(){
     var _bottomBar=new bottomBar(_sgProduct);
     _sgProduct.bottomBar=_bottomBar;
     var _siderBar=new setSiderBar();
+    _sgProduct.siderBar=_siderBar;
 });
 /**
  *
@@ -14,7 +15,7 @@ $(function(){
 function sgProduct(settings){
     var _settings=settings||{};
     //首页3s后缩小
-    var _indexTime=_settings.indexTime||500;
+    var _indexTime=_settings.indexTime||3000;
     //cover page
     var _indexPage;
     //catelog page
@@ -36,6 +37,8 @@ function sgProduct(settings){
 
     var _favPage;
 
+    var _totalPagesNum;
+
     /**
      * 页面初始化
      */
@@ -54,13 +57,21 @@ function sgProduct(settings){
         _sns=$(".catelog .list li .sn");
         _cup=$(".cup");
         _favPage=$(".favPage");
+        _totalPagesNum=_pages.length;
     }
     /**
      * 设置初始时间
      */
     function setEvent(){
         setTimeout(function(){
-            _indexPage.addClass("scaleHidden");
+//            _indexPage.addClass("scaleHidden");
+            var _left=_indexPage.width()*(-1);
+            _indexPage.css({
+                "-webkit-transform":"translateX("+_left+"px)",
+                "-moz-transform":"translateX("+_left+"px)",
+                "-o-transform":"translateX("+_left+"px)",
+                "transform":"translateX("+_left+"px)"
+            });
             //初始化catelog
             cateInit();
         },_indexTime);
@@ -75,11 +86,8 @@ function sgProduct(settings){
         _pagesBox.on("swipeRight", onSwipeRight);
         _sns.each(function(item,index,array){
             var _index=item;
-            console.group();
-            console.log("sn index"+_index);
-            console.groupEnd();
             $(this).bind("click",function(){
-                var _isGo=showPage(_index);
+                var _isGo=showPage(_index,true);
                 if(_isGo) toggleCateLog(false);
             });
         });
@@ -96,6 +104,12 @@ function sgProduct(settings){
                 _this.bottomBar.setTime();
             }
         });
+        _catelog.on("swipeLeft", onCatelogSwipeLeft);
+    }
+
+    function onCatelogSwipeLeft(){
+        var _isGo=showPage(0,true);
+        if(_isGo) toggleCateLog(false);
     }
 
     function onSwipeLeft(){
@@ -103,22 +117,23 @@ function sgProduct(settings){
             setCupText(false);
         }
         var _nextPage=_curentPage+1;
-        showPage(_nextPage);
+        showPage(_nextPage,true);
     }
 
     function onSwipeRight(){
         switch(_curentPage){
             case 0:
                 setScale(_catelog,4,1);
+                showcateLogEffect();
                 return;
             case 3:
                 setCupText(false);
                 var _pre=_curentPage-1;
-                showPage(_pre);
+                showPage(_pre,true);
                 break;
             default:
                 var _pre=_curentPage-1;
-                showPage(_pre);
+                showPage(_pre,true);
         }
     }
 
@@ -127,13 +142,24 @@ function sgProduct(settings){
      */
     function cateInit(){
         var _titleCotent=_catelog.find(".title-content");
+        _titleCotent.addClass("c-rotate");
+        showcateLogEffect();
+    }
+    function showcateLogEffect(){
         var _img1=$(".item-img1");//Active
         var _img2=$(".item-img2");
-        _titleCotent.addClass("c-rotate");
         _img1.addClass("item-img1Active");
         _img2.addClass("item-img2Active");
     }
-
+    this.showcEffect=function(){
+        showcateLogEffect();
+    }
+    function hideCateLogEffect(){
+        var _img1=$(".item-img1");//Active
+        var _img2=$(".item-img2");
+        _img1.removeClass("item-img1Active");
+        _img2.removeClass("item-img2Active");
+    }
     /**
      * set scale
      */
@@ -177,10 +203,12 @@ function sgProduct(settings){
     /**
      * show by opacity
      */
-    function showPage(index){
+    function showPage(index,isP){
+        var issetP=isP;
         var _targetPage=$(_pages.get(index));
         if(_targetPage.length==0)return false;
         $(_pages.get(_curentPage)).css("display","none");
+       if(issetP)setBottomProgress(index);
         //cup页特效
         if(index==3){
             setCupText(true);
@@ -212,6 +240,8 @@ function sgProduct(settings){
     function toggleCateLog(flag){
         var _rate=flag?1:0;
         setScale(_catelog,4,_rate);
+        if(!flag){hideCateLogEffect();}
+        else{showcateLogEffect();}
     }
     this.showCatelog=function(){
        setScale(_catelog,4,1);
@@ -249,6 +279,18 @@ function sgProduct(settings){
             }
         }
     }
+    this.slidePage=function(per){
+        var _targetPage=Math.ceil(per*(_totalPagesNum-1));
+        if(_targetPage!=_curentPage){
+            showPage(_targetPage,false);
+        }
+    }
+    function setBottomProgress(index){
+        var per=index/(_totalPagesNum-1);
+        if(_this.bottomBar){
+            _this.bottomBar.setProgressBtn(per);
+        }
+    }
 
 }
 /**
@@ -271,6 +313,7 @@ function bottomBar(sgObj){
     var _timeOut;
     var _this=this;
     var _favBoolean=false;
+    var _currentPer=0;
     (function init(){
         getObj();
         setEvents();
@@ -290,6 +333,12 @@ function bottomBar(sgObj){
         var _halfBtnW=Math.floor((_progressBtnW)/2);
         _maxLeft=_progressW-_halfBtnW;
         _minLeft=-_halfBtnW;
+        setPosition();
+    }
+    function setPosition(){
+        var _currentLeft=_currentPer*_maxLeft
+        if(_currentLeft==0){_currentLeft=_minLeft;}
+        _progressBtn.css("left",_currentLeft);
     }
     function setEvents(){
         //pages box swipe _pages
@@ -313,6 +362,7 @@ function bottomBar(sgObj){
                 return;
             }
             _sgProduct.showCatelog();
+            _sgProduct.showcEffect();
         });
 
         _bottomBar.on("touchstart",function(){
@@ -327,7 +377,7 @@ function bottomBar(sgObj){
             _sgProduct.setFavBox(true);
             _this.setFavBtn(false);
             _favBoolean=true;
-            this.setProgress(false);
+            _this.setProgress(false);
         });
     }
 
@@ -345,14 +395,21 @@ function bottomBar(sgObj){
             clearTimeout(_timeOut);
         }
         var _currentX=parseInt(_progressBtn.css("left"));
-        console.log(_currentX);
+//
         var _deltaX=obj.deltaX-_lastX;
+        console.log("当前deltax="+obj.deltaX+"~~~~上次detalX="+_lastX+"~~~~~~移动量="+_deltaX);
+        console.log(_currentX);
         var _targetX=_currentX+_deltaX;
         if(_targetX<_minLeft||_targetX>_maxLeft){
             return;
         }
-        _progressBtn.css("left",_currentX+_deltaX);
+        var _targetLeft=_currentX+_deltaX;
+        console.log("上次"+_currentX+"~~~去_targetLeft");
+        _progressBtn.css("left",_targetX);
         _lastX=obj.deltaX;
+        //判断是否翻页
+        var _pageIndex=_targetLeft/_maxLeft;
+        _sgProduct.slidePage(_pageIndex);
     }
     this.setProgress=function(flag){
         if(flag)clearTimeout(_timeOut);
@@ -376,6 +433,10 @@ function bottomBar(sgObj){
             _currentState=false;
         },4000);
     }
+    this.setProgressBtn=function(per){
+        _currentPer=per;
+        if(_maxLeft) setPosition();
+    }
 }
 function setSiderBar(){
     //slider bar
@@ -385,12 +446,19 @@ function setSiderBar(){
     //
     var _goDetail;
     var _closeBtn;
+    var _state;
 
     (function init(){
         getObj();
         setEvents();
     })();
-
+    function updataData(datakey){
+        _sliderBar.find(".pimg img").attr("src",data[datakey].imgSrc);
+        _sliderBar.find(".ptitle").text(data[datakey].title);
+        _sliderBar.find(".pprice i").text(data[datakey].price);
+        _sliderBar.find(".ptext .dis").html(data[datakey].activity);
+        _sliderBar.find(".ptext .feature").html(data[datakey].detail);
+    }
     function getObj(){
         _sliderBar=$(".rightSlider");
         _sliderBarContent=$(".rightSlider .detailConent");
@@ -399,10 +467,21 @@ function setSiderBar(){
     }
     function setEvents(){
         _goDetail.bind("click",function(){
+            //放入数据
+            var _dataKey=$(this).attr("data-key");
+            updataData(_dataKey);
             setSlideBar(true);
+            _state=true;
         });
         _closeBtn.bind("click",function(){
             setSlideBar(false);
+            _state=false;
+        });
+        _sliderBar.bind("click",function(){
+            if(_state){
+                setSlideBar(false);
+                _state=false;
+            }
         });
     }
     function setSlideBar(flag){
@@ -414,10 +493,10 @@ function setSiderBar(){
         }
         else{
             var _right=_sliderBarContent.offset().width*(-1);
+            _sliderBarContent.css("right",_right);
             setTimeout(function(){
-                _sliderBarContent.css("right",_right);
-            },0);
-            _sliderBar.css("display","none");
+                _sliderBar.css("display","none");
+            },500);
         }
     }
 }

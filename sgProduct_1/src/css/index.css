@@ -24,7 +24,9 @@
       cursor: pointer; }
   .wapper .cover {
     z-index: 1200;
-    background: #f6f1de url("../images/sgCoverBg.png") repeat-y;
+    background-color: #f6f1de;
+    background-image: url("../images/sgCoverBg.png");
+    background-repeat: repeat-y;
     background-position: top right;
     background-size: 69.21875% auto;
     -moz-transform-origin: bottom center;
@@ -37,12 +39,14 @@
     -o-transition: all .5s ease-in-out; }
     .wapper .cover .title {
       text-align: center;
-      padding-top: 0.75em; }
+      padding-top: 0.75em;
+      width: 100%; }
       .wapper .cover .title img {
         width: 85.9375%; }
     .wapper .cover .content {
       margin-top: 0.66667em;
-      text-align: left; }
+      text-align: left;
+      width: 100%; }
       .wapper .cover .content img {
         width: 95.15625%; }
     .wapper .cover .bottom {
@@ -89,13 +93,13 @@
       .wapper .pages .rightSlider .alphaBg {
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.4); }
+        background-color: rgba(0, 0, 0, 0.4); }
       .wapper .pages .rightSlider .detailConent {
         position: absolute;
         width: 62.8125%;
         height: 100%;
         overflow-y: auto;
-        background: #fff;
+        background-color: #fff;
         top: 0;
         right: -62.8125%;
         -moz-transform-origin: center right;
@@ -107,11 +111,15 @@
         -moz-transition: all .5s ease-in-out;
         -o-transition: all .5s ease-in-out; }
         .wapper .pages .rightSlider .detailConent .closeBtn {
-          width: 20.5px;
-          height: 20.5px;
-          top: 9px;
-          left: 8px;
-          position: absolute; }
+          width: 41px;
+          height: 41px;
+          position: absolute;
+          text-align: center;
+          vertical-align: middle;
+          line-height: 41px; }
+          .wapper .pages .rightSlider .detailConent .closeBtn img {
+            width: 50%;
+            height: 50%; }
         .wapper .pages .rightSlider .detailConent .addFav {
           width: 44px;
           height: 44px;
@@ -126,8 +134,9 @@
           .wapper .pages .rightSlider .detailConent .prod .pimg img {
             width: 100%; }
           .wapper .pages .rightSlider .detailConent .prod .ptitle {
-            font-size: 1em; }
+            font-size: 1.16667em; }
           .wapper .pages .rightSlider .detailConent .prod .pprice strong {
+            margin-left: .2em;
             color: #f29c07;
             font-size: 1.5em; }
         .wapper .pages .rightSlider .detailConent .ptext {
@@ -159,26 +168,66 @@
     -moz-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0);
-    background: url("../images/fav-bg.png") repeat; }
+    background-image: url("../images/fav-bg.png");
+    background-repeat: repeat; }
     .wapper .favPage .listbox {
-      background: url("../images/fav-bg.png") repeat;
+      background-image: url("../images/fav-bg.png");
+      background-repeat: repeat;
       overflow-y: auto; }
       .wapper .favPage .listbox .list li {
         width: 50%;
         float: left;
-        font-size: 1em;
-        height: 12.25em;
-        position: relative; }
-        .wapper .favPage .listbox .list li .info {
+        font-size: 1em; }
+        .wapper .favPage .listbox .list li .box {
+          position: relative;
+          height: 100%;
+          border-bottom: 1px solid #cdc8c8; }
+          .wapper .favPage .listbox .list li .box .info {
+            position: absolute;
+            color: #000;
+            text-align: right; }
+            .wapper .favPage .listbox .list li .box .info .tr {
+              font-size: 1.41667em;
+              color: #f9930e; }
+              .wapper .favPage .listbox .list li .box .info .tr i {
+                font-family: "Georgia"; }
+          .wapper .favPage .listbox .list li .box img {
+            width: 100%; }
+      .wapper .favPage .listbox .list li:nth-child(1) .box {
+        margin-right: 0.625em; }
+      .wapper .favPage .listbox .list li:nth-child(2) .box {
+        margin-left: 0.625em; }
+      .wapper .favPage .listbox .box1 .box {
+        padding-top: 21.38158%; }
+        .wapper .favPage .listbox .box1 .box .info {
+          top: 10.52632%;
+          right: 0.41667em; }
+      .wapper .favPage .listbox .box2 .box {
+        padding-top: 11.51316%; }
+        .wapper .favPage .listbox .box2 .box .info {
+          top: 10.52632%;
+          right: 0.41667em; }
+      .wapper .favPage .listbox .specail-li {
+        border-bottom: 1px solid #cdc8c8;
+        padding-top: 1.33333em;
+        text-align: center; }
+        .wapper .favPage .listbox .specail-li .spe-box .img {
+          display: inline-block;
+          width: 31.25%; }
+          .wapper .favPage .listbox .specail-li .spe-box .img img {
+            width: 100%; }
+        .wapper .favPage .listbox .specail-li .spe-box .info {
+          display: inline-block;
           color: #000;
-          text-align: right;
-          position: absolute;
           top: 1.33333em;
-          right: 1.33333em; }
-          .wapper .favPage .listbox .list li .info .tr {
-            font-size: 1.5em;
+          right: 1.33333em;
+          margin-left: 0.83333em;
+          margin-top: 1.375em; }
+          .wapper .favPage .listbox .specail-li .spe-box .info .tr {
+            font-size: 1.41667em;
+            margin-top: .2em;
             color: #f9930e; }
-            .wapper .favPage .listbox .list li .info .tr i {
+            .wapper .favPage .listbox .specail-li .spe-box .info .tr i {
               font-family: "Georgia"; }
   .wapper .catelog {
     position: absolute;
@@ -198,7 +247,7 @@
     -o-transition: all .5s ease-in-out; }
   .wapper .catelog {
     z-index: 900;
-    background: #fff; }
+    background-color: #fff; }
     .wapper .catelog .title {
       text-align: center;
       padding-top: 1.75em;
@@ -242,7 +291,7 @@
             border: 1px solid #a09f9f;
             position: absolute;
             line-height: 1.33333em;
-            background: #fff;
+            background-color: #fff;
             color: #5e5e5e; }
           .wapper .catelog .list ul li .detail1 {
             position: absolute;
@@ -335,7 +384,7 @@
               display: inline-block;
               height: 2em;
               width: 2em;
-              background: #fff;
+              background-color: #fff;
               font-size: 1em;
               color: #797070;
               border: 1px solid #797070;
@@ -350,7 +399,7 @@
               height: 1.6em;
               width: 1.6em;
               line-height: 1.6em;
-              background: #000;
+              background-color: #000;
               font-size: 2.5em;
               color: #fff;
               border: 0 none;
@@ -376,7 +425,8 @@
     width: 100%;
     padding-bottom: 15px; }
     .wapper .showpretty .title {
-      background: url("../images/showPrettyTop.png") no-repeat;
+      background-image: url("../images/showPrettyTop.png");
+      background-repeat: no-repeat;
       background-size: 100% auto;
       padding-top: 35%; }
       .wapper .showpretty .title .titleImg {
@@ -441,7 +491,7 @@
         top: 0.70833em;
         right: 28px;
         position: absolute;
-        background: #ffb3fb;
+        background-color: #ffb3fb;
         opacity: 0.3;
         border-radius: 50%;
         -webkit-border-radius: 50%;
@@ -473,7 +523,7 @@
         -o-border-radius: 50%;
         top: 18.07229%;
         left: 1.33333em;
-        background: #daffa4;
+        background-color: #daffa4;
         opacity: 0.6;
         position: absolute;
         z-index: -1; }
@@ -484,10 +534,10 @@
     width: 100%;
     top: 0;
     bottom: 0;
-    background: #eff1dc;
+    background-color: #eff1dc;
     overflow-y: auto; }
     .wapper .tonic .contentbg {
-      background: #eff1dc; }
+      background-color: #eff1dc; }
       .wapper .tonic .contentbg .title {
         position: relative;
         width: 100%; }
@@ -520,7 +570,8 @@
     width: 100%;
     top: 0;
     bottom: 0;
-    background: url("../images/cup-bg.png") no-repeat;
+    background-image: url("../images/cup-bg.png");
+    background-repeat: no-repeat;
     background-size: 100% 100%; }
     .wapper .cup .text {
       position: absolute;
@@ -620,7 +671,8 @@
       height: 39px;
       display: block;
       float: left;
-      background: url("../images/homeBtn.png");
+      background-image: url("../images/homeBtn.png");
+      background-repeat: no-repeat;
       background-size: 100%; }
     .wapper .bottomBar .middle {
       border-left: 1px solid #fff;
@@ -633,31 +685,39 @@
         margin: 19px auto 0px;
         width: 89%;
         height: 1px;
-        background: #8e8c8c;
+        background-color: #8e8c8c;
         position: relative; }
         .wapper .bottomBar .middle .progress .btn {
-          height: 18px;
-          width: 18px;
+          height: 30px;
+          width: 30px;
           position: absolute;
-          top: -8px;
-          left: -9px;
-          border-radius: 9px;
-          -webkit-border-radius: 9px;
-          -moz-border-radius: 9px;
-          -o-border-radius: 9px;
-          border-radius: 9px;
-          background: #eae9e9;
-          box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0;
-          -webkit-box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0;
-          -moz-box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0;
-          -o-box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0;
-          box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0; }
+          text-align: center;
+          line-height: 30px;
+          top: -14px;
+          left: -15px; }
+          .wapper .bottomBar .middle .progress .btn .btnin {
+            height: 18px;
+            width: 18px;
+            display: inline-block;
+            margin-top: 6px;
+            border-radius: 9px;
+            -webkit-border-radius: 9px;
+            -moz-border-radius: 9px;
+            -o-border-radius: 9px;
+            border-radius: 9px;
+            background-color: #eae9e9;
+            box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0;
+            -webkit-box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0;
+            -moz-box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0;
+            -o-box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0;
+            box-shadow: rgba(4, 0, 0, 0.75) 0 0 5px 0; }
     .wapper .bottomBar .fav {
       width: 39px;
       height: 39px;
       display: block;
       float: right;
-      background: url("../images/favBtn.png");
+      background-image: url("../images/favBtn.png");
+      background-repeat: no-repeat;
       background-size: 100%; }
 
 @media screen and (min-device-width: 321px) {
