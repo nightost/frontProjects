@@ -1,0 +1,57 @@
+.add-item {
+  background: #fff; }
+  .add-item .header {
+    font-family: "Microsoft Yahei";
+    position: relative; }
+    .add-item .header ul {
+      width: 100%;
+      border-bottom: 1px solid #dedede; }
+      .add-item .header ul li {
+        float: left;
+        height: 77px;
+        line-height: 77px;
+        font-size: 1.5em;
+        color: #252525;
+        width: 300px;
+        text-align: center; }
+      .add-item .header ul .current {
+        color: #c4a16e;
+        font-size: 2.5em; }
+    .add-item .header .bottomBorder {
+      height: 3px;
+      width: 300px;
+      background-color: #c4a16e;
+      position: absolute;
+      bottom: 0;
+      left: 0; }
+  .add-item .operate {
+    margin: 0 124px 0 120px;
+    font-size: 1.16667em;
+    color: #252525; }
+    .add-item .operate .title {
+      float: left;
+      width: 56px; }
+    .add-item .operate .operate-box {
+      margin-left: 71px;
+      margin-top: 77px; }
+      .add-item .operate .operate-box .box {
+        border: 1px solid #edebeb;
+        height: 201px;
+        padding: 4px 5px; }
+        .add-item .operate .operate-box .box .spec-item {
+          display: inline-block;
+          padding: 12px 30px;
+          background: #f2f2f2;
+          margin: 8px 7px;
+          border-radius: 20px;
+          -webkit-border-radius: 20px;
+          -moz-border-radius: 20px;
+          -o-border-radius: 20px; }
+      .add-item .operate .operate-box .bz {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #999999; }
+        .add-item .operate .operate-box .bz .bz-title {
+          float: left; }
+        .add-item .operate .operate-box .bz .content {
+          float: left; }

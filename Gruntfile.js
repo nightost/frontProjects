@@ -5,10 +5,9 @@ module.exports=function(grunt){
             banner: '/* Copyright (c) <%= grunt.template.today("yyyy") %>*/ \n' +'/*Nightost; Licensed MIT */'
         },
         projects:{
-            blowBalloon:"blowBalloon",
-            sgProduct:"sgProduct_1"
+            projectname:"sgProduct_1"
         },
-        curProject:'<%=projects.sgProduct%>',
+        curProject:'<%=projects.projectname%>',
         path:{
             srcDir:"<%=curProject%>/src",
             distDir:"<%=curProject%>/dist"
@@ -100,7 +99,10 @@ module.exports=function(grunt){
          grunt.config.set("cssmin",projectConfig.cssmin);
          grunt.task.run(["sass","cssmin","uglify"]);
      });*/
-    grunt.registerTask("buildSg","just watch",['watch'],function(){
-        grunt.log.debug("哇咔咔，走起");
+    grunt.registerTask("buildP","just watch",function(project){
+        //命令行可带参数运行
+        //grunt.config.set("projects.projectname",project);
+        grunt.config.set("projects.projectname","manageProducts");
+        grunt.task.run("watch");
     });
 };

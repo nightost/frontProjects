@@ -31,6 +31,7 @@ function sgProduct(settings){
     var _pages;
     //
     var _curentPage=-1;
+    //catelog 数字标号
     var _sns;
 
     //this

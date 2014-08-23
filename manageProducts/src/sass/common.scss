@@ -1,0 +1,49 @@
+$baseSize:12;
+body{
+  font-size:$baseSize+px;
+  font-family: "simhei";
+}
+ol{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.clearfix:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.clearfix {zoom:1;}
+
+/*common css*/
+table {border-collapse:collapse;border-spacing:0}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400;}
+ul,ol,li{list-style:none}
+em,i,strong{font-style:normal;font-weight:400;}
+img{max-width:100%;height:auto;border:0;}
+input,img{vertical-align:middle}
+:focus{outline:none;}
+/*Base*/
+
+a{color:#333;text-decoration:none;}
+.cl{clear:both;display:block;height:0; line-height:0;overflow:hidden;font-size:0;}
+.hide{display:none;}
+
+.font12{ font-size: 12px;}
+
+
+/*Global*/
+*{margin: 0; padding: 0;}
+.cover{
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  top:0px;
+  bottom: 0px;
+  height: 100%;
+}
+.cover .bg{
+  width: 100%;
+  height: 100%;
+
+}

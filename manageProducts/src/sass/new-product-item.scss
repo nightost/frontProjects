@@ -1,0 +1,90 @@
+//$
+@mixin borderRaduis($radius) {
+  border-radius:$radius;
+  -webkit-border-radius:$radius;
+  -moz-border-radius:$radius;
+  -o-border-radius:$radius;
+}
+$baseSize:12;
+$font18:(18/$baseSize)+em;
+$color_252525:#252525;
+
+$font30:(30/$baseSize)+em;
+$color_c4a16e:#c4a16e;
+
+$font14:(14/$baseSize)+em;
+$color_edebeb:#edebeb;
+
+$color_999999:#999999;
+$color_f2f2f2:#f2f2f2;
+
+$font-famiy-yahie:"Microsoft Yahei";
+.add-item{
+  background: #fff;
+  .header{
+    font-family:$font-famiy-yahie;
+    position: relative;
+    ul{
+      width: 100%;
+      border-bottom:1px solid #dedede;
+      li{
+        float: left;
+        height:77px;
+        line-height: 77px;
+        font-size: $font18;
+        color:$color_252525;
+        width: 300px;
+        text-align: center;
+      }
+      .current{
+        color: $color_c4a16e;
+        font-size:$font30;
+      }
+    }
+    .bottomBorder{
+      height: 3px;
+      width: 300px;
+      background-color: $color_c4a16e;
+      position: absolute;
+      bottom:0;
+      left:0;
+    }
+  }
+  .operate{
+    margin:0 124px 0 120px;
+    font-size:$font14;
+    color: $color_252525;
+    .title{
+      float: left;
+      width: 56px;
+    }
+    .operate-box{
+      margin-left:71px;
+      margin-top:77px;
+      .box{
+        border: 1px solid $color_edebeb;
+        height:201px;
+        padding: 4px 5px;
+        .spec-item{
+          display: inline-block;
+          padding: 12px 30px;
+          background: $color_f2f2f2;
+          margin: 8px 7px;
+          @include borderRaduis(20px);
+        }
+      }
+      .bz{
+        margin-top: 10px;
+        font-size: $baseSize+px;
+        color: $color_999999;
+        .bz-title{
+          float: left;
+        }
+        .content{
+          float: left;
+        }
+      }
+    }
+  }
+
+}

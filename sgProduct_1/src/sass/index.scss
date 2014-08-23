@@ -16,7 +16,8 @@ body,html{
     position: absolute;
     width: 100%;
     background: #fff;
-//    padding-bottom: 39px;
+    width:30%;
+    //    padding-bottom: 39px;
 /*     -webkit-transition:all .5s ease-in;
 -moz-transition:all .5s ease-in;
 -o-transition:all .5s ease-in;
@@ -924,10 +925,10 @@ transition:all .5s ease-in; */
     width: (559/640)*100%;
   }
 }
-/* @media screen and (min-device-width:640px){
+ @media screen and (min-width:640px){
   .wapper{
     width: 640px;
     left:50%;
     margin-left: -320px;
   }
-} */
+}
