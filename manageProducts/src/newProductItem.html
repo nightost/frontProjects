@@ -12,6 +12,7 @@
     }
 </style>
 <body>
+<input name="mercharid" type="hidden"/>
 	<div class="add-item">
 		<div class="header">
 			<ul class="menu clearfix">
@@ -24,7 +25,19 @@
             <div class="title">新建类目</div>
             <div class="operate-box">
                 <div class="box">
-                    <span class="spec-item">洗化用品</span>
+                    <div class="p-box"><span p-type="p0" class="spec-item" ori-content="洗化用品">洗化用品</span><i>X</i><input
+                            type="text"/></div>
+                    <div class="p-box"><span p-type="p1" class="spec-item" ori-content="洗化用品">洗化用品</span><i>X</i><input
+                            type="text"/></div>
+                  <!--  <span class="spec-item" contenteditable>化妆精品</span>
+                    <span class="spec-item" contenteditable>零食</span>
+                    <span class="spec-item" contenteditable>化妆精品</span>
+                    <span class="spec-item" contenteditable>零食</span>
+                    <span class="spec-item" contenteditable>化妆精品</span>
+                    <span class="spec-item" contenteditable>零食</span>
+                    <span class="spec-item" contenteditable>化妆精品</span>-->
+                    
+                    <span class="addBtn"></span>
                 </div>
                 <div class="bz clearfix">
                     <div class="bz-title">注: </div>
@@ -37,4 +50,7 @@
         </div>
 	</div>
 </body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/createItem.js"></script>
 </html>

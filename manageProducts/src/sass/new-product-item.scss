@@ -4,6 +4,11 @@
   -webkit-border-radius:$radius;
   -moz-border-radius:$radius;
   -o-border-radius:$radius;
+  -ms-border-radius:$radius;
+}
+@mixin size($w,$h) {
+  width:$w;
+  height:$h;
 }
 $baseSize:12;
 $font18:(18/$baseSize)+em;
@@ -63,14 +68,62 @@ $font-famiy-yahie:"Microsoft Yahei";
       margin-top:77px;
       .box{
         border: 1px solid $color_edebeb;
-        height:201px;
+        min-height:201px;
         padding: 4px 5px;
-        .spec-item{
+        span{
+          vertical-align: middle;
+        }
+        .p-box{
+          position: relative;
+          display:inline-block;
+          input{
+            display: none;
+            position: absolute;
+            left: 37px;
+            top: 19px;
+            background-color: #F2F2F2;
+            border: 0 none;
+            font-family: "microsoft yahei";
+            vertical-align: middle;
+          }
+          .spec-item{
+            display: inline-block;
+            padding: 12px 30px;
+            background: $color_f2f2f2;
+            margin: 8px 7px;
+            line-height: 14px;
+            @include borderRaduis(20px);
+          }
+          i{
+            width: 10px;
+            height: 10px;
+            @include borderRaduis(5px);
+            background: #000;
+            border: 1px solid #C28787;
+            color: #F5ECEC;
+            position: absolute;
+            right: 7px;
+            top: 4px;
+            text-align: center;
+            line-height: 10px;
+            display: none;
+          }
+        }
+        .addBtn{
           display: inline-block;
-          padding: 12px 30px;
+          @include size(86px,40px);
           background: $color_f2f2f2;
           margin: 8px 7px;
           @include borderRaduis(20px);
+          font-size: (22/$baseSize)+em;
+          text-align: center;
+          background-image: url(../images/add-item-icon.gif);
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          cursor: pointer;
+        }
+        .edit-add-item{
+          background-image: none;
         }
       }
       .bz{
