@@ -5,12 +5,27 @@ module.exports=function(grunt){
             banner: '/* Copyright (c) <%= grunt.template.today("yyyy") %>*/ \n' +'/*Nightost; Licensed MIT */'
         },
         projects:{
-            projectname:"sgProduct_1"
+            projectname:"eatChickenCutlet"
         },
         curProject:'<%=projects.projectname%>',
         path:{
             srcDir:"<%=curProject%>/src",
             distDir:"<%=curProject%>/dist"
+        },
+        htmlmin:{
+            dist:{
+                options:{
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files:[{
+                    "expand": true,
+                    "cwd": "<%=path.srcDir%>/html/",
+                    "src": ["**/*.html"],
+                    "dest": "<%=path.distDir%>/html/",
+                    "ext":".html"
+                }]
+            }
         },
         sass:{
             main:{
@@ -18,14 +33,20 @@ module.exports=function(grunt){
                     "expand": true,
                     "cwd": "<%=path.srcDir%>/sass/",
                     "src": ["**/*.scss"],
-                    "dest": "<%=path.srcDir%>/css/",
+                    "dest": "<%=path.distDir%>/css/",
                     "ext":".css"
                 }]
             }
         },
         "cssmin":{
             "main":{
-                "files":[{"<%=path.distDir%>/css/index.css":"<%=path.srcDir%>/css/*.css"}]
+                files:[{
+                    "expand": true,
+                    "cwd": "<%=path.distDir%>/css/",
+                    "src": ["**/*.css"],
+                    "dest": "<%=path.distDir%>/css/",
+                    "ext":".min.css"
+                }]
             }
         },
         "imagemin":{
@@ -48,19 +69,28 @@ module.exports=function(grunt){
             "main":{
                 "files":[{
                     "expand": true,
-                    "cwd": "<%=path.srcDir%>/js/",
+                    "cwd": "<%=path.distDir%>/js/",
                     "src": ["**/*.js"],
-                    "dest": "<%=path.distDir%>/js/"
+                    "dest": "<%=path.distDir%>/js/",
+                    "ext":".min.js"
                 }]
             }
         },
         concat:{
-            "main":{
-                    "src": ["<%=path.distDir%>/js/*.js","!<%=path.distDir%>/js/zepto.min.js","!<%=path.distDir%>/js/index.js"],
-                    "dest":"<%=path.distDir%>/js/index.js"
+            "lib":{
+                    "src": ["<%=path.srcDir%>/js/zepto.min.js","<%=path.srcDir%>/js/fx.js","<%=path.srcDir%>/js/hammer.js"],
+                    "dest":"<%=path.distDir%>/js/libs.js"
+            },
+            "funs":{
+                "src": ["<%=path.srcDir%>/js/*.js","!<%=path.srcDir%>/js/zepto.min.js","!<%=path.srcDir%>/js/fx.js","!<%=path.srcDir%>/js/hammer.js"],
+                "dest":"<%=path.distDir%>/js/index.js"
             }
         },
         "watch":{
+            "html":{
+                "files":["<%=path.srcDir%>/html/*.html"],
+                "tasks":["htmlmin"]
+            },
             "css":{
                 "files": ["<%=path.srcDir%>/sass/*.scss"],
                 "tasks": ["sass","cssmin"]
@@ -68,12 +98,12 @@ module.exports=function(grunt){
             "image":{
                 "files": ["<%=path.srcDir%>/images/*.{png,jpg,jpeg}"],
                 "tasks": ["imagemin"]
-            }
+            },
 //           , 暂时不压缩
-            /*"uglify":{
-                "files": ["<%=path.srcDir%>/js*//*.js"],
-                "tasks": ["uglify","concat"]
-            }*/
+            "uglify":{
+                "files": ["<%=path.srcDir%>/js/*.js"],
+                "tasks": ["concat","uglify"]
+            }
         }
     });
     //加载Grunt插件
@@ -83,7 +113,8 @@ module.exports=function(grunt){
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+//    grunt.loadNpmTasks('grunt-contrib-connect');
 /*    grunt.registerTask("build","build project",function(project){
          var path=project;
          grunt.log.debug(path);
@@ -101,8 +132,9 @@ module.exports=function(grunt){
      });*/
     grunt.registerTask("buildP","just watch",function(project){
         //命令行可带参数运行
-        //grunt.config.set("projects.projectname",project);
-        grunt.config.set("projects.projectname","manageProducts");
+        grunt.log.debug(project);
+        grunt.config.set("projects.projectname",project);
+//        grunt.config.set("projects.projectname","eatChickenCutlet");
         grunt.task.run("watch");
     });
 };

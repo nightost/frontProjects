@@ -1,29 +1,5 @@
 //$
-@mixin borderRaduis($radius) {
-  border-radius:$radius;
-  -webkit-border-radius:$radius;
-  -moz-border-radius:$radius;
-  -o-border-radius:$radius;
-  -ms-border-radius:$radius;
-}
-@mixin size($w,$h) {
-  width:$w;
-  height:$h;
-}
-$baseSize:12;
-$font18:(18/$baseSize)+em;
-$color_252525:#252525;
-
-$font30:(30/$baseSize)+em;
-$color_c4a16e:#c4a16e;
-
-$font14:(14/$baseSize)+em;
-$color_edebeb:#edebeb;
-
-$color_999999:#999999;
-$color_f2f2f2:#f2f2f2;
-
-$font-famiy-yahie:"Microsoft Yahei";
+@import "base.scss";
 .add-item{
   background: #fff;
   .header{
@@ -135,6 +111,20 @@ $font-famiy-yahie:"Microsoft Yahei";
         }
         .content{
           float: left;
+        }
+
+      }
+      .next-step{
+        .sub-btn{
+          margin-top: 50px;
+          margin-bottom: 50px;
+          background: #c4a16e;
+          width: 162px;
+          height: 46px;
+          color: #fff;
+          font-size: 24px;
+          border: 0 none;
+          font-family: $font-famiy-yahie;
         }
       }
     }

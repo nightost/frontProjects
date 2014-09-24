@@ -1,0 +1,127 @@
+@charset "GBK";
+.products {
+  font-family: "Microsoft Yahei";
+  margin-top: 41px;
+  margin-left: 29px;
+  font-size: 14px; }
+  .products .t-top {
+    margin-bottom: 14px; }
+  .products .tool span {
+    width: 80px;
+    height: 40px;
+    font-size: 14px;
+    color: #fff;
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer; }
+  .products .tool .on-shelf {
+    background-color: #c5a16f; }
+  .products .tool .off-shelf {
+    background-color: #9bc46e; }
+  .products .tool .del {
+    background-color: #de7676; }
+  .products .p-content {
+    border-top: 1px solid #dedede; }
+    .products .p-content span.check {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border: 1px solid #c5a16f;
+      background-color: #fff;
+      margin: 0px 22px 0px 8px; }
+    .products .p-content span.check-active {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      background-color: #c5a16f; }
+    .products .p-content table {
+      width: 100%; }
+      .products .p-content table tr th {
+        font-weight: normal;
+        background-color: #f2f2f2;
+        color: #252525;
+        height: 30px;
+        line-height: 30px;
+        text-align: left; }
+      .products .p-content table tr .first {
+        width: 44px; }
+      .products .p-content table tr td {
+        border-bottom: 1px solid #f2f2f2; }
+        .products .p-content table tr td .img {
+          width: 150px;
+          height: 120px;
+          border: 1px solid #f2f2f2;
+          margin: 22px 18px 22px 0px;
+          text-align: center;
+          font-size: 0;
+          cursor: pointer; }
+          .products .p-content table tr td .img span {
+            display: table-cell;
+            vertical-align: middle;
+            width: 150px;
+            height: 120px; }
+        .products .p-content table tr td .edit-t span {
+          width: 24px;
+          height: 23px;
+          display: inline-block;
+          margin-right: 26px; }
+        .products .p-content table tr td .edit-t .edit {
+          background: url("../images/icons.png") no-repeat;
+          background-position: 0px 0px; }
+        .products .p-content table tr td .edit-t .on-s {
+          background: url("../images/icons.png") no-repeat;
+          background-position: 0px -33px; }
+        .products .p-content table tr td .edit-t .off-s {
+          background: url("../images/icons.png") no-repeat;
+          background-position: 0px -66px; }
+        .products .p-content table tr td .edit-t .del {
+          background: url("../images/icons.png") no-repeat;
+          background-position: 0px -99px; }
+  .products .bottom {
+    margin-top: 23px;
+    margin-bottom: 23px;
+    /*分页*/ }
+    .products .bottom .t-bottom {
+      float: left; }
+    .products .bottom .pagination {
+      float: right;
+      margin-top: 3px;
+      margin-right: 37px; }
+    .products .bottom .pagination .page-wrap {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      position: relative;
+      text-align: center;
+      vertical-align: middle; }
+    .products .bottom .pagination .page-split {
+      display: inline-block;
+      width: 15px;
+      height: 30px;
+      line-height: 30px;
+      vertical-align: middle; }
+    .products .bottom .pagination .page-wrap a {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0; }
+    .products .bottom .pagination .cur a {
+      background-color: #c4a16e;
+      color: #fff; }
+    .products .bottom .pagination .page-wrap a:hover {
+      background-color: #c4a16e;
+      color: #fff; }
+    .products .bottom .pagination .page-previous, .products .bottom .pagination .page-next {
+      text-indent: -999em; }
+    .products .bottom .pagination .page-previous {
+      background: url(../images/page-previous.png) center center no-repeat #f2f2f2; }
+    .products .bottom .pagination .page-next {
+      background: url(../images/page-next.png) center center no-repeat #f2f2f2; }
+    .products .bottom .pagination .page-previous a:hover {
+      background: url(../images/page-previous-over.png) center center no-repeat #c4a16e; }
+    .products .bottom .pagination .page-next a:hover {
+      background: url(../images/page-next-over.png) center center no-repeat #c4a16e; }

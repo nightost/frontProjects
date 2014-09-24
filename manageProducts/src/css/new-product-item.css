@@ -107,3 +107,13 @@
           float: left; }
         .add-item .operate .operate-box .bz .content {
           float: left; }
+      .add-item .operate .operate-box .next-step .sub-btn {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background: #c4a16e;
+        width: 162px;
+        height: 46px;
+        color: #fff;
+        font-size: 24px;
+        border: 0 none;
+        font-family: "Microsoft Yahei"; }

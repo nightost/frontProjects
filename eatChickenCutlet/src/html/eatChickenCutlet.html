@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta content="telephone=no" name="format-detection"/>
+<title>吃鸡排</title>
+<link rel="stylesheet" href="../css/eatChickenCulet.css"/>
+</head>
+<body>
+<!--<input type="hidden" th:value="${wixinId}" id="wixinId" />
+<input type="hidden" th:value="${toId}" id="toId" />
+<input type="hidden" th:value="${reqIp}" id="reqIp" />-->
+	<div class="wrapper">
+		<div class="topbar">
+			<img class="pro-icon" src="../images/top-cutlet-logo.png" />
+			<span class="pro-num"><i>X</i>123</span>
+			<div class="progress-bar"><div class="progress">&nbsp;</div></div>
+		</div>
+
+		<div class="bottom">
+			<div class="player">
+				<div class="normal-part">
+                    <div class="heads">
+                        <img src="../images/head-0.png" alt=""/>
+                        <img style="display: none" src="../images/head-1.png" alt=""/>
+                        <img style="display: none" src="../images/head-2.png" alt=""/>
+                        <img style="display: none" src="../images/head-3.png" alt=""/>
+                    </div>
+                    <img class="body" src="../images/body.png" alt=""/>
+                    <img class="logo" src="../images/logo_03.png" alt=""/>
+                    <div class="hands">
+                        <div id="normal-hands" class="normal-hands" style="display:none">
+                            <img src="../images/normal-heads.png" alt="" />
+                        </div>
+                        <div id="step-1" class="step" style="display:none">
+                            <div class="left-hands-1">
+                                <img src="../images/left-hand-eat.png" class="arm" alt=""/>
+                                <img src="../images/left-cutlet.png" class="cutlet" alt=""/>
+                            </div>
+                            <div class="left-hands-2">
+                                <img src="../images/right-hand-keep.png" class="arm" alt=""/>
+                                <img src="../images/right-culet-1.png" class="cutlet" alt=""/>
+                            </div>
+                        </div>
+                        <div id="step-2" class="step" >
+                            <div class="left-hands-1">
+                                <img src="../images/left-hand-eat.png" class="arm" alt=""/>
+                                <img src="../images/left-half.png" class="cutlet" alt=""/>
+                            </div>
+                            <div class="left-hands-2">
+                                <img src="../images/right-hand-keep.png" class="arm" alt=""/>
+                                <img src="../images/right-culet-1.png" class="cutlet" alt=""/>
+                            </div>
+                        </div>
+                        <div id="step-3" class="step" style="display:none">
+                            <img src="http://115.29.35.199/images/eatBeef/eating/c33.png"  class="left-hands left-hands-2" alt="" />
+                            <img src="http://115.29.35.199/images/eatBeef/eating/c31.png"  class="right-hands" alt="" />
+                        </div>
+                        <div id="step-4" class="step" style="display:none">
+                            <img src="http://115.29.35.199/images/eatBeef/eating/c32.png"  class="left-hands left-hands-1" alt="" />
+                            <img src="http://115.29.35.199/images/eatBeef/eating/c33.png"  class="right-hands right-hands-1" alt="" />
+                        </div>
+                        <div id="step-5" class="step" style="display:none">
+                            <img src="http://115.29.35.199/images/eatBeef/eating/c35.png"  class="left-hands" alt="" />
+                            <img src="http://115.29.35.199/images/eatBeef/eating/c33.png"  class="right-hands" alt="" />
+                        </div>
+                    </div>
+                </div>
+				</div>
+
+			<div class="desk-box">
+				<img src="../images/desk.png" alt="" class="desk"/>
+				<img src="../images/cutlet-full.png" data-src1="../images/cug"  class="steamer" alt="" />
+				<div class="eat-btn">
+                    <img src="../images/eat-btn-normal.png" alt="" class="start-eat"/>
+                    <img style="display: none" src="../images/eat-btn-active.png" alt="" class="start-eat-active"/>
+				</div>
+				<p class="mail">问题反馈：service@rangerinfo.com</p>
+            </div>
+		</div>
+		<div class="result-box" style="display:none">
+			<div class="bg"></div>
+			<div class="share"><img src="http://115.29.35.199/images/eatBeef/finished/c36.png" alt=""/></div>
+			<div class="point-hand"><img src="http://115.29.35.199/images/eatBeef/finished/c11.png" alt=""/></div>
+			<div class="act-info">
+				<!-- <p><img class="logo" src="http://115.29.35.199/images/eatBeef/finished/xl-icon.png" alt="" />雪龙黑牛</p> -->
+				<p><span class="yellow">"疯狂吃牛肉"活动</span></p>
+				<p>正式拉开帷幕啦!</p>
+				<p class="yellow">勇士们赶紧过来较量吧!</p>
+				<!-- <p><span class="yellow">丰厚奖品</span>等你来拿!</p> -->
+				<p><a href="" id="detail_link">详情点击<img class="link" src="http://115.29.35.199/images/eatBeef/finished/link-icon.png" alt="" /></a></p>
+			</div>
+			<div class="result-info"><div class="result-text">0块牛肉不过瘾，年轻人必须得牛逼！！</div><p id="uni-text" style="display:none;color:red">全球排名：<span id="uni-record">0</span></p></div>
+			<div class="again"><a href=""><img src="http://115.29.35.199/images/eatBeef/finished/c19.png" alt=""/></a></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../js/libs.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript">
+		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdf4e803a1c91fea8424141580493c9c3' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+</body>
+</html>

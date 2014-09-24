@@ -1,0 +1,25 @@
+@mixin borderRaduis($radius) {
+  border-radius:$radius;
+  -webkit-border-radius:$radius;
+  -moz-border-radius:$radius;
+  -o-border-radius:$radius;
+  -ms-border-radius:$radius;
+}
+@mixin size($w,$h) {
+  width:$w;
+  height:$h;
+}
+$baseSize:12;
+$font18:(18/$baseSize)+em;
+$color_252525:#252525;
+
+$font30:(30/$baseSize)+em;
+$color_c4a16e:#c4a16e;
+
+$font14:(14/$baseSize)+em;
+$color_edebeb:#edebeb;
+
+$color_999999:#999999;
+$color_f2f2f2:#f2f2f2;
+
+$font-famiy-yahie:"Microsoft Yahei";

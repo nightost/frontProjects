@@ -1,0 +1,281 @@
+/*clear floats*/
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+/*some tags*/
+em, i, strong {
+  font-style: normal;
+  font-weight: 400;
+}
+
+/*focus*/
+:focus {
+  outline: none;
+}
+
+/*yahoo css reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, input, textarea, p, blockquote, th, td {
+  padding: 0;
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-weight: normal;
+  font-style: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+caption, th {
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%;
+}
+
+q:before, q:after {
+  content: "";
+}
+
+abbr, acronym {
+  border: 0;
+}
+
+//=====================================================================
+//eat chickenCutlet
+html, body {
+  background: #000;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  position: relative;
+}
+
+@media screen and (min-device-width: 320px) {
+  body .wrapper {
+    width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-device-width: 320px) and (max-device-width: 480px) {
+  body .wrapper {
+    width: 240px;
+    margin: 0 auto;
+  }
+  .result-box .act-info {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (device-width: 320px) and (device-height: 568px) {
+  body .wrapper {
+    width: 280px;
+    margin: 0 auto;
+  }
+}
+
+@mixin borderRadius($val: 13px) {
+  border-radius: $val;
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  -o-border-radius: $val;
+}
+
+body {
+  font-family: "micorsoft yahei";
+  font-size: 12px;
+  background-color: #000;
+  .wrapper {
+    background: url("../images/bg.jpg") no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    .topbar {
+      padding-top: (38/24)+em;
+      img, span, div {
+        vertical-align: middle;
+      }
+      .pro-icon {
+        margin-left: (40/24)+em;
+        width: (47/640)*100%;
+      }
+      .pro-num {
+        font-size: (36/24)+em;
+        color: #fff;
+        margin-top: (58/24)+em;
+        margin-left: (42/640)*100%;
+        margin-left: 6px;
+        font-family: "micorsoft yahei";
+        i {
+          font-family: "helvetica";
+          font-size: (24/36)+em;
+        }
+      }
+      .progress-bar {
+        margin-left: (35/24)+em;
+        background-color: #fff;
+        border: 3px solid #fff;
+        width: (380/640)*100%;
+        height: (24/24)+em;
+        @include borderRadius(13px);
+        display: inline-block;
+        .progress {
+          width: 100%;
+          background-color: #68c946;
+          height: 100%;
+          @include borderRadius(10px);
+        }
+      }
+    }
+    .bottom {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      .player {
+        width: 100%;
+        position: relative;
+        img {
+          width: 100%;
+        }
+        .normal-part {
+          .heads {
+            position: absolute;
+            width: (554/640)*100%;
+            left: 50%;
+            margin-left: -(277/640)*100%;
+            top: -(530/434)*100%;
+          }
+          .logo{
+            width: (179/640)*100%;
+            position: absolute;
+            left: 50%;
+            margin-left: -(89/640)*100%;
+            top:(84/434)*100%;
+          }
+          .body {
+            width: 100%;
+            bottom: 0px;
+          }
+          .hands{
+            position: absolute;
+            top:-(16/434)*100%;
+            width: 100%;
+            z-index:700;
+            .arm{
+              position: relative;
+            }
+            .normal-hands{
+              position: absolute;
+              width: (464/640)*100%;
+              left:50%;
+              margin-left:-(232/640)*100%;
+            }
+            .step{
+              width: 100%;
+              .left-hands-1{
+                position: absolute;
+                left: (112/640)*100%;
+                width: (208/640)*100%;
+                .cutlet{
+                  position: absolute;
+                  top: -(55/208)*100%;
+                  right: -(27/208)*100%;
+                  width: (91/208)*100%;
+                  z-index: 400;
+                }
+                .arm{
+                  width: 100%;
+                  z-index: 440;
+                }
+              }
+              .left-hands-2{
+                position: absolute;
+                left: (306/640)*100%;
+                width: (228/640)*100%;
+                .cutlet{
+                  position: absolute;
+                  top: (65/228)*100%;
+                  left: -(14/228)*100%;
+                  width: (84/228)*100%;
+                  z-index: 400;
+                }
+                .arm{
+                  width: 100%;
+                  z-index: 440;
+                }
+              }
+            }
+          }
+        }
+      }
+      .desk-box {
+        position: absolute;
+        bottom: 0;
+        font-size: 0px;
+        .desk {
+          width: 100%;
+        }
+        .steamer {
+          position: absolute;
+          left: 50%;
+          margin-left: -25%;
+          top: -180%;
+          width: (196/354)*100%;
+          z-index: 500;
+        }
+        .eat-btn {
+          position: absolute;
+          left: 50%;
+          margin-left: -(190/640)*100%;
+          top: -(80/137)*100%;
+          width: (380/640)*100%;
+          z-index: 600;
+          img{
+            width: 100%;
+          }
+        }
+
+        .steamer{
+          top: -(90/137)*100%;
+          width: (295/640)*100%;
+          margin-left: -(295/1280)*100%;
+          left:50%;
+          position: absolute;
+        }
+        .mail {
+          position: absolute;
+          bottom: 2px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

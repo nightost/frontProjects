@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="css/common.css"/>
+<link rel="stylesheet" href="css/edit-products.css"/>
+<link rel="stylesheet" href="css/perfect-scrollbar.css"/>
+<style type="text/css">
+    .edit-product .header .bottomBorder{
+        left:300px;
+    }
+</style>
+<body>
+<input name="mercharid" type="hidden"/>
+<div class="edit-product">
+    <div class="header">
+        <ul class="menu clearfix">
+            <li>新建商品类目</li>
+            <li  class="current">编辑商品基本信息</li>
+        </ul>
+        <div class="bottomBorder"></div>
+    </div>
+    <div class="edit-info">
+        <div class="base-info">
+            <h1 class="base-title">基本信息</h1>
+            <div class="base-content">
+                <div class="select-item">
+                    <label for="">类目选择</label>
+                    <div class="select">
+                        <input type="text" class="filter-select" readonly value="所有会员" /><a href="javascript:;" class="select-dropdown">&nbsp;</a>
+                        <div class="options">
+                            <ul>
+                                <li><a href="javascript:;">白金会员</a></li>
+                                <li><a href="javascript:;">预定</a></li>
+                                <li><a href="javascript:;">外卖</a></li>
+                                <li><a href="javascript:;">点餐</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-item">
+                    <label for="">商品分组</label>
+                    <div class="input-box">
+                        <input type="text" name="" placeholder="请输入商品分组" id=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spec-info">
+            <h1>库存规格</h1>
+            <div class="specs">
+                <label for="">商品规格</label>
+                <div class="spec-box">
+                    <div class="spec">
+                        <div class="select">
+                            <input type="text" class="filter-select"  value="所有会员" /><a href="javascript:;" class="select-dropdown">&nbsp;</a>
+                            <div class="options">
+                                <ul class="">
+                                    <li><a href="javascript:;">白金会员</a></li>
+                                    <li><a href="javascript:;">预定</a></li>
+                                    <li><a href="javascript:;">外卖</a></li>
+                                    <li><a href="javascript:;">点餐</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="all-specs">
+                            <span class="sp">S</span><span class="sp">M</span><span class="add-text">+添加规格值</span>
+                        </div>
+                        <div class="edit-area">
+                            <div class="left-corner"></div>
+                            <div class="bg">&nbsp;</div>
+                            <div class="re-c">
+                                <div class="opBtns">
+                                    <div class="confirm btn">确定</div>
+                                    <div class="cancel btn">取消</div>
+                                </div>
+                                <div class="inp-box">
+                                    <span>L<i></i></span>
+                                    <span>XL<i></i></span>
+                                    <span>L<i></i></span>
+                                    <span>XL<i></i></span>
+                                    <span>L<i></i></span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spec">
+                        <div class="select">
+                            <input type="text" class="filter-select"  value="颜色" /><a href="javascript:;" class="select-dropdown">&nbsp;</a>
+                            <div class="options">
+                                <ul class="">
+                                    <li><a href="javascript:;">白金会员</a></li>
+                                    <li><a href="javascript:;">预定</a></li>
+                                    <li><a href="javascript:;">外卖</a></li>
+                                    <li><a href="javascript:;">点餐</a></li>
+                                    <li><a href="javascript:;">点餐</a></li>
+                                    <li><a href="javascript:;">点餐</a></li>
+                                    <li><a href="javascript:;">点餐</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="all-specs">
+                            <span class="add-text">+添加规格值</span>
+                        </div>
+                        <div class="edit-area">
+                            <div class="bg">&nbsp;</div>
+                            <div class="re-c">
+                                <div class="opBtns">
+                                    <div class="confirm btn">确定</div>
+                                    <div class="cancel btn">取消</div>
+                                </div>
+                                <div class="inp-box">
+                                    <span>L<i></i></span>
+                                    <span>XL<i></i></span>
+                                </div>
+                                <div class="left-corner"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spec">
+                        <div class="add-spec"><input type="button" /></div>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <label for="">商品信息</label>
+
+                <div class="products-box">
+                    <table>
+                        <tr>
+                            <th class="fth">商品图</th>
+                            <th>商品名称</th>
+                            <th>规格</th>
+                            <th>价格</th>
+                            <th>库存</th>
+                            <th>商品编码</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="img img-none"><span><img src="images/item1.jpg" alt=""/></span></div>
+                            </td>
+                            <td><input class="product-name" type="text"/></td>
+                            <td><div class="sps spec-box">350ml</div></td>
+                            <td><input class="price" type="text"/></td>
+                            <td><input class="store" type="text"/></td>
+                            <td><input readonly class="code " type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="img"><img src="" alt=""/></div>
+                            </td>
+                            <td><input class="product-name" type="text"/></td>
+                            <td><div class="sps spec-box">350ml</div></td>
+                            <td><input class="price" type="text"/></td>
+                            <td><input class="store" type="text"/></td>
+                            <td><input readonly class="code " type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="img"><img src="" alt=""/></div>
+                            </td>
+                            <td><input class="product-name" type="text"/></td>
+                            <td><div class="sps spec-box">350ml</div></td>
+                            <td><input class="price" type="text"/></td>
+                            <td><input class="store" type="text"/></td>
+                            <td><input readonly class="code " type="text"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="upload">
+                    <p class="tip">建议图片上传尺寸：320x220,或者比列相同尺寸，且背景颜色最好为白色</p>
+                    <input type="button" value="上架" class="sub-btn"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/perfect-scrollbar.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/editProduct.js"></script>
+</html>

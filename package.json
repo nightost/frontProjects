@@ -12,11 +12,12 @@
     "grunt-contrib-connect": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-imagemin": "*",
+    "grunt-contrib-htmlmin": "*",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-nodeunit": "*",
     "grunt-contrib-sass": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
-    "grunt-autoprefixer": "0.2.x",
+    "grunt-autoprefixer": "0.2.x"
   }
 }
