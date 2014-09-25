@@ -6,7 +6,7 @@ $(function(){
 	$(document).bind("touchmove",function(e){
 		e.preventDefault();
 	});
-	_eatBeef=new eatBeef({maxTime:15});
+	_eatBeef=new eatBeef({maxTime:3});
 	// _eatBeef.getNum();
 });
 /**
@@ -23,6 +23,7 @@ function eatBeef(obj){
 	var _eatNum=0;
 	var _eatBtn=$(".eat-btn");
 	var _this=this;
+    var _steamState=0;
 	this.getStr=function(){
 		return shareStr;
 	};
@@ -50,47 +51,72 @@ function eatBeef(obj){
             $(this).find(".start-eat").show();
 		});
 		//吃牛肉的循环逻辑
-		_eatBtn.data("step",1);
+		_eatBtn.data("step",0);
 		_eatBtn.bind("touchstart",function(e){
 			//开始计时
 			if(!_startFlag){
 				_startFlag=true;
 				startTimer();
 			}
-			var _step=_eatBtn.data("step");
+			var _step=parseInt(_eatBtn.data("step"));
 			switch(_step){
+				case 0:
+					showHands(0,1);
+					showheads(1,0);
+					_eatBtn.data("step",1);
+					break;
 				case 1:
-					showHands(5,1);
-					showheads(2);
+					showHands(_step,2);
+					showheads(2,1);
 					_eatBtn.data("step",2);
 					break;
 				case 2:
-					showHands(_step-1,2);
-					showheads(3);
+					showHands(_step,3);
+					showheads(3,2);
 					_eatBtn.data("step",3);
 					break;
 				case 3:
-					showHands(_step-1,3);
-					showheads(2);
+					showHands(_step,4);
+					showheads(1,3);
 					_eatBtn.data("step",4);
 					break;
 				case 4:
-					showHands(_step-1,4);
-					//showheads(4);
+					showHands(_step,5);
+					showheads(2,1);
 					_eatBtn.data("step",5);
 					break;
-				case 5:
-					showHands(_step-1,5);
-					showheads(4);
-					_eatBtn.data("step",1);
-					break;
+                case 5:
+                    showHands(_step,6);
+                    showheads(3,2);
+                    _eatBtn.data("step",6);
+                    break;
+                case 6:
+                    showHands(_step,1);
+                    showheads(1,3);
+                    _eatBtn.data("step",1);
+                    break;
 			}
 			//计数
 			_eatNum++;
-			if(_eatNum>15){
-				$(".steamer").attr("src",$(".steamer").attr("data-src1"));
+			if(_eatNum>30&&_eatNum<105){
+                if(_steamState==0){
+                    $(".steamer").attr("src",$(".steamer").attr("data-src1"));
+                }
+                _steamState=1;
 			}
-			$(".pro-num").text(_eatNum);
+            else if(_eatNum>95&&_eatNum<205){
+                if(_steamState==1){
+                    $(".steamer").attr("src",$(".steamer").attr("data-src2"));
+                }
+                _steamState=2;
+            }
+            else if(_eatNum>205){
+                if(_steamState==2){
+                    $(".steamer").attr("src",$(".steamer").attr("data-src3"));
+                }
+                _steamState=3;
+            }
+			$(".pro-num span").text(_eatNum);
 		});
 	}
 	/**
@@ -99,7 +125,7 @@ function eatBeef(obj){
 	 */
 	function startTimer(){
 		//定时器
-		$("img.progress").animate({width:"0px"},_maxTime*1000,"linear",function(){
+		$(".progress").animate({width:"0px"},_maxTime*1000,"linear",function(){
 			countResult(_this);
 		});
 	}
@@ -232,25 +258,33 @@ function eatBeef(obj){
 		$(".start-eat").hide();
 		$(".result-box .result-info .result-text").html(thisObj.chatStr);
 		$(".result-box").show();
-		setTimeout(function(){
-			$("#detail_link").addClass("rotated");
-		},1000);
 	}
 	function showMotion(state){
-		$(".head").hide();
-		$(".hands").hide();
+        $(".heads img").hide();
+		$(".hands div").hide();
+        $(".steamer").hide();
+        $(".eat-btn").hide();
+        $(".desk").hide();
 		switch(state){
-			case 1:
-				$(".state-1").show();
+            case 1:
+				$(".low-score").show();
+                showResultText(1);
 				break;
 			case 2:
-				$(".state-2").show();
+				$(".middle-score").show();
+                showResultText(2);
 				break;
 			case 3:
-				$(".state-3").show();
+				$(".high-score").show();
+                showResultText(3);
 				break;
 		}
 	}
+    function showResultText(index){
+        $(".re-info").show();
+        var _index=index-1;
+        $(".result-title img").eq(_index).show();
+    }
 	/**
 	 * [showResultInfo description]
 	 * @return {[type]}
@@ -269,15 +303,13 @@ function showHands(laststep,index){
 	var _class="#step-"+index;
 	$(_lastClass).css("display","none");
 	$(_class).css("display","block");
+    $(".hands").data("curIndex",index);
 }
-function showheads(index){
-	var heads={
-		head1:"static/events/images/eating/c25.png",
-		head2:"static/events/images/eating/c27.png",
-		head3:"static/events/images/eating/c26.png",
-		head4:"static/events/images/eating/c28.png"
-	};
-	$(".head").attr("src",heads["head"+index]);
+function showheads(index,last){
+	var _heads=$(".heads");
+    _heads.find("img").eq(last).hide();
+    _heads.find("img").eq(index).show();
+    $(".heads").data("curIndex",index);
 }
 //初始化分享内容的函数
 function sendMessage(){

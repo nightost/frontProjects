@@ -1,3 +1,4 @@
+@charset "GBK";
 /*clear floats*/
 .clearfix:after {
   visibility: hidden;
@@ -75,7 +76,7 @@ html, body {
     width: 280px;
     margin: 0 auto; } }
 body {
-  font-family: "micorsoft yahei";
+  font-family: "microsoft yahei";
   font-size: 12px;
   background-color: #000; }
   body .wrapper {
@@ -97,14 +98,14 @@ body {
         margin-top: 2.41667em;
         margin-left: 6.5625%;
         margin-left: 6px;
-        font-family: "micorsoft yahei"; }
+        font-family: "microsoft yahei"; }
         body .wrapper .topbar .pro-num i {
           font-family: "helvetica";
           font-size: 0.66667em; }
       body .wrapper .topbar .progress-bar {
         margin-left: 1.45833em;
         background-color: #fff;
-        border: 3px solid #fff;
+        border: 2px solid #fff;
         width: 59.375%;
         height: 1em;
         border-radius: 13px;
@@ -136,12 +137,57 @@ body {
           left: 50%;
           margin-left: -43.28125%;
           top: -122.11982%; }
+        body .wrapper .bottom .player .normal-part .results-face img {
+          z-index: 500; }
+        body .wrapper .bottom .player .normal-part .results-face .low-score {
+          position: absolute;
+          width: 86.5625%;
+          left: 50%;
+          margin-left: -43.28125%;
+          top: -123.04147%; }
+        body .wrapper .bottom .player .normal-part .results-face .middle-score {
+          position: absolute;
+          width: 94.375%;
+          left: 50%;
+          margin-left: -47.1875%;
+          top: -123.04147%; }
+        body .wrapper .bottom .player .normal-part .results-face .high-score {
+          position: absolute;
+          width: 86.5625%;
+          left: 50%;
+          margin-left: -43.28125%;
+          top: -123.04147%; }
         body .wrapper .bottom .player .normal-part .logo {
           width: 27.96875%;
           position: absolute;
           left: 50%;
           margin-left: -13.90625%;
-          top: 19.35484%; }
+          top: 17%;
+          z-index: 300; }
+        body .wrapper .bottom .player .normal-part .result-title {
+          width: 76.71875%;
+          position: absolute;
+          left: 50%;
+          top: 15.6682%;
+          margin-left: -38.35938%;
+          z-index: 1500; }
+          body .wrapper .bottom .player .normal-part .result-title img {
+            width: 100%; }
+        body .wrapper .bottom .player .normal-part .result-info {
+          text-align: center;
+          top: 58.52535%;
+          position: absolute;
+          width: 39.6875%;
+          left: 50%;
+          margin-left: -19.84375%;
+          font-size: 3em;
+          color: #ee2b05;
+          -webkit-text-fill-color: white;
+          /*文字的填充色*/
+          text-stroke: 4px #fff;
+          -webkit-text-stroke: 4px #fff;
+          -moz-text-stroke: 4px #fff;
+          -o-text-stroke: 4px #fff; }
         body .wrapper .bottom .player .normal-part .body {
           width: 100%;
           bottom: 0px; }
@@ -158,7 +204,9 @@ body {
             left: 50%;
             margin-left: -36.25%; }
           body .wrapper .bottom .player .normal-part .hands .step {
-            width: 100%; }
+            width: 100%;
+            /* left hand eat*/
+            /* right hands keep*/ }
             body .wrapper .bottom .player .normal-part .hands .step .left-hands-1 {
               position: absolute;
               left: 17.5%;
@@ -172,17 +220,43 @@ body {
               body .wrapper .bottom .player .normal-part .hands .step .left-hands-1 .arm {
                 width: 100%;
                 z-index: 440; }
-            body .wrapper .bottom .player .normal-part .hands .step .left-hands-2 {
+            body .wrapper .bottom .player .normal-part .hands .step .right-hands-1 {
               position: absolute;
               left: 47.8125%;
               width: 35.625%; }
-              body .wrapper .bottom .player .normal-part .hands .step .left-hands-2 .cutlet {
+              body .wrapper .bottom .player .normal-part .hands .step .right-hands-1 .cutlet {
                 position: absolute;
                 top: 28.50877%;
                 left: -6.14035%;
                 width: 36.84211%;
                 z-index: 400; }
-              body .wrapper .bottom .player .normal-part .hands .step .left-hands-2 .arm {
+              body .wrapper .bottom .player .normal-part .hands .step .right-hands-1 .arm {
+                width: 100%;
+                z-index: 440; }
+            body .wrapper .bottom .player .normal-part .hands .step .left-hands-4 {
+              position: absolute;
+              left: 16.40625%;
+              width: 35.625%; }
+              body .wrapper .bottom .player .normal-part .hands .step .left-hands-4 .cutlet {
+                position: absolute;
+                top: 29.70297%;
+                left: 75.4386%;
+                width: 36.84211%;
+                z-index: 400; }
+              body .wrapper .bottom .player .normal-part .hands .step .left-hands-4 .arm {
+                width: 100%;
+                z-index: 440; }
+            body .wrapper .bottom .player .normal-part .hands .step .right-hands-4 {
+              position: absolute;
+              left: 50.625%;
+              width: 32.1875%; }
+              body .wrapper .bottom .player .normal-part .hands .step .right-hands-4 .cutlet {
+                position: absolute;
+                top: -28.22967%;
+                left: -7.76699%;
+                width: 43.68932%;
+                z-index: 400; }
+              body .wrapper .bottom .player .normal-part .hands .step .right-hands-4 .arm {
                 width: 100%;
                 z-index: 440; }
       body .wrapper .bottom .desk-box {
@@ -204,7 +278,7 @@ body {
           margin-left: -29.6875%;
           top: -58.39416%;
           width: 59.375%;
-          z-index: 600; }
+          z-index: 1000; }
           body .wrapper .bottom .desk-box .eat-btn img {
             width: 100%; }
         body .wrapper .bottom .desk-box .steamer {
@@ -218,3 +292,108 @@ body {
           bottom: 2px;
           width: 100%;
           text-align: center; }
+    body .wrapper .result-box {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      width: 100%;
+      z-index: 1000; }
+      body .wrapper .result-box .bg {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 100%;
+        background: #000;
+        opacity: 0;
+        filter: alpha(opacity=0); }
+      body .wrapper .result-box .share {
+        position: absolute;
+        right: 10%;
+        top: 10%;
+        width: 40%; }
+        body .wrapper .result-box .share img {
+          width: 100%; }
+      body .wrapper .result-box .result-info {
+        width: 80%;
+        position: absolute;
+        left: 50%;
+        margin-left: -25%;
+        padding: 10% 5%;
+        top: 50%;
+        margin-left: -44%;
+        height: 13%;
+        background: url(../images/finished/c20.png) no-repeat;
+        background-size: 100% 100%;
+        font-size: 1.5em; }
+      body .wrapper .result-box .again {
+        width: 42%;
+        position: absolute;
+        left: 50%;
+        margin-left: -25%;
+        top: 80%; }
+      body .wrapper .result-box .point-hand {
+        position: absolute;
+        width: 7%;
+        left: 91%;
+        top: 12%;
+        animation: handshake .8s ease-out infinite;
+        -moz-animation: handshake .8s ease-out infinite;
+        -webkit-animation: handshake .8s ease-out infinite; }
+        body .wrapper .result-box .point-hand img {
+          width: 100%; }
+
+@media screen and (min-device-width: 320px) {
+  body .wrapper {
+    width: 320px;
+    margin: 0 auto; } }
+@media screen and (device-width: 320px) {
+  body .wrapper {
+    width: 240px;
+    margin: 0 auto; } }
+@keyframes handshake {
+  0% {
+    top: 12%; }
+
+  25% {
+    top: 11%; }
+
+  50% {
+    top: 10%; }
+
+  75% {
+    top: 11%; }
+
+  100% {
+    top: 12%; } }
+
+@-webkit-keyframes handshake {
+  0% {
+    top: 12%; }
+
+  25% {
+    top: 11%; }
+
+  50% {
+    top: 10%; }
+
+  75% {
+    top: 11%; }
+
+  100% {
+    top: 12%; } }
+
+@-moz-keyframes handshake {
+  0% {
+    top: 12%; }
+
+  25% {
+    top: 11%; }
+
+  50% {
+    top: 10%; }
+
+  75% {
+    top: 11%; }
+
+  100% {
+    top: 12%; } }

@@ -107,7 +107,7 @@ html, body {
 }
 
 body {
-  font-family: "micorsoft yahei";
+  font-family: "microsoft yahei";
   font-size: 12px;
   background-color: #000;
   .wrapper {
@@ -131,7 +131,7 @@ body {
         margin-top: (58/24)+em;
         margin-left: (42/640)*100%;
         margin-left: 6px;
-        font-family: "micorsoft yahei";
+        font-family: "microsoft yahei";
         i {
           font-family: "helvetica";
           font-size: (24/36)+em;
@@ -140,7 +140,7 @@ body {
       .progress-bar {
         margin-left: (35/24)+em;
         background-color: #fff;
-        border: 3px solid #fff;
+        border: 2px solid #fff;
         width: (380/640)*100%;
         height: (24/24)+em;
         @include borderRadius(13px);
@@ -172,12 +172,65 @@ body {
             margin-left: -(277/640)*100%;
             top: -(530/434)*100%;
           }
+          .results-face{
+            img{
+              z-index:500;
+            }
+            .low-score{
+              position: absolute;
+              width: (554/640)*100%;
+              left:50%;
+              margin-left: -(277/640)*100%;
+              top:-(534/434)*100%;
+            }
+            .middle-score{
+              position: absolute;
+              width: (604/640)*100%;
+              left:50%;
+              margin-left: -(302/640)*100%;
+              top:-(534/434)*100%;
+            }
+            .high-score{
+              position: absolute;
+              width: (554/640)*100%;
+              left:50%;
+              margin-left: -(277/640)*100%;
+              top:-(534/434)*100%;
+            }
+          }
           .logo{
             width: (179/640)*100%;
             position: absolute;
             left: 50%;
             margin-left: -(89/640)*100%;
-            top:(84/434)*100%;
+            top:17%;
+            z-index:300;
+          }
+          .result-title{
+            width: (491/640)*100%;
+            position: absolute;
+            left: 50%;
+            top:(68/434)*100%;
+            margin-left: -(491/1280)*100%;
+            z-index: 1500;
+            img{
+              width: 100%;
+            }
+          }
+          .result-info{
+            text-align: center;
+            top:(254/434)*100%;
+            position: absolute;
+            width: (254/640)*100%;
+            left:50%;
+            margin-left: -(127/640)*100%;
+            font-size: 3em;
+            color:#ee2b05;
+            -webkit-text-fill-color: white;/*文字的填充色*/
+            text-stroke: 4px #fff;
+            -webkit-text-stroke:4px #fff;
+            -moz-text-stroke:4px #fff;
+            -o-text-stroke:4px #fff;
           }
           .body {
             width: 100%;
@@ -199,6 +252,7 @@ body {
             }
             .step{
               width: 100%;
+             /* left hand eat*/
               .left-hands-1{
                 position: absolute;
                 left: (112/640)*100%;
@@ -215,7 +269,8 @@ body {
                   z-index: 440;
                 }
               }
-              .left-hands-2{
+              /* right hands keep*/
+              .right-hands-1{
                 position: absolute;
                 left: (306/640)*100%;
                 width: (228/640)*100%;
@@ -224,6 +279,39 @@ body {
                   top: (65/228)*100%;
                   left: -(14/228)*100%;
                   width: (84/228)*100%;
+                  z-index: 400;
+                }
+                .arm{
+                  width: 100%;
+                  z-index: 440;
+                }
+              }
+              //324 105
+              .left-hands-4{
+                position: absolute;
+                left: (105/640)*100%;
+                width: (228/640)*100%;
+                .cutlet{
+                  position: absolute;
+                  top: (60/202)*100%;
+                  left: (172/228)*100%;
+                  width: (84/228)*100%;
+                  z-index: 400;
+                }
+                .arm{
+                  width: 100%;
+                  z-index: 440;
+                }
+              }
+              .right-hands-4{
+                position: absolute;
+                left: (324/640)*100%;
+                width: (206/640)*100%;
+                .cutlet{
+                  position: absolute;
+                  top: -(59/209)*100%;
+                  left: -(16/206)*100%;
+                  width: (90/206)*100%;
                   z-index: 400;
                 }
                 .arm{
@@ -256,7 +344,7 @@ body {
           margin-left: -(190/640)*100%;
           top: -(80/137)*100%;
           width: (380/640)*100%;
-          z-index: 600;
+          z-index: 1000;
           img{
             width: 100%;
           }
@@ -277,5 +365,97 @@ body {
         }
       }
     }
+    .result-box {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      width: 100%;
+      z-index: 1000;
+      .bg {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 100%;
+        background: #000;
+        opacity: 0;
+        filter: alpha(opacity=0);
+
+      }
+      .share{
+        position: absolute;
+        right: 10%;
+        top:10%;
+        width: 40%;
+        img{
+          width: 100%;
+        }
+      }
+      .result-info{
+        width: 80%;
+        position: absolute;
+        left: 50%;
+        margin-left: -25%;
+        padding: 10% 5%;
+        top:50%;
+        margin-left: -44%;
+        height: 13%;
+        background: url(../images/finished/c20.png) no-repeat;
+        background-size: 100% 100%;
+        font-size: 1.5em;
+      }
+      .again{
+        width: 42%;
+        position: absolute;
+        left: 50%;
+        margin-left: -25%;
+        top:80%;
+
+      }
+      .point-hand{
+        position: absolute;
+        width: 7%;
+        left: 91%;
+        top: 12%;
+        animation:handshake .8s ease-out infinite;
+        -moz-animation:handshake .8s ease-out infinite;
+        -webkit-animation:handshake .8s ease-out infinite;
+        img{
+          width: 100%;
+        }
+      }
+    }
   }
+}
+@media screen and(min-device-width:320px){
+body .wrapper{
+  width: 320px;
+  margin: 0 auto;
+}
+}
+@media screen and(device-width:320px){
+body .wrapper{
+  width: 240px;
+  margin: 0 auto;
+}
+}
+@keyframes handshake{
+  0%   {top:12%;}
+  25%  {top:11%;}
+  50%  {top:10%;}
+  75%  {top:11%;}
+  100% {top:12%;}
+}
+@-webkit-keyframes handshake{
+  0%   {top:12%;}
+  25%  {top:11%;}
+  50%  {top:10%;}
+  75%  {top:11%;}
+  100% {top:12%;}
+}
+@-moz-keyframes handshake{
+  0%   {top:12%;}
+  25%  {top:11%;}
+  50%  {top:10%;}
+  75%  {top:11%;}
+  100% {top:12%;}
 }
