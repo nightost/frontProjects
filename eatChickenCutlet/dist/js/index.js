@@ -30,6 +30,13 @@ $(function(){
 	_eatBeef=new eatBeef({maxTime:3});
 	// _eatBeef.getNum();
 });
+//loaded
+window.onload=function(){ 
+    $(".cover").hide();
+    //
+    $(".steamer").addClass("steamerNormal");
+    $(".desk").addClass("deskNormal");
+}
 /**
  * [eatBeff description]
  * @return {[obj]}
@@ -302,8 +309,9 @@ function eatBeef(obj){
 		}
 	}
     function showResultText(index){
-        $(".result-title img").eq(0).show();
         $(".re-info").show();
+        var _index=index-1;
+        $(".result-title img").eq(_index).show();
     }
 	/**
 	 * [showResultInfo description]

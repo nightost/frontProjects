@@ -9,6 +9,13 @@ $(function(){
 	_eatBeef=new eatBeef({maxTime:3});
 	// _eatBeef.getNum();
 });
+//loaded
+window.onload=function(){
+    $(".cover").hide();
+    //
+    $(".steamer").addClass("steamerNormal");
+    $(".desk").addClass("deskNormal");
+}
 /**
  * [eatBeff description]
  * @return {[obj]}
