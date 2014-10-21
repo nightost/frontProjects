@@ -43,7 +43,7 @@ var blowBalloon=function(){
     this.addPumpEvents=function(){
         var mc = new Hammer.Manager(_pumpup[0]);
 
-        mc.add(new Hammer.Pan({ threshold: 2, pointers: 0 }));
+            mc.add(new Hammer.Pan({ threshold: 2, pointers: 0 }));
 
         mc.on("panstart panmove", onPan);
         mc.on("hammer.input", function(ev) {
