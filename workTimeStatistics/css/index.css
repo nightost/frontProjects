@@ -1,0 +1,411 @@
+body{
+	font-family: "Microsoft Yahei";
+	font-weight: normal;
+	background-color: #EDF3F7;
+	font-size: 16px;
+}
+.margin20:{
+	margin-top: 20px;
+}
+/*================
+*header
+*================*/
+.header{
+	min-width: 1240px;
+	height:72px;
+	background-color: #aabf4f;
+}
+.header .logo{
+	float: left;
+}
+.header-iconl{
+	position: relative;
+	float: right;
+	width: 220px;
+	right: 150px;
+	top: 20px;
+}
+.header-iconl img,.header-iconl b,.header-iconr img,.header-iconr b{
+	vertical-align: middle;
+}
+.header-iconl a,.header-iconr a{
+	display: inline-block;
+	height: 29px;
+	line-height: 29px;
+}
+.header-iconline{
+	position: relative;
+	float: right;
+	right: -50px;
+	top: 20px;
+}
+.header-iconr{
+	float: right;
+	width: 120px;
+	margin-top: 20px;
+	margin-right: -180px;
+}
+.header a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.header b{
+	margin-left: 10px;
+	margin-right: 20px;
+	font-size: 16px;
+	font-weight: normal;
+}
+.header img{
+	border:none;
+}
+/*================
+*nav
+*================*/
+.nav{
+	min-width: 1240px;
+	height: 55px;
+	background-color: #464e5c;
+}
+.nav ul li{
+	list-style-type: none;
+	width: 130px;
+	height: 55px;
+	line-height: 55px;
+	position: relative;
+	float: left;
+	text-align: center;
+	display: block;
+	color: #999999;
+	cursor: pointer;
+}
+.nav ul li a{
+	text-decoration: none;
+	color: #999999;
+	display: block;
+}
+.nav ul li.icon img{
+	position: relative;
+	float: left;
+	top:18px;
+	left: 29px; 
+}
+.nav ul li.iconi img{
+	position: relative;
+	float: left;
+	top: 18px;
+	left: 12px;
+}
+.nav ul li:hover{
+	background-color: #5b6779;
+}
+.nav ul li a:hover{
+	color: #ffffff;
+}
+
+.wrapper{
+	padding: 20px 20px 22px 20px;
+	/*background: #edf3f7;*/
+}
+.wrapper .left{
+	float:left;
+	width: 269px;
+}
+.wrapper .left .date-pugin{
+	height: 120px;
+	overflow: hidden;	
+
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+
+	box-shadow:2px 2px 4px rgba(12,6,14,.1); 
+	-webkit-box-shadow:2px 2px 4px rgba(12,6,14,.1); 
+	-moz-box-shadow:2px 2px 4px rgba(12,6,14,.1); 
+	-ms-box-shadow:2px 2px 4px rgba(12,6,14,.1); 
+
+}
+.wrapper .left .date-pugin .left-date{
+	width: 121px;
+	height: 120px;
+	float: left;
+	background-color: #7fcfe1;
+	text-align: center;
+	color: #fff;
+}
+.wrapper .left .date-pugin .left-date .day{
+	font-size: 36px;
+	line-height: 36px;
+	margin-top:24px;
+}
+.wrapper .left .date-pugin .left-date .date{
+	margin-top:24px;
+	font-size: 14px;
+	margin-top:8px;
+}
+.wrapper .left .date-pugin .left-date .year{
+	line-height: 16px;
+}
+.wrapper .left .date-pugin .right-time{
+	width: 148px;
+	height: 120px;
+	line-height: 120px;
+	background-color: #fff;
+	float: left;
+	color: #48abc0;
+	text-align: center;
+	position: relative;
+}
+.wrapper .left .date-pugin .right-time .time{
+	font-size: 42px;
+}
+
+.wrapper .left .date-pugin .right-time .am-pm{
+	position: absolute;
+	font-size: 17px;
+	line-height: 17px;
+	right: 13px;
+	top:19px;
+}
+/*13,19*/
+.wrapper .left .recorder{
+	margin-top: 20px;
+	background: #fff;
+	overflow: hidden;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	box-shadow:0px 2px 4px rgba(12,6,14,.1); 
+	-webkit-box-shadow:0px 2px 4px rgba(12,6,14,.1); 
+	-moz-box-shadow:0px 2px 4px rgba(12,6,14,.1); 
+	-ms-box-shadow:0px 2px 4px rgba(12,6,14,.1);
+}
+.wrapper .left .recorder h1{
+	height: 42px;
+	line-height: 42px;
+	color: #35496b;
+	font-family: "SourceHanSansCN","Microsoft Yahei";
+	font-family: 20px;
+	padding-left: 20px;
+	border-bottom: 1px solid #e7e9eb;
+	font-weight: normal;
+}
+.wrapper .left .recorder h2{
+	font-size: 14px;
+	line-height: 14px;
+	color: #32486a;
+	text-align: center;
+	margin-top: 20px;
+}
+.wrapper .left .recorder .doughtnutChart{
+	width: 170px;
+	height: 170px;
+	margin: 10px auto 0px;
+	position: relative;
+}
+.wrapper .left .recorder .doughtnutChart .doughnutSummary{
+
+}
+.wrapper .left .recorder .doughtnutChart .doughnutSummary .doughnutSummaryTitle{
+	color: #aabf4f;
+}
+.wrapper .left .recorder .doughtnutChart .doughnutSummary .doughnutSummaryTitle strong{
+	font-size: 36px;
+	margin-left: 2px;
+}
+.wrapper .left .recorder .doughtnutChart .doughnutSummary .doughnutSummaryTitle i{
+	font-size: 14px;
+	margin-left: 2px;
+}
+
+.wrapper .left .recorder .doughtnutChart .doughnutSummary .doughnutSummaryNumber{
+	width: 100px;
+	margin-top: -5px;
+}
+.wrapper .left .recorder .doughtnutChart .doughnutSummary .doughnutSummaryNumber span{
+	margin-top: 8px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-position: center;
+}
+.wrapper .left .recorder .doughtnutChart .doughnutSummary .doughnutSummaryNumber span.on{
+	background: url("images/tree_grade1_green.png");
+}	
+.wrapper .left .recorder .doughtnutChart .doughnutSummary .doughnutSummaryNumber span.off{
+	background: url("images/tree_grade1_gray.png");
+}	
+.wrapper .left .recorder .defeat .kh{
+	font-size: 20px;
+	font-family: "simhei";
+	color: #aabf4f;
+	line-height: 20px;
+	text-align: center;
+	margin: 20px 0px;
+}
+.wrapper .left .recorder .op-line{
+	width: 229px;
+	height: 1px;
+	background-color: #f1f3f4;
+	margin: 0 auto;
+}
+.wrapper .left .recorder .work-time{
+	margin-bottom: 25px;
+}
+.wrapper .left .recorder .work-time h2{
+	color: #35496b;
+	margin-bottom: 18px;
+}
+.wrapper .left .recorder .work-time .work-time-chart{
+	width: 170px;
+	height: 85px;
+	margin:0 auto;
+	position: relative;
+}
+.wrapper .left .recorder .work-time .needle{
+	width:54px;
+	height:67px;
+	position:absolute;
+	left:35px;
+	top:16px;
+	transform-origin:bottom right;
+	-webkit-transform-origin:bottom right;
+	-moz-transform-origin:bottom right;
+	-ms-transform-origin:bottom right;
+
+
+	transform:rotateZ(-52deg);
+	-webkit-transform:rotateZ(-52deg);
+	-moz-transform:rotateZ(-52deg);
+	-ms-transform:rotateZ(-52deg);
+}
+.wrapper .left .recorder .work-time .hours-text{
+	font-size:18px;
+	position: absolute;
+	left:12px;
+	top:64px;
+	width: 32px;
+	line-height: 18px;
+	color: #fff;
+}
+
+/*right*/
+.wrapper .right{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	box-shadow:0px 2px 4px rgba(12,6,14,.1); 
+	-webkit-box-shadow:0px 2px 4px rgba(12,6,14,.1); 
+	-moz-box-shadow:0px 2px 4px rgba(12,6,14,.1); 
+	-ms-box-shadow:0px 2px 4px rgba(12,6,14,.1);
+	background:#fff;
+	overflow:hidden;
+	margin-left:290px;
+	padding-bottom: 25px;
+	/*width:949px;*/
+}
+
+.wrapper .right h1{
+	font-size: 24px;
+	color: #35496b;
+	padding: 28px 38px 17px 40px;
+	border-bottom:1px solid #e7e9eb;
+}
+.wrapper .right .redTag{
+	border-left:4px solid #d1538d;
+	margin-top: 25px;
+	background-color: #f8f9fa;
+	padding: 20px 22px 20px 34px;
+}
+.wrapper .right .present{
+	color:#32486a;
+	font-size:18px;
+	display: inline-block;
+}
+
+.wrapper .right .top{
+	border-bottom: 1px solid #eeeff0;
+	padding-left: 34px;
+	padding-bottom: 12px;
+}
+
+.wrapper .right .lists{
+	padding-top: 7px;
+	padding-left: 34px;
+}
+.wrapper .right .lists .list{
+	margin-top: 15px;
+}
+.wrapper .right .lists .list .label{
+	width: 120px;
+	height: 20px;
+	line-height: 20px;
+	color: #32486a;
+	font-size: 14px;
+	float: left;
+}
+
+.wrapper .right .lists .list .progress{
+	width: 761px;
+	height: 20px;
+	float: left;
+}
+
+.wrapper .right .lists .list .progress .trianger{
+	width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 9px solid red;
+}
+
+.wrapper .right .lists .list .progress .left-p,
+.wrapper .right .lists .list .progress .right-p{
+	transition:2s all ease-in-out;
+	-webkit-transition:2s all ease-in-out;
+	-moz-transition:2s all ease-in-out;
+	-ms-transition:2s all ease-in-out;
+	display: inline-block;
+}
+
+.wrapper .right .present .title{
+	width: 125px;
+	display: inline-block;
+}
+
+.wrapper .right  .present .content{
+	margin-left: 22px;
+	width: 50px;
+	display: inline-block;
+}
+.wrapper .right .redTag .sign-in {
+	margin-left: 60px;
+}
+
+.wrapper .right .blueTag{
+	border-left:4px solid #94d5e3;
+	margin-top: 25px;
+	background-color: #f8f9fa;
+	padding: 14px 0px 20px 0px;
+}
+
+.wrapper .right .yellowTag{
+	border-left:4px solid #fed651;
+	margin-top: 25px;
+	background-color: #f8f9fa;
+	padding: 14px 0px 20px 0px;
+}
+
+.wrapper .right  .present-1{
+	margin-left: 60px;
+	display: inline-block;
+}
+
+.wrapper .right .present-1 .title{
+
+}
+
+.wrapper .right .present-1 .content{
+	margin-left: 6px;
+}

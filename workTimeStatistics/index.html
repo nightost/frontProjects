@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<!-- todo  做完合并css-->
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/index.css" />
+	<title>Document</title>
+</head>
+<body>
+	<div class="header">
+	  	<img class="logo" src="css/images/logo.png" alt="">
+	    <div class="header-iconl">
+	      <a href="#"><img src="css/images/icon-tou.png" class="icon-tou" /><b>欢迎你，狐狐</b></a>
+	      <a href="#"><img src="css/images/icon-gear.png" /></a>
+	    </div>
+	    <img src="css/images/icon-line.png" class="header-iconline" />
+	    <div class="header-iconr">
+	      <a href="#"><b>退出</b><img src="css/images/icon-tui.png" /></a>
+	    </div>
+  	</div>
+  <div class="nav">
+    <ul>
+      <li class="icon"><img src="css/images/icon-sh.png" /><a href="#">首页</a></li>
+      <li class="icon"><img src="css/images/icon-ch.png" /><a href="#">查询</a></li>
+      <li class="iconi"><img src="css/images/icon-g.png" /><a href="#">工时补登</a></li>
+      <li class="iconi"><img src="css/images/icon-bu.png" /><a href="#">补登审核</a></li>
+    </ul>
+  </div>
+  <!-- 首页部分 -->
+  <div class="wrapper">
+  	<div class="left">
+  		<!-- 日期控件 -->
+  		<div class="date-pugin clearfix" id="date-pugin">
+  			<div class="left-date">
+  				<div class="day"></div>
+  				<div class="date"></div>
+  				<div class="year"></div>
+  			</div>
+  			<div class="right-time">
+  				<div class="am-pm"></div>
+  				<div class="time">
+  					<span class="hours"></span>
+  					<span class="op">:</span>
+  					<span class="minuts"></span>
+  				</div>
+  			</div>
+  		</div>
+  		<!-- 榜单 -->
+  		<div class="recorder">
+  			<h1>本月战斗榜</h1>
+  			<div class="defeat">
+  				<h2>您的茁壮成长，击败了</h2>
+  				<div class="doughtnutChart" id="doughtnutChart">
+            <input type="hidden" name="per" id="per" value="23" />    
+          </div>
+          <div class="kh">让僵尸们闻风散胆</div>
+  			</div>
+        <div class="op-line"></div>
+        <div class="work-time">
+          <h2>本月工时</h2>
+          <div class="work-time-chart" id="workTimeChart">
+            <input type="hidden" name="hours" id="hours" value="23" />
+          </div>
+        </div>
+  		</div>
+  	</div>
+  	<div class="right">
+      <h1>工时统计</h1>
+      <div class="redTag">
+        <div class="present">
+          <span class="title">今日上班时间 :</span><span class="content">09:23</span>
+        </div>
+        <div class="present sign-in">
+          <span class="title">今日签到时间 :</span><span class="content">10:23</span>
+        </div>
+      </div>
+      <div class="blueTag">
+        <div class="top">
+            <div class="present">
+             <span class="title">本周工时差额 :</span><span class="content">9h</span>
+            </div>
+            <div class="present-1">
+              <span class="title">排名 :</span><span class="content">9</span>
+            </div>
+        </div>
+        <div class="lists lists-1">
+          <div class="list list-1 clearfix">
+            <div class="label">距离第一名差值</div>
+            <div class="progress" id="progress-blue">
+              <!-- //此处后期可用作头像 -->
+            </div>
+          </div>
+          <div class="list list-2 clearfix">
+            <div class="label">距离上一名差值</div>
+            <div class="progress" id="progress-blue">
+              <!-- //此处后期可用作头像 -->
+            </div>
+          </div>
+          <div class="list list-3 clearfix">
+            <div class="label">距离下一名差值</div>
+            <div class="progress" id="progress-blue">
+              <!-- //此处后期可用作头像 -->
+            </div>
+        </div>
+      </div>
+      
+      </div>
+      <div class="yellowTag">
+        <div class="top">
+            <div class="present">
+              <span class="title">本月总工时 :</span><span class="content">9h</span>
+            </div>
+            <div class="present-1">
+              <span class="title">排名 :</span><span class="content">9</span>
+            </div>
+        </div>
+        <div class="lists lists-2">
+          <div class="list list-1 clearfix">
+            <div class="label">距离第一名差值</div>
+            <div class="progress" id="progress-blue">
+              <!-- //此处后期可用作头像 -->
+            </div>
+          </div>
+          <div class="list list-2 clearfix">
+            <div class="label">距离上一名差值</div>
+            <div class="progress" id="progress-blue">
+              <!-- //此处后期可用作头像 -->
+            </div>
+          </div>
+          <div class="list list-3 clearfix">
+            <div class="label">距离下一名差值</div>
+            <div class="progress" id="progress-blue">
+              <!-- //此处后期可用作头像 -->
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/datePlugin.js"></script>
+  <script type="text/javascript" src="js/drawDoughnutChart.js"></script>
+  <script type="text/javascript" src="js/progress.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
