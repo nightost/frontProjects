@@ -15,6 +15,7 @@
 			$left,
 			$right,
 			$trianger,
+			overPersent,
 			settings=$.extend({
 				bgColor:"#eaeaea",
 				rightColor:"rgba(0, 0, 0, 0)",
@@ -42,7 +43,14 @@
 				var _leftDotN=(data.leftNum/data.topNum)*100;
 				leftPersent=_leftDotN+"%";
 				rightPersent=100-_leftDotN+"%";
-				rightText=delta+data.unit;
+				rightText=Math.abs(delta)+data.unit;
+
+				//如果是大于
+				if(delta<0){
+					leftPersent="100%";
+					rightPersent="0%";
+					overPersent=(Math.abs(delta)/data.topNum)*100+"%";
+				}
 			}
 
 			function createElements(){
@@ -84,11 +92,23 @@
 					textAlign:"center",
 					fontSize:settings.rightTextSize+"px",
 					color:settings.rightTextColor,
-					backgroundColor:settings.rightColor,
+					backgroundColor:delta<0?"rgba(0, 0, 0, 0)":settings.rightColor,
 					verticalAlign:"middle"
 				});
 
 				$this.css("backgroundColor",settings.bgColor);
+
+				if(delta<0){
+					setTimeout(function(){
+						// overPersent
+						$right.css({
+							position:"absolute",
+							right:0,
+							backgroundColor:settings.rightColor,
+							width:overPersent
+						});
+					},2000);
+				}
 			}
 
 			function setWidth(){

@@ -4,6 +4,7 @@ $(function(){
   	var _dePer=$("#per").val();
   	var _dePre=parseInt(_dePer);
   	var _deLast=100-_dePre;
+
 	$("#doughtnutChart").drawDoughnutChart([
 		    { title: "already",value : _dePre,  color: "#aabf4f" },
 		    { title: "last", value:_deLast,   color: "#dee6ea" }
@@ -12,12 +13,17 @@ $(function(){
 		  	innerContent:1
 	});
 
-	/*如果后台给的per
+	/*如果后台给的per 
   	计算一下*/
   	var _totalNum=45;
-  	var _tiPer=$("#hours").val();
-  	var _tiPre=Math.ceil(parseInt(_dePer)*100/_totalNum);
+  	// var _tiPer=$("#hours").val();
+  	var _tiPer=40;
+  	var _tiPre=Math.ceil(parseInt(_tiPer)*100/_totalNum);
   	var _tiLast=100-_tiPre;
+  	if(_tiPer>=_totalNum){
+  		_tiPre=100;
+  		_tiLast=0;
+  	}
     $("#workTimeChart").drawDoughnutChart([
 	    { title: "already",value : _tiPre,  color: "#d1538d" },
 	    { title: "last", value:_tiLast,   color: "#e9e9e9" }
@@ -36,14 +42,14 @@ $(function(){
 
         baseColor:"rgba(233,230,233,1)",
 
-        curRotateDeg:-.942,
+        curRotateDeg:-.89012,
 
         half:true
 	});
 
 	$(".lists-1 .list-1 .progress").createProgress({
 		topNum:45,
-		leftNum:25,
+		leftNum:44.5,
 		unit:"h",
 	},{
 
@@ -60,7 +66,7 @@ $(function(){
 
 	$(".lists-1 .list-3 .progress").createProgress({
 		topNum:45,
-		leftNum:33,
+		leftNum:57,
 		unit:"h",
 	},{
 		rightColor:"#6bcbe0",
@@ -92,7 +98,7 @@ $(function(){
 
 	$(".lists-2 .list-3 .progress").createProgress({
 		topNum:45,
-		leftNum:33,
+		leftNum:53,
 		unit:"h",
 	},{
 		rightColor:"#f6cf4f",

@@ -178,11 +178,12 @@
    	}
    	//更新指针位置
    	function updateNeedle(deg){
+      var _deg=deg;
    		$needle.css({
-   			"transform":"rotateZ("+deg+"deg)",
-   			"webkitTransform":"rotateZ("+deg+"deg)",
-   			"mozTransform":"rotateZ("+deg+"deg)",
-   			"msTransform":"rotateZ("+deg+"deg)"
+   			"transform":"rotateZ("+_deg+"deg)",
+   			"webkitTransform":"rotateZ("+_deg+"deg)",
+   			"mozTransform":"rotateZ("+_deg+"deg)",
+   			"msTransform":"rotateZ("+_deg+"deg)"
    		});
    	}
 
@@ -269,27 +270,43 @@
         //现在为两个分片，所以在第一个分配时更新
         // settings.curRotateDeg
         if((settings.innerContent==2)&&(i==0)){
-        	//更新指针位置
-        	var delta=endRadius+Math.PI;
 
-        	var _changedRadius=settings.curRotateDeg+delta;
-    		var _deltaRadius=_changedRadius*(180/Math.PI);
-    		updateNeedle(_deltaRadius);
-    		//更新文字位置
-    		//doughnutRadius
-        	//内圆半径
-        	//cutoutRadius
-        	if(delta>.532){
-        		//如果大于30deg
-        		var _halfY=Math.sin(delta/2)*(doughnutRadius-5);
-        		var _halfX=Math.cos(delta/2)*(doughnutRadius-5);
-    			$hours.css({
-    				top:doughnutRadius-_halfY+5,
-    				left:doughnutRadius-_halfX+5
-    			});
+          	//更新指针位置
+          	var delta=endRadius+3.14159265;
+            
+            //手动补足
+            if(delta.toFixed(4)==2.7401){
+              delta=delta+0.008727;
+            }
+          	var _changedRadius=settings.curRotateDeg+delta;
+      		  var _deltaRadius=_changedRadius*(180/3.14159265);
+
+            updateNeedle(_deltaRadius);
+      		  
+      		  //更新文字位置 
+      		  //doughnutRadius
+          	//内圆半径
+          	//cutoutRadius
+            var _halfY,_halfX,_left,_top;
+          	if(delta>.532){
+          		//如果大于30deg
+          		_halfY=Math.abs(Math.sin(delta/2))*(doughnutRadius/2+cutoutRadius/2);
+          		_halfX=Math.abs(Math.cos(delta/2))*(doughnutRadius/2+cutoutRadius/2);
+            }
+            _top=doughnutRadius-_halfY-$hours.height()/2;
+            _left=doughnutRadius-_halfX-$hours.width()/2;
+            /*if(delta>2.61799){
+              _top=_top+10;
+              _left=doughnutRadius-_halfX-$hours.width()/2;
+            }*/
+      			$hours.css({
+      				top:_top,
+      				left:_left
+      			});
+            //如果到满圆的时候
+            //3.14159
+
         	}
-    		
-        }
         var cmd = [
           'M', startX, startY,//Move pointer
           'A', doughnutRadius, doughnutRadius, 0, largeArc, 1, endX, endY,//Draw outer arc path

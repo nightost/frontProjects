@@ -268,11 +268,11 @@ body{
 	height:67px;
 	position:absolute;
 	left:35px;
-	top:16px;
-	transform-origin:bottom right;
-	-webkit-transform-origin:bottom right;
-	-moz-transform-origin:bottom right;
-	-ms-transform-origin:bottom right;
+	top:19px;
+	transform-origin:53px 66px;
+	-webkit-transform-origin:53px 66px;
+	-moz-transform-origin:99% 99%;
+	-ms-transform-origin:99% 99%;
 
 
 	transform:rotateZ(-52deg);
@@ -350,6 +350,7 @@ body{
 	width: 761px;
 	height: 20px;
 	float: left;
+	position: relative;
 }
 
 .wrapper .right .lists .list .progress .trianger{
